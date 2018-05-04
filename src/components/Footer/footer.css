@@ -1,0 +1,327 @@
+.footer-left-block {
+  position: relative;
+  padding: 1.42em 0;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+}
+.footer-left-block:after {
+  content: "";
+  display: table;
+  height: 0;
+  clear: both;
+}
+.footer-left-block:before {
+  content: "";
+  display: block;
+  width: 400%;
+  height: 100%;
+  background-color: #262729;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+.footer-left-block .apple-google-btn {
+  float: left;
+}
+.footer-left-block .apple-google-btn li {
+  float: left;
+  margin-right: 10px;
+}
+.footer-left-block .apple-google-btn li:last-child {
+  margin-right: 0;
+}
+
+.copyright {
+  float: right;
+  margin-left: 2%;
+  color: #999;
+}
+.copyright a {
+  color: #999;
+  border-bottom: 1px solid #999;
+}
+.copyright a:hover {
+  color: red;
+  border-bottom-color: red;
+}
+
+.footer-application {
+  float: left;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 67.5%;
+}
+.footer-application:after {
+  content: "";
+  display: table;
+  height: 0;
+  clear: both;
+}
+.footer-application .text {
+  float: left;
+  display: inline-block;
+  color: #fff;
+  font-size: 1.125rem;
+  margin-right: 3%;
+}
+
+.footer-right-block {
+  position: relative;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 2.1em 0 2.1em 0;
+  z-index: 1;
+}
+.footer-right-block:after {
+  content: "";
+  display: table;
+  height: 0;
+  clear: both;
+}
+.footer-right-block:before {
+  content: "";
+  display: block;
+  width: 400%;
+  height: 100%;
+  background-color: #000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.footer-nav {
+  float: left;
+  padding-left: 2em;
+}
+
+.footer-nav-menu {
+  white-space: nowrap;
+}
+.footer-nav-menu li {
+  display: inline-block;
+  padding: 0 2%;
+  position: relative;
+}
+.footer-nav-menu li a {
+  color: #fff;
+  display: block;
+  font-size: 0.935rem;
+  font-family: "Roboto-Bold";
+  letter-spacing: 1px;
+  border-bottom: none;
+  text-transform: uppercase;
+  -webkit-transition: color 0.3s;
+          transition: color 0.3s;
+}
+.footer-nav-menu li a:hover {
+  color: #535353;
+}
+.footer-nav-menu li a.active {
+  color: #535353;
+}
+
+.footer-mail {
+  float: right;
+  margin-left: 5%;
+}
+.footer-mail a {
+  color: #999;
+  border-bottom: 1px solid #999;
+}
+.footer-mail a:hover {
+  color: red;
+  border-bottom-color: red;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  ::i-block-chrome, .footer-right-block {
+    display: block;
+  }
+
+  ::i-block-chrome, .footer-left-block {
+    display: block;
+  }
+
+  ::i-block-chrome, .footer-application {
+    display: block;
+  }
+}
+@media (min-resolution: 0.001dpcm) {
+  _:-o-prefocus .footer-left-block, body .footer-left-block {
+    display: block;
+  }
+  _:-o-prefocus .footer-right-block, body .footer-right-block {
+    display: block;
+  }
+  _:-o-prefocus .footer-application, body .footer-application {
+    display: block;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .footer-nav-menu {
+    white-space: normal;
+  }
+  .footer-nav-menu li {
+    display: block;
+    margin-bottom: 12px;
+  }
+}
+@media only screen and (max-width: 1900px) {
+  .footer-left-block, .footer-right-block {
+    width: 100%;
+    -webkit-box-flex: 100%;
+    -webkit-flex: 100%;
+        -ms-flex: 100%;
+            flex: 100%;
+    max-width: 100%;
+  }
+
+  .footer-left-block:before {
+    right: -30%;
+  }
+
+  .footer-right-block:before {
+    left: -30%;
+  }
+
+  .footer-nav {
+    padding-left: 0;
+    width: 68%;
+  }
+  .footer-application {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    width: 80%;
+  }
+
+  .copyright {
+    text-align: right;
+    width: 16%;
+  }
+
+  .footer-nav-menu li {
+    padding: 0 1%;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .footer-nav {
+    width: 55%;
+  }
+
+  .footer-nav-menu li {
+    padding: 0 0.6%;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .footer-right-block {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+
+  .footer-left-block,.footer-right-block {
+    padding: 1em 0;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    display: block;
+    text-align: center;
+  }
+  .footer-left-block .apple-google-btn li {
+    margin-bottom: 10px;
+    float: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0 5px;
+    vertical-align: middle;
+  }
+  .footer-left-block .apple-google-btn li:last-child {
+    margin-bottom: 0;
+  }
+
+  .footer-nav {
+    margin-bottom: 10px;
+  }
+
+  .footer-application {
+    width: auto;
+    display: block;
+    float: none;
+    width: 100%;
+  }
+  .footer-nav-menu li {
+    padding: 0 1%;
+  }
+
+  .footer-nav, .footer-mail {
+    float: none;
+    margin: 0;
+    width: 100%;
+  }
+  .footer-application .text {
+    float: none;
+    display: block;
+    width: 100%;
+  }
+
+  .footer-left-block .apple-google-btn {
+    float: none;
+    margin: 10px 0;
+    width: 100%;
+  }
+  .footer-left-block .apple-google-btn:after {
+    content: "";
+    display: table;
+    height: 0;
+    clear: both;
+  }
+  .copyright {
+    float: none;
+    text-align: center;
+    width: 100%;
+  }
+}

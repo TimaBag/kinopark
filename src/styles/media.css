@@ -1,0 +1,1519 @@
+@media screen and (min-device-width: 1280px) and (max-device-width: 1920px) {
+  .container {
+    padding-left: 4.0625rem;
+    padding-right: 4.0625rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .choice-place-cinema td:hover .fa-user {
+    background-color: #E3000F;
+  }
+  .choice-place-cinema td:hover .fa-user:before {
+    color: #E3000F;
+  }
+}
+@media screen and (min-device-width: 1280px) and (max-device-width: 1900px) {
+  .cinema-detailed-desc .item-desc-list > li {
+    margin-bottom: 10px;
+    line-height: 1em;
+  }
+
+  .cinema-detailed-desc .format-list li {
+    width: 23%;
+  }
+
+  .restaurants-item .item-img {
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+  }
+  .restaurants-item .item-desc {
+    width: 63%;
+  }
+}
+@media only screen and (max-width: 1900px) {
+  .container {
+    padding-left: 3.4375rem;
+    padding-right: 3.4375rem;
+  }
+
+  .form-section {
+    background-size: cover;
+  }
+
+  .head-top-panel {
+    margin-bottom: 0;
+  }
+  .head-top-panel .container {
+    position: relative;
+    padding-bottom: 71px;
+  }
+
+  .head-city-select {
+    padding: 0 10px 0 4.5%;
+    width: 28%;
+  }
+
+  .head-nav-menu li a {
+    padding-left: 0.7em;
+    padding-right: 0.7em;
+  }
+  .head-nav-menu li:first-child a {
+    padding-left: 0;
+  }
+
+  .film-item-container {
+    width: 33.33336%;
+  }
+
+  .content-end-sidebar .column-left {
+    width: 25%;
+  }
+  .content-end-sidebar .column-right {
+    width: 75%;
+  }
+
+  .wrapper-head-logo {
+    width: 297px;
+  }
+
+  .wrapper-head-kinoplex {
+    width: 360px;
+  }
+
+  .head-logo:after {
+    width: calc(100% + 15px);
+  }
+
+  .film-item-container.table {
+    width: 25%;
+  }
+
+  .cinema-item-container {
+    width: 25%;
+  }
+
+  .film-item-container.list .item-img {
+    width: 20%;
+  }
+  .film-item-container.list .item-desc {
+    width: 80%;
+  }
+
+  .film-detailed-desc .text-hidden {
+    display: none;
+  }
+
+  .film-detailed-container .read-more {
+    display: block;
+  }
+
+  .new-block .item-img {
+    width: 20%;
+  }
+  .new-block .item-desc {
+    width: 80%;
+  }
+
+  .special-offer-container {
+    width: 25%;
+  }
+
+  .production-bars-container {
+    width: 25%;
+  }
+
+  .reservation-content {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 1279px) {
+  .container {
+    padding-left: 1.875rem;
+    padding-right: 1.875rem;
+  }
+
+  .main-slider.tablet {
+    display: block;
+  }
+  .main-slider.desktop {
+    display: none;
+  }
+
+  .content-end-sidebar .column-left {
+    width: 35%;
+  }
+  .content-end-sidebar .column-right {
+    width: 65%;
+  }
+
+  .head-buy-ticket {
+    float: none;
+  }
+  .head-buy-ticket a {
+    padding: 0 1.2em;
+    width: 100%;
+  }
+
+  .film-item-container {
+    width: 50%;
+  }
+
+  .cinema-item-container {
+    width: 50%;
+  }
+
+  .wrapper-head-logo {
+    width: 330px;
+  }
+
+  .head-bottom-panel .container {
+    position: relative;
+  }
+
+  .head-nav {
+    position: absolute;
+    display: none;
+    top: 99%;
+    left: 15px;
+    width: 280px;
+    z-index: 200;
+  }
+
+  .head-toggle-menu {
+    display: block;
+  }
+
+  .head-nav-menu {
+    background: #262729;
+  }
+  .head-nav-menu li {
+    float: none;
+  }
+  .head-nav-menu li a {
+    border-bottom-color: rgba(255, 255, 255, 0.4);
+  }
+  .head-nav-menu li:first-child a {
+    padding-left: 1.1em;
+  }
+
+  .head-logo {
+    padding-right: 8.7%;
+  }
+  .head-logo:after {
+    width: calc(100% + 37px);
+  }
+
+  .head-top-panel .container {
+    padding-bottom: 84px;
+  }
+
+  .head-menu-btn {
+    display: block;
+  }
+
+  .head-buy-ticket {
+    padding: 10px 0;
+  }
+
+  .head-city-select {
+    width: 35%;
+    padding-top: 0;
+    margin-top: 6px;
+    padding-left: 30px;
+  }
+
+  .tabs-content-name .tab {
+    margin-bottom: 0.3em;
+  }
+
+  .head-nav-menu li a:hover {
+    border-color: red;
+  }
+  .head-nav-menu li a.active {
+    border-color: red;
+  }
+  .head-nav-menu li a:after {
+    display: none;
+  }
+
+  .filter-panel-left, .filter-panel-right {
+    float: none;
+    width: 100%;
+  }
+  .filter-panel-left:after, .filter-panel-right:after {
+    content: "";
+    display: table;
+    clear: both;
+    height: 0;
+  }
+
+  .tabs-content-name .tab {
+    padding: 0 0.8em;
+  }
+
+  .fiter-panel {
+    margin-bottom: 2em;
+  }
+
+  .category-list-switch .fa {
+    font-size: 40px;
+  }
+
+  .film-item-container.list .item-img {
+    width: 22.4%;
+  }
+  .film-item-container.list .item-desc {
+    width: 77.6%;
+    padding-left: 3.8%;
+  }
+
+  .film-item-desc-table .buy-ticket {
+    padding: 0 1em;
+  }
+  .film-item-desc-table .table-row:first-child .table-column:nth-child(3) {
+    padding-right: 4%;
+  }
+  .film-item-desc-table .table-column:nth-child(1) {
+    width: 15%;
+  }
+  .film-item-desc-table .table-column:nth-child(2) {
+    width: 14%;
+  }
+  .film-item-desc-table .table-column:nth-child(3) {
+    width: 0;
+    padding: 0;
+  }
+  .film-item-desc-table .table-column:nth-child(4) {
+    width: 13%;
+  }
+  .film-item-desc-table .table-column:nth-child(5) {
+    width: 24%;
+  }
+  .film-item-desc-table .table-column:nth-child(6) {
+    width: 34%;
+  }
+  .film-item-desc-table .table-column > .table-column {
+    display: block;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 100% !important;
+    text-align: left !important;
+  }
+  .film-item-desc-table .table-row:first-child {
+    font-size: 12px;
+  }
+  .film-item-desc-table .table-row:first-child .table-column {
+    vertical-align: middle;
+  }
+
+  .cinema-item-desc-table .buy-ticket {
+    padding: 0 1em;
+  }
+  .cinema-item-desc-table .table-row:first-child .table-column:nth-child(3) {
+    padding-right: 4%;
+  }
+  .cinema-item-desc-table .table-column:nth-child(1) {
+    width: 15%;
+  }
+  .cinema-item-desc-table .table-column:nth-child(2) {
+    width: 14%;
+  }
+  .cinema-item-desc-table .table-column:nth-child(3) {
+    width: 0;
+  }
+  .cinema-item-desc-table .table-column:nth-child(4) {
+    width: 13%;
+  }
+  .cinema-item-desc-table .table-column:nth-child(5) {
+    width: 24%;
+  }
+  .cinema-item-desc-table .table-column:nth-child(6) {
+    width: 34%;
+  }
+  .cinema-item-desc-table .table-column > .table-column {
+    display: block;
+    width: 100% !important;
+    text-align: left !important;
+  }
+  .cinema-item-desc-table .table-row:first-child {
+    font-size: 12px;
+  }
+  .cinema-item-desc-table .table-row:first-child .table-column {
+    vertical-align: middle;
+  }
+
+  .film-item-container.list .item-top-panel {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .film-item-container.list .cinema-city {
+    text-align: right;
+    width: 30%;
+  }
+  .film-item-container.list .title {
+    width: 70%;
+  }
+
+  .modal-popup-movie-trailer {
+    width: 75%;
+  }
+
+  .film-item-container.table {
+    width: 33.3336%;
+  }
+
+  .film-item .more-about-movie a {
+    font-size: 1.2rem;
+  }
+
+  h1.title-mod {
+    font-size: 2.125rem;
+  }
+
+  .breadcrumbs {
+    padding-bottom: 0.5em;
+  }
+
+  .film-detailed-img {
+    width: 48.6%;
+  }
+
+  .film-detailed-desc {
+    width: 51.4%;
+    padding-left: 3.2%;
+  }
+
+  .film-detailed-desc .other-movies-btn {
+    margin-top: 2em;
+  }
+
+  .film-detailed-container {
+    margin-bottom: 2.3em;
+  }
+
+  .cinema-item-desc-table .table-column > .table-column {
+    width: 100% !important;
+    display: block;
+    text-align: left !important;
+  }
+
+  .movie-house-container {
+    width: 100%;
+  }
+
+  .cinema-img-slider {
+    float: none;
+    margin-bottom: 1.2em;
+    width: 100%;
+  }
+
+  .cinema-detailed-desc {
+    padding: 0;
+    float: none;
+    width: 100%;
+  }
+
+  .cinema-detailed-desc .format-list li {
+    margin-bottom: 8px;
+  }
+  .cinema-detailed-desc .restaurants-list li {
+    width: 70px;
+  }
+
+  .new-block .item-img {
+    width: 31%;
+  }
+  .new-block .item-desc {
+    width: 69%;
+    margin-top: 0;
+  }
+  .new-block .text {
+    line-height: 1.25em;
+  }
+  .new-block .title {
+    line-height: 1em;
+    margin-bottom: 0.65em;
+  }
+  .new-block .date {
+    margin-bottom: 0.7em;
+  }
+
+  .special-offer-container {
+    width: 33.3336%;
+  }
+
+  .production-bars-container {
+    width: 33.33336%;
+  }
+
+  .restaurants-container {
+    width: 100%;
+  }
+
+  .film-item-desc-table .buy-ticket {
+    padding: 0 0.4em;
+  }
+
+  .reservation-content {
+    width: 100%;
+  }
+}
+@media screen and (min-device-width: 767px) and (max-device-width: 992px) {
+  .cinema-detailed-desc .item-desc-list {
+    display: inline-block;
+    width: 49%;
+    vertical-align: top;
+  }
+  .cinema-detailed-desc .item-desc-list:first-child {
+    padding-right: 1em;
+  }
+  .cinema-detailed-desc .format-list li {
+    width: 49%;
+  }
+  .cinema-detailed-desc .restaurants-list li {
+    width: 19%;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .wrapper-head-logo, .wrapper-head-kinoplex {
+    width: 250px;
+  }
+
+  .head-kinoplex:after {
+    top: 0;
+  }
+
+  .head-menu-text:hover {
+    color: #fff;
+  }
+
+  .film-item-container.list .item-img {
+    width: 290px;
+    display: block;
+    float: none;
+    margin: 0 auto 15px;
+  }
+  .film-item-container.list .item-desc {
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .film-item .more-about-movie a {
+    font-size: 0.8rem;
+  }
+
+  .modal-popup-movie-trailer {
+    width: 95%;
+  }
+  .modal-popup-movie-trailer .modal-close {
+    right: 0;
+  }
+
+  .film-item-container.table {
+    width: 50%;
+  }
+  .film-item-container.table .film-item .more-about-movie a {
+    font-size: 1.25rem;
+  }
+
+  .film-item .more-about-movie a {
+    font-size: 0.8rem;
+  }
+
+  .tabs-content-name.schedule .tab {
+    font-size: 1rem;
+  }
+  .tabs-content-name.schedule .tab.active {
+    font-size: 1rem;
+  }
+
+  .cinema-item-desc-table .buy-ticket {
+    padding: 0 10px;
+  }
+
+  .restaurants-item .item-desc {
+    width: 60%;
+  }
+
+  .reservation-form .product-count {
+    width: 20%;
+  }
+  .reservation-form .price-and-counter {
+    width: 79%;
+  }
+
+  .choice-place-cinema {
+    margin-left: 0;
+    width: 630px;
+  }
+
+  .places-and-reset-button .selected-places {
+    float: none;
+    margin-bottom: 7px;
+  }
+  .places-and-reset-button .reset-places-btn {
+    float: none;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .head-banner {
+    display: none;
+  }
+
+  .wrapper-head-logo, .wrapper-head-kinoplex {
+    width: 50%;
+    top: 0;
+  }
+
+  .head-kinoplex {
+    overflow: visible;
+  }
+  .head-kinoplex:after {
+    -webkit-transform: rotate(0);
+        -ms-transform: rotate(0);
+            transform: rotate(0);
+    width: 110%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .container {
+    padding-left: 0.935rem;
+    padding-right: 0.935rem;
+  }
+
+  .head-bottom-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    z-index: 400;
+  }
+
+  .head-top-panel {
+    padding-top: 84px;
+  }
+  .head-top-panel .container {
+    padding-bottom: 0;
+  }
+
+  .head-menu-text {
+    height: 56px;
+    line-height: 56px;
+  }
+  .head-menu-text.active {
+    color: red;
+  }
+
+  .head-toggle-menu {
+    margin-top: 14px;
+  }
+
+  .head-menu-text {
+    margin-left: 10px;
+  }
+
+  .head-nav {
+    left: 0;
+  }
+
+  .head-city-select {
+    padding: 0;
+    width: 43%;
+    float: none;
+  }
+
+  .head-buy-ticket {
+    float: none;
+  }
+  .head-buy-ticket.mobile {
+    display: block;
+  }
+  .head-buy-ticket.desctop {
+    display: none;
+  }
+
+  .clear {
+    display: block;
+    clear: both;
+  }
+
+  .film-item .title {
+    font-size: 1rem;
+  }
+
+  .news-item .item-title {
+    font-size: 0.7rem;
+  }
+
+  .tabs-content-name.schedule {
+    position: relative;
+    top: 0;
+  }
+
+  .filter-panel-right .filter-select-option {
+    width: 50%;
+  }
+
+  .content-end-sidebar .column-left {
+    width: 30%;
+  }
+  .content-end-sidebar .column-right {
+    width: 70%;
+  }
+
+  .modal-popup-left {
+    margin-bottom: 1em;
+    width: 100%;
+  }
+
+  .modal-popup-desc {
+    width: 100%;
+  }
+
+  .modal-popup-img, .modal-popup-buy-ticket {
+    max-width: 270px;
+    margin: 0 auto;
+  }
+
+  .modal-popup-img {
+    margin-bottom: 1em;
+  }
+
+  .film-item-container.table {
+    width: 50%;
+  }
+  .film-item-container.table .film-item .more-about-movie a {
+    font-size: 0.8rem;
+  }
+
+  .film-detailed-img {
+    margin-bottom: 1.2em;
+    width: 100%;
+  }
+
+  .film-detailed-desc {
+    padding: 0;
+    width: 100%;
+  }
+
+  .cinema-item-desc-table .buy-ticket {
+    padding: 0 0.4rem;
+  }
+
+  .fiter-panel-mod-2 .filter-panel-right .filter-select-option {
+    margin-bottom: 10px;
+    width: 50%;
+  }
+
+  .special-offer-container {
+    width: 50%;
+  }
+
+  .my-kinopark-btn a {
+    font-size: 1.25rem;
+    height: 40px;
+    line-height: 34px;
+  }
+
+  .production-bars-container {
+    width: 50%;
+  }
+
+  .restaurants-item {
+    margin-bottom: 1.2em;
+  }
+  .restaurants-item .item-img {
+    margin-bottom: 1.2em;
+    width: 100%;
+  }
+  .restaurants-item .item-desc {
+    padding: 0;
+    width: 100%;
+  }
+
+  .reservation-form .form-group {
+    width: 100%;
+    float: none;
+  }
+  .reservation-form .form-group:last-child {
+    float: none;
+  }
+  .reservation-form .tickets-item {
+    float: none;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .wrapper-choice-place-cinema {
+    overflow: auto;
+  }
+
+  .reservation-content .final-price-and-ticket {
+    font-size: 1.5rem;
+  }
+
+  .modal-select-city {
+    width: 90%;
+  }
+
+  .film-item .view-all-sessions.desktop {
+    display: none;
+  }
+  .film-item .view-all-sessions.mobile {
+    display: block;
+    margin-bottom: 1em;
+    background: #C42121;
+  }
+
+  .film-item-container.main .view-all-sessions {
+    display: block;
+    background: #C42121;
+    margin-bottom: 1em;
+  }
+
+  .film-item .film-format {
+    display: none;
+  }
+
+  .film-item-container.table .item-hidden-block {
+    display: none;
+  }
+  .film-item-container.table .item-img > a {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 11;
+  }
+  .film-item-container.table .cinema-city li {
+    margin-bottom: 2px;
+  }
+  .film-item-container.table .title-and-cinema-city {
+    display: none;
+  }
+  .film-item-container.table .title.mobile {
+    display: block;
+  }
+  .film-item-container.table .cinema-city.mobile {
+    display: block;
+  }
+  .film-item-container.table .film-item .more-about-movie a {
+    font-size: 1.25rem;
+  }
+  .film-item-container.table .view-all-sessions {
+    background: #C42121;
+    margin-bottom: 0.3em;
+  }
+  .film-item-container.table .view-all-sessions.mobile {
+    display: block;
+  }
+  .film-item-container.table .view-all-sessions.desktop {
+    display: none;
+  }
+  .film-item-container.table .cinema-city {
+    margin-bottom: 1em;
+  }
+  .film-item-container.table:nth-child(2n) .session-time-list {
+    left: -109%;
+  }
+  .film-item-container.table:nth-child(2n) .session-time-list:before {
+    right: -10%;
+    left: auto;
+  }
+  .film-item-container.table:nth-child(2n) .session-time-list:after {
+    left: auto;
+    right: 20%;
+  }
+  .film-item-container.table .session-time-list {
+    display: none;
+    position: relative;
+    width: 210%;
+    padding: 1em 0;
+    left: 0;
+    z-index: 1;
+  }
+  .film-item-container.table .session-time-list li.hidden-block {
+    display: inline-block;
+  }
+  .film-item-container.table .session-time-list:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-color: #E4E6EB;
+    position: absolute;
+    top: -19px;
+    left: 20%;
+  }
+  .film-item-container.table .session-time-list:before {
+    content: "";
+    display: block;
+    width: 250%;
+    height: 100%;
+    left: -10%;
+    position: absolute;
+    top: 0;
+    background: #E4E6EB;
+    z-index: -1;
+  }
+}
+@media only screen and (max-width: 545px) {
+  .content-end-sidebar .column-left, .content-end-sidebar .column-right {
+    float: none;
+    width: 100%;
+  }
+  .content-end-sidebar .column-left {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+
+  .slick-prev, .slick-next {
+    width: 30px;
+    height: 30px;
+  }
+  .slick-prev:after, .slick-next:after {
+    width: 50%;
+    height: 50%;
+    border-width: 3px;
+  }
+
+  .news-block {
+    margin-bottom: 2em;
+    background-color: #eff0f2;
+    border: 1px solid #e3e5ea;
+  }
+  .news-block .slick-prev, .news-block .slick-next {
+    background-color: #262729;
+    background-image: -webkit-linear-gradient(bottom, #c42121 0%, #dd0110 100%);
+    background-image: linear-gradient(to top, #c42121 0%, #dd0110 100%);
+    border: 1px solid #e61e26;
+    border-radius: 3px;
+    top: -42px;
+  }
+  .news-block .slick-prev {
+    left: 10px;
+  }
+  .news-block .slick-next {
+    right: 10px;
+  }
+  .news-block h3 {
+    padding: 0.5em 0;
+    margin: 0;
+    border-bottom: 1px solid #e3e5ea;
+    text-align: center;
+  }
+  .news-block.mobile {
+    display: block;
+  }
+  .news-block.desktop {
+    display: none;
+  }
+
+  .news-item {
+    border-bottom: none;
+  }
+  .news-item.first {
+    border-top: none;
+  }
+
+  .content-end-sidebar {
+    padding-top: 1.35em;
+  }
+
+  .news-block {
+    margin-top: 1em;
+  }
+
+  .main-slider {
+    margin-bottom: 0.5em;
+  }
+
+  .news-item {
+    padding: 0.5em 0 0.5em 0.5em;
+  }
+  .news-item .item-title {
+    font-size: 0.9rem;
+  }
+  .news-item .item0desc {
+    padding-top: 6px;
+  }
+
+  .tabs-content-name.schedule {
+    margin-bottom: 1.2em;
+  }
+  .tabs-content-name.schedule .tab {
+    font-size: 0.935rem;
+  }
+  .tabs-content-name.schedule .tab.active {
+    height: 29px;
+    line-height: 29px;
+    font-size: 0.935rem;
+  }
+  .tabs-content-name .tab {
+    font-size: 0.935rem;
+    height: 29px;
+    line-height: 26px;
+    margin-right: 5px;
+  }
+  .tabs-content-name .tab.active {
+    font-size: 0.935rem;
+    height: 29px;
+    line-height: 29px;
+    color: #fff;
+    padding: 0 0.8em;
+    background: #262729;
+  }
+
+  .film-item {
+    margin-bottom: 1.6em;
+  }
+  .film-item .item-hidden-block {
+    display: none;
+  }
+
+  .scroll-to-top {
+    opacity: 0.7;
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    z-index: 1;
+  }
+  .scroll-to-top:before {
+    content: "";
+    display: block;
+    width: 140%;
+    height: 140%;
+    border-radius: 50%;
+    border: 2px solid red;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    z-index: -1;
+  }
+
+  .film-item-container.list .item-desc {
+    overflow: auto;
+  }
+  .film-item-container.list .item-top-panel {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+  }
+  .film-item-container.list .title {
+    width: 100%;
+    float: none;
+    margin-bottom: 10px;
+  }
+  .film-item-container.list .cinema-city {
+    margin: 0 0 10px;
+    float: none;
+    width: 100%;
+    text-align: left;
+  }
+
+  .film-item-desc-table .table-column:nth-child(1) {
+    width: 33%;
+  }
+  .film-item-desc-table .table-column:nth-child(2) {
+    width: 33%;
+  }
+  .film-item-desc-table .table-column:nth-child(4) {
+    width: 33%;
+  }
+  .film-item-desc-table .table-column:nth-child(5) {
+    display: none;
+  }
+  .film-item-desc-table .table-column:nth-child(6) {
+    display: none;
+  }
+
+  .selection-results-film li {
+    margin-bottom: 10px;
+  }
+
+  .category-list-switch {
+    float: none;
+    margin-top: 10px;
+    text-align: left;
+  }
+
+  .modal-popup-film {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .modal-popup-movie-trailer {
+    height: 250px;
+  }
+
+  .cinema-item-desc-table .table-column:nth-child(1) {
+    width: 33%;
+  }
+  .cinema-item-desc-table .table-column:nth-child(2) {
+    width: 33%;
+  }
+  .cinema-item-desc-table .table-column:nth-child(4) {
+    width: 33%;
+  }
+  .cinema-item-desc-table .table-column:nth-child(5) {
+    display: none;
+  }
+  .cinema-item-desc-table .table-column:nth-child(6) {
+    display: none;
+  }
+
+  .cinema-item .wrapper-table {
+    overflow: auto;
+  }
+
+  .reset-filter-btn {
+    display: block;
+    margin-left: 0;
+    margin-bottom: 1em;
+  }
+
+  h1.title-mod {
+    font-size: 1.875rem;
+  }
+
+  .tabs-item-container-mod {
+    padding-bottom: 1em;
+  }
+
+  .movie-house-item .item-img {
+    margin-bottom: 1em;
+    float: none;
+    width: 100%;
+  }
+  .movie-house-item .item-desc {
+    float: none;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .movie-house-item .title {
+    font-size: 1.5rem;
+  }
+  .movie-house-item .city {
+    font-size: 1rem;
+  }
+  .movie-house-item .restaurants-list li {
+    width: 60px;
+    margin-right: 5px;
+  }
+  .movie-house-item .restaurants-list li:last-child {
+    margin-right: 0;
+  }
+  .movie-house-item .restaurants-list img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .cinema-detailed-desc .item-desc-list > li {
+    font-size: 1rem;
+  }
+
+  .cinema-title-schedule {
+    font-size: 1.5rem;
+  }
+
+  .fiter-panel-mod-2 .filter-panel-right .filter-select-option {
+    width: 100%;
+    padding: 0;
+  }
+
+  .new-block .item-img {
+    margin-right: 1em;
+  }
+  .new-block .item-desc {
+    float: none;
+    padding-left: 0;
+    width: auto;
+  }
+  .new-block .title {
+    font-size: 1.25rem;
+    margin-bottom: 1.3em;
+  }
+
+  .my-kinopark-btn {
+    margin-bottom: 1em;
+  }
+  .my-kinopark-btn a:first-child {
+    margin: 0 0 10px 0;
+  }
+
+  .restaurants-item .title {
+    font-size: 1.5rem;
+  }
+  .restaurants-item .city {
+    font-size: 1rem;
+    padding: 2px 10px;
+  }
+
+  .reservation-content .title {
+    font-size: 1.5rem;
+  }
+
+  .reservation-form {
+    margin-top: 2.2em;
+  }
+  .reservation-form .total-price {
+    float: none;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+  .reservation-form .wrapper-submit-btn {
+    float: none;
+  }
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  .reservation-form .wrapper-submit-btn {
+    width: 100%;
+  }
+
+  .reservation-content .block-btn {
+    float: none;
+  }
+  .reservation-content .back-btn {
+    margin-bottom: 1.3em;
+  }
+  .reservation-content .proceed-checkout {
+    float: none;
+  }
+
+  .contact-information-selected-sites {
+    border-bottom: none;
+  }
+  .contact-information-selected-sites .block-list {
+    display: block;
+    margin-bottom: 1.3em;
+  }
+  .contact-information-selected-sites .block-list:first-child {
+    margin-right: 0;
+    border-bottom: 5px solid #e3e5ea;
+    padding-bottom: 1.3em;
+  }
+  .contact-information-selected-sites .block-list:last-child {
+    margin-bottom: 0;
+  }
+
+  .head-city-select {
+    display: table;
+    padding: 10px 0;
+    width: 100%;
+  }
+  .head-city-select .fa {
+    padding-right: 2px;
+  }
+
+  .wrapper-head-logo, .wrapper-head-kinoplex {
+    height: 64px;
+  }
+
+  .modal-select-city .city-list {
+    float: none;
+    width: 100%;
+  }
+
+  .film-item-desc-table .table-row:first-child .table-column:nth-child(3) {
+    padding-right: 0;
+  }
+
+  .cinema-item-desc-table .table-row:first-child .table-column:nth-child(3) {
+    padding-right: 0;
+  }
+
+  .film-item .title {
+    font-size: 0.935rem;
+    text-align: center;
+  }
+
+  .film-item-container {
+    padding: 0 7px;
+  }
+
+  .tabs-content-name .tab .text-mobile {
+    display: none;
+  }
+
+  .film-item .item-img > a {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+  }
+
+  .film-item-container.list .item-img {
+    display: block;
+    float: none;
+    margin: 0 auto 15px;
+    width: 100%;
+  }
+  .film-item-container.list .item-img img {
+    width: 30%;
+  }
+  .film-item-container.list .title.mobile {
+    font-size: 18px;
+    display: block;
+    position: absolute;
+    left: 35%;
+    top: 30%;
+    width: 63%;
+    text-align: left;
+  }
+  .film-item-container.list .age {
+    background: #fff;
+    height: auto;
+    width: auto;
+    line-height: 1;
+    color: #E3000F;
+    font-size: 14px;
+    font-family: "Roboto-Bold";
+    right: auto;
+    left: 35%;
+  }
+  .film-item-container.list .version {
+    background: #fff;
+    padding: 0;
+    font-size: 12px;
+    color: #E3000F;
+    left: 47%;
+    top: 0;
+    top: -4px;
+  }
+  .film-item-container.list .item-top-panel {
+    display: none;
+  }
+  .film-item-container.list .item-desc {
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .selection-results-category-list {
+    position: relative;
+  }
+
+  .category-list-switch {
+    position: absolute;
+    top: -41px;
+    right: 15px;
+    margin-top: 0;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .head-top-panel {
+    padding-top: 56px;
+  }
+
+  .head-logo, .head-kinoplex {
+    height: 63px;
+    line-height: 63px;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .head-logo img, .head-kinoplex img {
+    max-height: 100%;
+  }
+
+  h1 {
+    font-size: 1.875rem;
+  }
+
+  .film-item .item-img {
+    margin-bottom: 0.3em;
+  }
+
+  .cinema-item-container {
+    width: 100%;
+  }
+
+  .filter-panel-left .filter-select-option {
+    width: 100%;
+  }
+
+  .filter-panel-right {
+    display: none;
+  }
+  .filter-panel-right.visible-block {
+    display: block;
+  }
+  .filter-panel-right .filter-select-option {
+    width: 100%;
+  }
+
+  .filter-open-hide-btn {
+    display: block;
+  }
+
+  .fiter-panel .filter-select-option {
+    margin-bottom: 10px;
+  }
+
+  .cinena-title-and-city {
+    margin: 0.5em 0;
+  }
+  .cinena-title-and-city .city {
+    padding: 3px 10px;
+    font-size: 1rem;
+    border-radius: 12px;
+  }
+
+  .special-offer-container {
+    width: 100%;
+  }
+
+  .production-bars-container {
+    width: 100%;
+  }
+
+  .wrapper-pagination {
+    margin: 0.4em 0 1em;
+  }
+
+  .reservation-content {
+    padding-bottom: 2em;
+  }
+
+  .reservation-steps a {
+    font-size: 1.25rem;
+    height: 40px;
+    line-height: 33px;
+    padding: 0 0.7em;
+  }
+
+  .reservation-content .final-price-and-ticket {
+    line-height: 1em;
+    text-align: left;
+  }
+
+  .film-item-container.main:nth-child(2n) .session-time-list {
+    left: -109%;
+  }
+  .film-item-container.main:nth-child(2n) .session-time-list:before {
+    right: -10%;
+    left: auto;
+  }
+  .film-item-container.main:nth-child(2n) .session-time-list:after {
+    left: auto;
+    right: 20%;
+  }
+  .film-item-container.main .session-time-list {
+    position: relative;
+    width: 210%;
+    padding: 1em 0;
+    left: 0;
+    z-index: 1;
+  }
+  .film-item-container.main .session-time-list:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-color: #E4E6EB;
+    position: absolute;
+    top: -19px;
+    left: 20%;
+  }
+  .film-item-container.main .session-time-list:before {
+    content: "";
+    display: block;
+    width: 250%;
+    height: 100%;
+    left: -10%;
+    position: absolute;
+    top: 0;
+    background: #E4E6EB;
+    z-index: -1;
+  }
+
+  .film-item-container.main .session-time-list li {
+    width: 32.4%;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .film-item img {
+    width: 100%;
+  }
+
+  .head-toggle-menu {
+    width: 26px;
+  }
+
+  .head-menu-text {
+    font-size: 0.9rem;
+  }
+
+  .film-item-container.list .title {
+    font-size: 1.4rem;
+  }
+
+  .film-item .more-about-movie a {
+    font-size: 1.25rem;
+  }
+
+  .modal-popup-film .title {
+    font-size: 1.8rem;
+  }
+
+  .film-detailed-desc .film-characteristics {
+    margin-bottom: 1.1em;
+  }
+  .film-detailed-desc .buy-ticket-btn, .film-detailed-desc .other-movies-btn {
+    margin-top: 1em;
+  }
+  .film-detailed-desc .buy-ticket-btn a, .film-detailed-desc .other-movies-btn a {
+    width: 100%;
+  }
+
+  .reservation-form .wrapper-submit-btn {
+    display: block;
+  }
+  .reservation-form .submit-btn {
+    width: 100%;
+  }
+
+  .reservation-content .back-btn {
+    float: none;
+    margin-right: 0;
+  }
+  .reservation-content .back-btn a {
+    width: 100%;
+  }
+  .reservation-content .proceed-checkout a {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 370px) {
+  .cinema-detailed-desc .format-list li {
+    width: 49%;
+  }
+  .cinema-detailed-desc .restaurants-list li {
+    width: 19%;
+  }
+}
