@@ -5,6 +5,8 @@
   "dependencies": {
     "bootstrap": "^4.1.0",
     "bootstrap-css-only": "^4.1.0",
+    "bootstrap-select": "^1.13.1",
+    "jquery": "^3.3.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-router": "^4.2.0",

@@ -6,11 +6,11 @@ import NewsBlock from '../extra/NewsBlock';
 const films = [
   {
     title : "Тайна Коко",
-    quality : {
-      "3D" : "3D",
-      "IMAX" : "IMAX",
-      "Laser"  : "Laser", 
-    },
+    qualities : [
+      {"format" : "3D"},
+      {"format" : "IMAX"},
+      {"format"  : "Laser"}, 
+    ],
     sessionTime : [
       {
         "time" : "10:00",
@@ -62,11 +62,11 @@ const films = [
   },
   {
     title : "Звёздные Войны: Последние джедаи",
-    format : {
-      "3D" : "3D",
-      "IMAX" : "IMAX",
-      "Laser"  : "Laser", 
-    },
+    qualities : [
+      {"format" : "3D"},
+      {"format" : "IMAX"},
+      {"format"  : "Laser"}, 
+    ],
     version : "Original Ver",
     sessionTime : [
       {
@@ -119,11 +119,11 @@ const films = [
   }, 
   {
     title : "Тайна Коко",
-    quality : {
-      "3D" : "3D",
-      "IMAX" : "IMAX",
-      "Laser"  : "Laser", 
-    },
+    qualities : [
+      {"format" : "3D"},
+      {"format" : "IMAX"},
+      {"format"  : "Laser"}, 
+    ],
     sessionTime : [
       {
         "time" : "10:00",
@@ -176,6 +176,52 @@ const films = [
 ]
 
 class Home extends Component {
+
+  renderFilm(film){
+    var qualities = film.qualities;
+    const listFormat = qualities.map( (quality) => 
+      <li key="quality.format">{quality.format}</li>
+    )
+    const listSession = film.sessionTime.map((session) => 
+      <li>
+        <Link to="#" className={"session-time " + session.status}>{session.time}</Link>
+        <span className="quality">{session.quality}</span>
+      </li>
+    )
+    return (
+      <div className="film-item-container main">
+        <div className="film-item">
+          <div className="age">{film.age}</div>
+          <div className="item-img">
+            <Link to=""></Link>
+            <img src={require("../../img/static/film/01.jpg")} alt="alt"/>
+            <div className="item-hidden-block">
+              <div className="watch-trailer">
+                <Link to="" className="js-movie-trailer">
+                  <span className="icon-player"></span>
+                  Смотреть трейлер
+                </Link>
+              </div>
+              <div className="more-about-movie">
+                <Link to="" className="thunderbird-btn js-call-modal-popup-film">Подробно о фильме</Link>
+              </div>
+            </div>
+          </div>
+          <ul className="film-format">
+            {listFormat}
+          </ul>
+          <h4 className="title"><Link to="">Звёздные Войны: Последние джедаи</Link></h4>
+          <div className="view-all-sessions">
+            <Link to="#" className="js-view-all-sessions">Смотреть все сеансы</Link>
+          </div>
+          <ul className="session-time-list">
+            {listSession}
+          </ul>
+        </div>
+      </div>
+    )
+  }
+
   render() {
     return (
       <div className="global-wrapper">
@@ -197,455 +243,17 @@ class Home extends Component {
                     <div className="tabs-item-container">
                       <div className="tab-item">
                         <div className="films-content">
-                          <div className="film-item-container main">
-                            <div className="film-item">
-                              <div className="age">12+</div>
-                              <div className="item-img">
-                                <Link to=""></Link>
-                                <img src={require('../../img/static/film/01.jpg')} alt="alt"/>
-                                <div className="item-hidden-block">
-                                  <div className="watch-trailer">
-                                    <Link to="" className="js-movie-trailer">
-                                      <span className="icon-player"></span>
-                                      Смотреть трейлер
-                                    </Link>
-                                  </div>
-                                  <div className="more-about-movie">
-                                    <Link to="" className="thunderbird-btn js-call-modal-popup-film">Подробно о фильме</Link>
-                                  </div>
-                                </div>
-                              </div>
-                              <ul className="film-format">
-                                <li>3D</li>
-                                <li>IMAX</li>
-                                <li>Laser</li>
-                              </ul>
-                              <h4 className="title"><Link to="">Звёздные Войны: Последние джедаи</Link></h4>
-                              <div className="view-all-sessions">
-                                <Link to="#" className="js-view-all-sessions">Смотреть все сеансы</Link>
-                              </div>
-                              <ul className="session-time-list">
-                                <li>
-                                  <Link to="#" className="session-time disabled">10:00</Link>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time disabled">11:30</Link>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">IMAX</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">IMAX</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div className="film-item-container main">
-                            <div className="film-item">
-                              <div className="age">12+</div>
-                              <div className="version">Original Ver</div>
-                              <div className="item-img">
-                                <Link to=""></Link>
-                                <img src={require('../../img/static/film/02.jpg')} alt="alt"/>
-                                <div className="item-hidden-block">
-                                  <div className="watch-trailer">
-                                    <Link to="" className="js-movie-trailer">
-                                      <span className="icon-player"></span>
-                                      Смотреть трейлер
-                                    </Link>
-                                  </div>
-                                  <div className="more-about-movie">
-                                    <Link to="" className="thunderbird-btn js-call-modal-popup-film">Подробно о фильме</Link>
-                                  </div>
-                                </div>
-                              </div>
-                              <ul className="film-format">
-                                <li>3D</li>
-                                <li>IMAX</li>
-                                <li>Laser</li>
-                              </ul>
-                              <h4 className="title"><Link to="">Звёздные Войны: Последние джедаи</Link></h4>
-                              <div className="view-all-sessions">
-                                <Link to="#" className="js-view-all-sessions">Смотреть все сеансы</Link>
-                              </div>
-                              <ul className="session-time-list">
-                                <li>
-                                  <Link to="#" className="session-time disabled">10:00</Link>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time disabled">11:30</Link>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">IMAX</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">IMAX</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
+                          {films.map(film => this.renderFilm(film))}
                         </div>
                       </div>
                       <div className="tab-item">
                         <div className="films-content">
-                          <div className="film-item-container main">
-                            <div className="film-item">
-                              <div className="age">12+</div>
-                              <div className="item-img">
-                                <Link to=""></Link>
-                                <img src={require('../../img/static/film/01.jpg')} alt="alt"/>
-                                <div className="item-hidden-block">
-                                  <div className="watch-trailer">
-                                    <Link to="" className="js-movie-trailer">
-                                      <span className="icon-player"></span>
-                                      Смотреть трейлер
-                                    </Link>
-                                  </div>
-                                  <div className="more-about-movie">
-                                    <Link to="" className="thunderbird-btn js-call-modal-popup-film">Подробно о фильме</Link>
-                                  </div>
-                                </div>
-                              </div>
-                              <ul className="film-format">
-                                <li>3D</li>
-                                <li>IMAX</li>
-                                <li>Laser</li>
-                              </ul>
-                              <h4 className="title"><Link to="">Звёздные Войны: Последние джедаи</Link></h4>
-                              <div className="view-all-sessions">
-                                <Link to="#" className="js-view-all-sessions">Смотреть все сеансы</Link>
-                              </div>
-                              <ul className="session-time-list">
-                                <li>
-                                  <Link to="#" className="session-time disabled">10:00</Link>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time disabled">11:30</Link>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">IMAX</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">IMAX</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div className="film-item-container main">
-                            <div className="film-item">
-                              <div className="age">12+</div>
-                              <div className="version">Original Ver</div>
-                              <div className="item-img">
-                                <Link to=""></Link>
-                                <img src={require('../../img/static/film/02.jpg')} alt="alt"/>
-                                <div className="item-hidden-block">
-                                  <div className="watch-trailer">
-                                    <Link to="" className="js-movie-trailer">
-                                      <span className="icon-player"></span>
-                                      Смотреть трейлер
-                                    </Link>
-                                  </div>
-                                  <div className="more-about-movie">
-                                    <Link to="" className="thunderbird-btn js-call-modal-popup-film">Подробно о фильме</Link>
-                                  </div>
-                                </div>
-                              </div>
-                              <ul className="film-format">
-                                <li>3D</li>
-                                <li>IMAX</li>
-                                <li>Laser</li>
-                              </ul>
-                              <h4 className="title"><Link to="">Звёздные Войны: Последние джедаи</Link></h4>
-                              <div className="view-all-sessions">
-                                <Link to="#" className="js-view-all-sessions">Смотреть все сеансы</Link>
-                              </div>
-                              <ul className="session-time-list">
-                                <li>
-                                  <Link to="#" className="session-time disabled">10:00</Link>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time disabled">11:30</Link>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">IMAX</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">IMAX</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
+                          {films.map(film => this.renderFilm(film))}
                         </div>
                       </div>
                       <div className="tab-item">
                         <div className="films-content">
-                          <div className="film-item-container main">
-                            <div className="film-item">
-                              <div className="age">12+</div>
-                              <div className="item-img">
-                                <Link to=""></Link>
-                                <img src={require('../../img/static/film/01.jpg')} alt="alt"/>
-                                <div className="item-hidden-block">
-                                  <div className="watch-trailer">
-                                    <Link to="" className="js-movie-trailer">
-                                      <span className="icon-player"></span>
-                                      Смотреть трейлер
-                                    </Link>
-                                  </div>
-                                  <div className="more-about-movie">
-                                    <Link to="" className="thunderbird-btn js-call-modal-popup-film">Подробно о фильме</Link>
-                                  </div>
-                                </div>
-                              </div>
-                              <ul className="film-format">
-                                <li>3D</li>
-                                <li>IMAX</li>
-                                <li>Laser</li>
-                              </ul>
-                              <h4 className="title"><Link to="">Звёздные Войны: Последние джедаи</Link></h4>
-                              <div className="view-all-sessions">
-                                <Link to="#" className="js-view-all-sessions">Смотреть все сеансы</Link>
-                              </div>
-                              <ul className="session-time-list">
-                                <li>
-                                  <Link to="#" className="session-time disabled">10:00</Link>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time disabled">11:30</Link>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">IMAX</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">IMAX</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div className="film-item-container main">
-                            <div className="film-item">
-                              <div className="age">12+</div>
-                              <div className="version">Original Ver</div>
-                              <div className="item-img">
-                                <Link to=""></Link>
-                                <img src={require('../../img/static/film/02.jpg')} alt="alt"/>
-                                <div className="item-hidden-block">
-                                  <div className="watch-trailer">
-                                    <Link to="" className="js-movie-trailer">
-                                      <span className="icon-player"></span>
-                                      Смотреть трейлер
-                                    </Link>
-                                  </div>
-                                  <div className="more-about-movie">
-                                    <Link to="" className="thunderbird-btn js-call-modal-popup-film">Подробно о фильме</Link>
-                                  </div>
-                                </div>
-                              </div>
-                              <ul className="film-format">
-                                <li>3D</li>
-                                <li>IMAX</li>
-                                <li>Laser</li>
-                              </ul>
-                              <h4 className="title"><Link to="">Звёздные Войны: Последние джедаи</Link></h4>
-                              <div className="view-all-sessions">
-                                <Link to="#" className="js-view-all-sessions">Смотреть все сеансы</Link>
-                              </div>
-                              <ul className="session-time-list">
-                                <li>
-                                  <Link to="#" className="session-time disabled">10:00</Link>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time disabled">11:30</Link>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">IMAX</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">IMAX</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D</span>
-                                </li>
-                                <li>
-                                  <Link to="#" className="session-time">11:30</Link>
-                                  <span className="quality">3D IMAX Atm</span>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
+                          {films.map(film => this.renderFilm(film))}
                         </div>
                       </div>
                     </div>

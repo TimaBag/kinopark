@@ -31,7 +31,7 @@ class Header extends Component {
                 <Search />
                 <BuyTicket media="mobile"/>
               </div>
-              <Language media="desktop"/>
+              <Language media="desctop"/>
             </div>
           </div>
         </div>
