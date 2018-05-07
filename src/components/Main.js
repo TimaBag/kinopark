@@ -4,6 +4,7 @@ import CinemaList from '../components/Pages/CinemaList';
 import Home from '../components/Pages/Home';
 import News from '../components/Pages/News';
 import SpecialOffer from '../components/Pages/SpecialOffer';
+import ProductionBars from '../components/Pages/ProductionBars';
 import ScheduleList from '../components/Pages/ScheduleList';
 import ScheduleTable from '../components/Pages/ScheduleTable';
 import Soon from '../components/Pages/Soon';
@@ -16,12 +17,13 @@ class Main extends Component {
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route exact path='/news' component={News}/>
-          <Route exact path='/speacial-offer' component={SpecialOffer}/>
+          <Route exact path='/special-offer' component={SpecialOffer}/>
+          <Route exact path='/production-bars' component={ProductionBars}/>
           <Route exact path='/scheduleList' component={ScheduleList}/>
           <Route exact path='/scheduleTab' component={ScheduleTable}/>
           <Route exact path='/soon' component={Soon}/>
           <Route exact path='/cinemas' component={Cinemas}/>
-          <Route path='/cinemalist' component={CinemaList}/>
+          <Route exact path='/cinemalist' component={CinemaList}/>
         </Switch>
       </div>
     );

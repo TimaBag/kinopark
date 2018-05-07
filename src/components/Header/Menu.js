@@ -29,7 +29,7 @@ class Menu extends Component {
                   <li><Link to="/soon">СКОРО</Link></li>
                   <li><Link to="/cinemas">КИНОТЕАТРЫ</Link></li>
                   <li><Link to="/news">НОВОСТИ</Link></li>
-                  <li><Link to="/speacial-offer">МОЙ KINOPARK</Link></li>
+                  <li><Link to="/special-offer">МОЙ KINOPARK</Link></li>
                   <li><Link to="">ORIGINAL VERSION</Link></li>
                 </ul>
               </nav>

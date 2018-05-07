@@ -284,6 +284,85 @@ class ScheduleList extends Component {
   }
 
   render() {
+    let tabFilter = 
+      <div className="fiter-panel">
+        <div className="filter-panel-left">
+          <div className="filter-select-option">
+            <span className="filter-text">Город:</span>
+            <select className="selectpicker">
+              <option>Астана</option>
+              <option>Питер</option>
+              <option>Москва</option>
+            </select>
+          </div>
+          <div className="filter-select-option">
+            <span className="filter-text">Кинотеатр:</span>
+            <select className="selectpicker">
+              <option>Kinopark 11 IMAX Esentai</option>
+              <option>Kinopark 11 IMAX Esentai</option>
+              <option>Kinopark 11 IMAX Esentai</option>
+            </select>
+          </div>
+        </div>
+        <div className="filter-panel-right">
+          <div className="filter-select-option">
+            <span className="filter-text">Фильм:</span>
+            <select className="selectpicker">
+              <option>Все фильмы</option>
+              <option>Все фильмы</option>
+              <option>Все фильмы</option>
+            </select>
+          </div>
+          <div className="filter-select-option">
+            <span className="filter-text">Формат:</span>
+            <select className="selectpicker">
+              <option>Все форматы</option>
+              <option>Все форматы</option>
+              <option>Все форматы</option>
+            </select>
+          </div>
+          <div className="filter-select-option">
+            <span className="filter-text">Зал:</span>
+            <select className="selectpicker">
+              <option>Выбрать</option>
+              <option>Выбрать</option>
+              <option>Выбрать</option>
+            </select>
+          </div>
+          <div className="filter-select-option">
+            <span className="filter-text">Время:</span>
+            <select className="selectpicker">
+              <option>Выбрать</option>
+              <option>Выбрать</option>
+              <option>Выбрать</option>
+            </select>
+          </div>
+        </div>
+        <div className="filter-open-hide-btn">
+          фильтры <i className="fa fa-angle-down"></i>
+        </div>
+      </div>
+      
+    
+    let filterResult = 
+      <div className="row selection-results-category-list">
+        <div className="col-md-9 col-sm-8 col-xs-12">
+          <ul className="selection-results-film">
+            <li><i className="fa fa-close"></i>Алматы</li>
+            <li><i className="fa fa-close"></i>Kinopark 11 IMAX Esentai</li>
+          </ul>
+          <div className="reset-filter-btn">
+            <i className="fa fa-close"></i>
+            <Link to="">Отменить фильтры</Link>
+          </div>
+        </div>
+        <div className="col-md-3 col-sm-4 col-xs-12">
+          <ul className="category-list-switch">
+            <li className="category-view-list active"><Link to="/scheduleList" className="fa fa-th-list"></Link></li>
+            <li className="category-view-table "><Link to="/scheduleTab" className="fa fa-th"></Link></li>
+          </ul>
+        </div>
+      </div>
     return (
       <div className="global-wrapper">
         <div className="content">
@@ -297,81 +376,8 @@ class ScheduleList extends Component {
               </ul>
               <div className="tabs-item-container schedule">
                 <div className="tab-item">
-                  <div className="fiter-panel">
-                    <div className="filter-panel-left">
-                      <div className="filter-select-option">
-                        <span className="filter-text">Город:</span>
-                        <select className="selectpicker">
-                          <option>Астана</option>
-                          <option>Питер</option>
-                          <option>Москва</option>
-                        </select>
-                      </div>
-                      <div className="filter-select-option">
-                        <span className="filter-text">Кинотеатр:</span>
-                        <select className="selectpicker">
-                          <option>Kinopark 11 IMAX Esentai</option>
-                          <option>Kinopark 11 IMAX Esentai</option>
-                          <option>Kinopark 11 IMAX Esentai</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="filter-panel-right">
-                      <div className="filter-select-option">
-                        <span className="filter-text">Фильм:</span>
-                        <select className="selectpicker">
-                          <option>Все фильмы</option>
-                          <option>Все фильмы</option>
-                          <option>Все фильмы</option>
-                        </select>
-                      </div>
-                      <div className="filter-select-option">
-                        <span className="filter-text">Формат:</span>
-                        <select className="selectpicker">
-                          <option>Все форматы</option>
-                          <option>Все форматы</option>
-                          <option>Все форматы</option>
-                        </select>
-                      </div>
-                      <div className="filter-select-option">
-                        <span className="filter-text">Зал:</span>
-                        <select className="selectpicker">
-                          <option>Выбрать</option>
-                          <option>Выбрать</option>
-                          <option>Выбрать</option>
-                        </select>
-                      </div>
-                      <div className="filter-select-option">
-                        <span className="filter-text">Время:</span>
-                        <select className="selectpicker">
-                          <option>Выбрать</option>
-                          <option>Выбрать</option>
-                          <option>Выбрать</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="filter-open-hide-btn">
-                      фильтры <i className="fa fa-angle-down"></i>
-                    </div>
-                  </div>
-                  <div className="row selection-results-category-list">
-                    <div className="col-md-9 col-sm-8 col-xs-12">
-                      <ul className="selection-results-film">
-                        <li><i className="fa fa-close"></i>Алматы</li>
-                        <li><i className="fa fa-close"></i>Kinopark 11 IMAX Esentai</li>
-                      </ul>
-                      <div className="reset-filter-btn">
-                        <i className="fa fa-close"></i>
-                        <Link to="">Отменить фильтры</Link>
-                      </div>
-                    </div>
-                    <div className="col-md-3 col-sm-4 col-xs-12">
-                      <ul className="category-list-switch">
-                        <li className="category-view-list active"><Link to="/scheduleList" className="fa fa-th-list"></Link></li>
-                        <li className="category-view-table "><Link to="/scheduleTab" className="fa fa-th"></Link></li>
-                      </ul>
-                    </div>
-                  </div>
+                  {tabFilter}
+                  {filterResult}
                   {films.map((film) => this.renderFilm(film))}
                 </div>
                 <div className="tab-item">
@@ -432,102 +438,12 @@ class ScheduleList extends Component {
                       фильтры <i className="fa fa-angle-down"></i>
                     </div>
                   </div>
-                  <div className="row selection-results-category-list">
-                    <div className="col-md-9 col-sm-8 col-xs-12">
-                      <ul className="selection-results-film">
-                        <li><i className="fa fa-close"></i>Алматы</li>
-                        <li><i className="fa fa-close"></i>Kinopark 11 IMAX Esentai</li>
-                      </ul>
-                      <div className="reset-filter-btn">
-                        <i className="fa fa-close"></i>
-                        <Link to="">Отменить фильтры</Link>
-                      </div>
-                    </div>
-                    <div className="col-md-3 col-sm-4 col-xs-12">
-                      <ul className="category-list-switch">
-                        <li className="category-view-list active"><Link to="/scheduleList" className="fa fa-th-list"></Link></li>
-                        <li className="category-view-table "><Link to="/scheduleTab" className="fa fa-th"></Link></li>
-                      </ul>
-                    </div>
-                  </div>
+                  
                   {films.map((film) => this.renderFilm(film))}
                 </div>
                 <div className="tab-item">
-                  <div className="fiter-panel">
-                    <div className="filter-panel-left">
-                      <div className="filter-select-option">
-                        <span className="filter-text">Город:</span>
-                        <select className="selectpicker">
-                          <option>Астана</option>
-                          <option>Питер</option>
-                          <option>Москва</option>
-                        </select>
-                      </div>
-                      <div className="filter-select-option">
-                        <span className="filter-text">Кинотеатр:</span>
-                        <select className="selectpicker">
-                          <option>Kinopark 11 IMAX Esentai</option>
-                          <option>Kinopark 11 IMAX Esentai</option>
-                          <option>Kinopark 11 IMAX Esentai</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="filter-panel-right">
-                      <div className="filter-select-option">
-                        <span className="filter-text">Фильм:</span>
-                        <select className="selectpicker">
-                          <option>Все фильмы</option>
-                          <option>Все фильмы</option>
-                          <option>Все фильмы</option>
-                        </select>
-                      </div>
-                      <div className="filter-select-option">
-                        <span className="filter-text">Формат:</span>
-                        <select className="selectpicker">
-                          <option>Все форматы</option>
-                          <option>Все форматы</option>
-                          <option>Все форматы</option>
-                        </select>
-                      </div>
-                      <div className="filter-select-option">
-                        <span className="filter-text">Зал:</span>
-                        <select className="selectpicker">
-                          <option>Выбрать</option>
-                          <option>Выбрать</option>
-                          <option>Выбрать</option>
-                        </select>
-                      </div>
-                      <div className="filter-select-option">
-                        <span className="filter-text">Время:</span>
-                        <select className="selectpicker">
-                          <option>Выбрать</option>
-                          <option>Выбрать</option>
-                          <option>Выбрать</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="filter-open-hide-btn">
-                      фильтры <i className="fa fa-angle-down"></i>
-                    </div>
-                  </div>
-                  <div className="row selection-results-category-list">
-                    <div className="col-md-9 col-sm-8 col-xs-12">
-                      <ul className="selection-results-film">
-                        <li><i className="fa fa-close"></i>Алматы</li>
-                        <li><i className="fa fa-close"></i>Kinopark 11 IMAX Esentai</li>
-                      </ul>
-                      <div className="reset-filter-btn">
-                        <i className="fa fa-close"></i>
-                        <Link to="">Отменить фильтры</Link>
-                      </div>
-                    </div>
-                    <div className="col-md-3 col-sm-4 col-xs-12">
-                      <ul className="category-list-switch">
-                        <li className="category-view-list active"><Link to="/scheduleList" className="fa fa-th-list"></Link></li>
-                        <li className="category-view-table "><Link to="/scheduleTab" className="fa fa-th"></Link></li>
-                      </ul>
-                    </div>
-                  </div>
+                  {tabFilter}
+                  {filterResult}
                   {films.map((film) => this.renderFilm(film))}
                 </div>
               </div>
