@@ -381,64 +381,8 @@ class ScheduleList extends Component {
                   {films.map((film) => this.renderFilm(film))}
                 </div>
                 <div className="tab-item">
-                  <div className="fiter-panel">
-                    <div className="filter-panel-left">
-                      <div className="filter-select-option">
-                        <span className="filter-text">Город:</span>
-                        <select className="selectpicker">
-                          <option>Астана</option>
-                          <option>Питер</option>
-                          <option>Москва</option>
-                        </select>
-                      </div>
-                      <div className="filter-select-option">
-                        <span className="filter-text">Кинотеатр:</span>
-                        <select className="selectpicker">
-                          <option>Kinopark 11 IMAX Esentai</option>
-                          <option>Kinopark 11 IMAX Esentai</option>
-                          <option>Kinopark 11 IMAX Esentai</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="filter-panel-right">
-                      <div className="filter-select-option">
-                        <span className="filter-text">Фильм:</span>
-                        <select className="selectpicker">
-                          <option>Все фильмы</option>
-                          <option>Все фильмы</option>
-                          <option>Все фильмы</option>
-                        </select>
-                      </div>
-                      <div className="filter-select-option">
-                        <span className="filter-text">Формат:</span>
-                        <select className="selectpicker">
-                          <option>Все форматы</option>
-                          <option>Все форматы</option>
-                          <option>Все форматы</option>
-                        </select>
-                      </div>
-                      <div className="filter-select-option">
-                        <span className="filter-text">Зал:</span>
-                        <select className="selectpicker">
-                          <option>Выбрать</option>
-                          <option>Выбрать</option>
-                          <option>Выбрать</option>
-                        </select>
-                      </div>
-                      <div className="filter-select-option">
-                        <span className="filter-text">Время:</span>
-                        <select className="selectpicker">
-                          <option>Выбрать</option>
-                          <option>Выбрать</option>
-                          <option>Выбрать</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="filter-open-hide-btn">
-                      фильтры <i className="fa fa-angle-down"></i>
-                    </div>
-                  </div>
-                  
+                  {tabFilter}
+                  {filterResult}
                   {films.map((film) => this.renderFilm(film))}
                 </div>
                 <div className="tab-item">
