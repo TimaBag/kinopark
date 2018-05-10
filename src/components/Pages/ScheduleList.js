@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 
 const films = [
   {
@@ -49,7 +51,7 @@ const films = [
     qualities : [
       {"format" : "3D"},
       {"format" : "IMAX"},
-      {"format"  : "Laser"}, 
+      {"format"  : "Laser"},
     ],
     description : "«Туған үйім - тірегім» ( «Love you family») фильмі отбасы құндылықтары туралы баяндайды. Үлгілі үнді отбасының шаңырағында туған Хуши есімді бойжеткен, ата-анасының қарсылығына қарамастан, биден дәріс беретін Раджа есімді жігітке ғашық болады. Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
     actors : "Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
@@ -106,7 +108,7 @@ const films = [
     qualities : [
       {"format" : "3D"},
       {"format" : "IMAX"},
-      {"format"  : "Laser"}, 
+      {"format"  : "Laser"},
     ],
     description : "«Туған үйім - тірегім» ( «Love you family») фильмі отбасы құндылықтары туралы баяндайды. Үлгілі үнді отбасының шаңырағында туған Хуши есімді бойжеткен, ата-анасының қарсылығына қарамастан, биден дәріс беретін Раджа есімді жігітке ғашық болады. Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
     actors : "Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
@@ -126,11 +128,11 @@ class ScheduleList extends Component {
     this.state = {
       showMore : false,
       dialogFilm : null,
+      selectedOption: ''
     };
   }
 
-  componentWillMount() {
-    // $('.selectpicker').selectpicker();
+  componentDidMount() {
   }
 
   handleOpenMoreDialog(film){
@@ -146,10 +148,14 @@ class ScheduleList extends Component {
       dialogFilm : null,
     })
   }
+  handleChange = (selectedOption) => {
+    this.setState({ selectedOption });
+    // console.log(`Selected: ${selectedOption.label}`);
+  }
 
   renderMoreDialog(){
     const {dialogFilm} = this.state;
-    const listFormat = dialogFilm.qualities.map( (quality) => 
+    const listFormat = dialogFilm.qualities.map( (quality) =>
       <li>{quality.format}</li>
     )
     return(
@@ -195,7 +201,7 @@ class ScheduleList extends Component {
                 <span className="bold">Актерский состав:</span> {dialogFilm.actors}
               </p>
               <p className="text">
-                <span className="bold">Режисерский состав::</span> {dialogFilm.director} 
+                <span className="bold">Режисерский состав::</span> {dialogFilm.director}
               </p>
               <div className="schedule-btn">
                 <Link to="">Расписание</Link>
@@ -209,7 +215,7 @@ class ScheduleList extends Component {
   }
 
   renderFilmSession(session){
-    var prices = session.prices.map((price) => 
+    var prices = session.prices.map((price) =>
       <span className="table-column price">{price.price}</span>
     )
     return (
@@ -284,7 +290,7 @@ class ScheduleList extends Component {
   }
 
   render() {
-    let tabFilter = 
+    let tabFilter =
       <div className="fiter-panel">
         <div className="filter-panel-left">
           <div className="filter-select-option">
@@ -307,11 +313,15 @@ class ScheduleList extends Component {
         <div className="filter-panel-right">
           <div className="filter-select-option">
             <span className="filter-text">Фильм:</span>
-            <select className="selectpicker">
-              <option>Все фильмы</option>
-              <option>Все фильмы</option>
-              <option>Все фильмы</option>
-            </select>
+            <Select className="selectpicker"
+              name="form-field-name"
+              value={this.state.selectedOption}
+              onChange={this.handleChange}
+              options={[
+                { value: 'one', label: 'One' },
+                { value: 'two', label: 'Two' },
+              ]}
+            />
           </div>
           <div className="filter-select-option">
             <span className="filter-text">Формат:</span>
@@ -342,9 +352,9 @@ class ScheduleList extends Component {
           фильтры <i className="fa fa-angle-down"></i>
         </div>
       </div>
-      
-    
-    let filterResult = 
+
+
+    let filterResult =
       <div className="row selection-results-category-list">
         <div className="col-md-9 col-sm-8 col-xs-12">
           <ul className="selection-results-film">
