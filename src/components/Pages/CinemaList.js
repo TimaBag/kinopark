@@ -468,6 +468,7 @@ class CinemaList extends Component {
             </div>
           </div>
         </div>
+        {this.state.showMore && this.renderMoreDialog()}
       </div>
     )
   }
