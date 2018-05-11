@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import $ from 'jquery';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 
@@ -128,7 +127,12 @@ class ScheduleList extends Component {
     this.state = {
       showMore : false,
       dialogFilm : null,
-      selectedOption: ''
+      selectedOption: 1,
+      selectedOption2: 1,
+      selectedOption3: 1,
+      selectedOption4: 1,
+      selectedOption5: 1,
+      selectedOption6: 1,
     };
   }
 
@@ -150,7 +154,6 @@ class ScheduleList extends Component {
   }
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
-    // console.log(`Selected: ${selectedOption.label}`);
   }
 
   renderMoreDialog(){
@@ -214,12 +217,12 @@ class ScheduleList extends Component {
     )
   }
 
-  renderFilmSession(session){
-    var prices = session.prices.map((price) =>
-      <span className="table-column price">{price.price}</span>
+  renderFilmSession(session,index){
+    var prices = session.prices.map((price,index) =>
+      <span key={index} className="table-column price">{price.price}</span>
     )
     return (
-      <li className="table-row">
+      <li key={index} className="table-row">
         <span className="table-column">
           <Link to="" className={session.status ? "session-time " + session.status : "session-time"}>{session.time}</Link>
           {session.quality !== undefined && <span className="quality">{session.quality}</span>}
@@ -237,9 +240,9 @@ class ScheduleList extends Component {
 
     )
   }
-  renderFilm(film){
+  renderFilm(film,index){
     return (
-      <div className="films-content">
+      <div key={index} className="films-content">
         <div className="film-item-container list">
           <div className="film-item">
             <div className="item-top-panel">
@@ -280,7 +283,7 @@ class ScheduleList extends Component {
                   <span className="table-column">Формат</span>
                   <span className="table-column"></span>
                 </li>
-                { film.sessionTime.map((session) => this.renderFilmSession(session))}
+                { film.sessionTime.map((session,index) => this.renderFilmSession(session,index))}
               </ul>
             </div>
           </div>
@@ -295,19 +298,27 @@ class ScheduleList extends Component {
         <div className="filter-panel-left">
           <div className="filter-select-option">
             <span className="filter-text">Город:</span>
-            <select className="selectpicker">
-              <option>Астана</option>
-              <option>Питер</option>
-              <option>Москва</option>
-            </select>
+            <Select className="selectpicker"
+              name="form-field-name"
+              value={this.state.selectedOption6}
+              onChange={this.handleChange}
+              options={[
+                { value: 1, label: 'Астана' },
+                { value: 2, label: 'Питер' },
+              ]}
+            />
           </div>
           <div className="filter-select-option">
             <span className="filter-text">Кинотеатр:</span>
-            <select className="selectpicker">
-              <option>Kinopark 11 IMAX Esentai</option>
-              <option>Kinopark 11 IMAX Esentai</option>
-              <option>Kinopark 11 IMAX Esentai</option>
-            </select>
+            <Select className="selectpicker"
+              name="form-field-name"
+              value={this.state.selectedOption2}
+              onChange={this.handleChange}
+              options={[
+                { value: 1, label: 'Kinopark 11 IMAX Esentai' },
+                { value: 2, label: 'Kinopark 11 IMAX Esentai' },
+              ]}
+            />
           </div>
         </div>
         <div className="filter-panel-right">
@@ -315,37 +326,49 @@ class ScheduleList extends Component {
             <span className="filter-text">Фильм:</span>
             <Select className="selectpicker"
               name="form-field-name"
-              value={this.state.selectedOption}
+              value={this.state.selectedOption3}
               onChange={this.handleChange}
               options={[
-                { value: 'one', label: 'One' },
-                { value: 'two', label: 'Two' },
+                { value: 1, label: 'One' },
+                { value: 2, label: 'Two' },
               ]}
             />
           </div>
           <div className="filter-select-option">
             <span className="filter-text">Формат:</span>
-            <select className="selectpicker">
-              <option>Все форматы</option>
-              <option>Все форматы</option>
-              <option>Все форматы</option>
-            </select>
+            <Select className="selectpicker"
+              name="form-field-name"
+              value={this.state.selectedOption4}
+              onChange={this.handleChange}
+              options={[
+                { value: 1, label: 'One' },
+                { value: 2, label: 'Two' },
+              ]}
+            />
           </div>
           <div className="filter-select-option">
             <span className="filter-text">Зал:</span>
-            <select className="selectpicker">
-              <option>Выбрать</option>
-              <option>Выбрать</option>
-              <option>Выбрать</option>
-            </select>
+            <Select className="selectpicker"
+              name="form-field-name"
+              value={this.state.selectedOption4}
+              onChange={this.handleChange}
+              options={[
+                { value: 1, label: 'One' },
+                { value: 2, label: 'Two' },
+              ]}
+            />
           </div>
           <div className="filter-select-option">
             <span className="filter-text">Время:</span>
-            <select className="selectpicker">
-              <option>Выбрать</option>
-              <option>Выбрать</option>
-              <option>Выбрать</option>
-            </select>
+            <Select className="selectpicker"
+              name="form-field-name"
+              value={this.state.selectedOption5}
+              onChange={this.handleChange}
+              options={[
+                { value: 1, label: 'One' },
+                { value: 2, label: 'Two' },
+              ]}
+            />
           </div>
         </div>
         <div className="filter-open-hide-btn">
@@ -388,17 +411,17 @@ class ScheduleList extends Component {
                 <div className="tab-item">
                   {tabFilter}
                   {filterResult}
-                  {films.map((film) => this.renderFilm(film))}
+                  {films.map((film,index) => this.renderFilm(film,index))}
                 </div>
                 <div className="tab-item">
                   {tabFilter}
                   {filterResult}
-                  {films.map((film) => this.renderFilm(film))}
+                  {films.map((film,index) => this.renderFilm(film,index))}
                 </div>
                 <div className="tab-item">
                   {tabFilter}
                   {filterResult}
-                  {films.map((film) => this.renderFilm(film))}
+                  {films.map((film,index) => this.renderFilm(film,index))}
                 </div>
               </div>
             </div>
