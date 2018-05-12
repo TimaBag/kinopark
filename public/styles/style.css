@@ -3616,6 +3616,7 @@ h3 {
   display: block;
   width: 20px;
   height: 20px;
+  background: url(../img/icons/radio-icon.png) no-repeat 0 1px;
   position: absolute;
   top: 0;
   left: -1px;
@@ -3625,6 +3626,7 @@ h3 {
   display: block;
   width: 20px;
   height: 20px;
+  background: url(../img/icons/radio-icon.png) no-repeat 0 -43px;
   position: absolute;
   top: 0;
   left: -1px;
