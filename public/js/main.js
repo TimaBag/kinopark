@@ -115,36 +115,7 @@ $(function() {
     }
     return false;
   });
-  if($(window).width() < 768){
-    $('.js-view-all-sessions').text("Сеансы");
-  }
-  $('.js-view-all-sessions').on("click", function() {
-    if($(window).width() > 768){
-       if ($(this).html() == 'Свернуть сеансы') {
-        $(this).parents('.film-item').find('.hidden-block').removeClass('visible-block')
-        $(this).text('Смотреть все сеансы');
-      } else {
-        $(this).parents('.film-item').find('.hidden-block').addClass('visible-block')
-        $(this).text('Свернуть сеансы');
-      }
-    } else{
-        $('.film-item-container .session-time-list').slideUp()
-        $(this).parents('.film-item-container').siblings().find('.view-all-sessions a').text('Сеансы');
-        $(this).parents('.film-item-container').siblings().find('.view-all-sessions').css('backgroundColor','#C42121');
-       if ($(this).html() == 'Спрятать сеансы') {
-        $(this).parents('.film-item-container').find('.session-time-list').slideUp()
-        $(this).text('Сеансы');
-        $(this).parent().css('backgroundColor','#C42121')
-      } else {
-        $(this).parents('.film-item-container').find('.session-time-list').slideDown()
-        $(this).text('Спрятать сеансы');
-        $(this).parent().css('backgroundColor','#000')
-      }
-    }
-   
-    return false;
-  });
-
+  
   $('.js-view-all-sessions-2').on("click", function() {
     if ($(this).html() == 'Свернуть сеансы') {
       $(this).parents('.cinema-item').find('.hidden-block').removeClass('visible-block')

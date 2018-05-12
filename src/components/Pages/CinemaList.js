@@ -1,5 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Filter from '../extra/Filter';
+import SliderSlick from "react-slick";
+import {is_mobile} from '../js/main.js';
+
+const settings = {
+  initialSlide: 0,
+  slidesToShow: 1,
+  dots: false,
+  arrows: true,
+  // infinite: false,
+  autoplay: true,
+  autoplaySpeed: 7000,
+  slidesToScroll: 1
+}
 
 const films = [
   {
@@ -127,10 +141,6 @@ class CinemaList extends Component {
       showMore : false,
       dialogFilm : null,
     };
-  }
-
-  componentWillMount() {
-    // $('.selectpicker').selectpicker();
   }
 
   handleOpenMoreDialog(film){
@@ -284,85 +294,6 @@ class CinemaList extends Component {
   }
 
   render() {
-    let tabFilter = 
-      <div className="fiter-panel">
-        <div className="filter-panel-left">
-          <div className="filter-select-option">
-            <span className="filter-text">Город:</span>
-            <select className="selectpicker">
-              <option>Астана</option>
-              <option>Питер</option>
-              <option>Москва</option>
-            </select>
-          </div>
-          <div className="filter-select-option">
-            <span className="filter-text">Кинотеатр:</span>
-            <select className="selectpicker">
-              <option>Kinopark 11 IMAX Esentai</option>
-              <option>Kinopark 11 IMAX Esentai</option>
-              <option>Kinopark 11 IMAX Esentai</option>
-            </select>
-          </div>
-        </div>
-        <div className="filter-panel-right">
-          <div className="filter-select-option">
-            <span className="filter-text">Фильм:</span>
-            <select className="selectpicker">
-              <option>Все фильмы</option>
-              <option>Все фильмы</option>
-              <option>Все фильмы</option>
-            </select>
-          </div>
-          <div className="filter-select-option">
-            <span className="filter-text">Формат:</span>
-            <select className="selectpicker">
-              <option>Все форматы</option>
-              <option>Все форматы</option>
-              <option>Все форматы</option>
-            </select>
-          </div>
-          <div className="filter-select-option">
-            <span className="filter-text">Зал:</span>
-            <select className="selectpicker">
-              <option>Выбрать</option>
-              <option>Выбрать</option>
-              <option>Выбрать</option>
-            </select>
-          </div>
-          <div className="filter-select-option">
-            <span className="filter-text">Время:</span>
-            <select className="selectpicker">
-              <option>Выбрать</option>
-              <option>Выбрать</option>
-              <option>Выбрать</option>
-            </select>
-          </div>
-        </div>
-        <div className="filter-open-hide-btn">
-          фильтры <i className="fa fa-angle-down"></i>
-        </div>
-      </div>
-      
-    
-    let filterResult = 
-      <div className="row selection-results-category-list">
-        <div className="col-md-9 col-sm-8 col-xs-12">
-          <ul className="selection-results-film">
-            <li><i className="fa fa-close"></i>Алматы</li>
-            <li><i className="fa fa-close"></i>Kinopark 11 IMAX Esentai</li>
-          </ul>
-          <div className="reset-filter-btn">
-            <i className="fa fa-close"></i>
-            <Link to="">Отменить фильтры</Link>
-          </div>
-        </div>
-        <div className="col-md-3 col-sm-4 col-xs-12">
-          <ul className="category-list-switch">
-            <li className="category-view-list active"><Link to="/scheduleList" className="fa fa-th-list"></Link></li>
-            <li className="category-view-table "><Link to="/scheduleTab" className="fa fa-th"></Link></li>
-          </ul>
-        </div>
-      </div>
 
     return (
       <div className="global-wrapper">
@@ -373,14 +304,15 @@ class CinemaList extends Component {
               <span className="city">Алматы</span>
             </div>
             <div className="cinema-detailed-container">
-              <div className="cinema-img-slider">
+              <SliderSlick className="cinema-img-slider" {...settings}>
                 <div className="slide-item">
                   <img src={require("../../img/static/movie-house/big/01.jpg")} alt="alt" />
                 </div>
                 <div className="slide-item">
                   <img src={require("../../img/static/movie-house/big/01.jpg")} alt="alt" />
                 </div>
-              </div>
+              </SliderSlick>
+
               <div className="cinema-detailed-desc">
                 <ul className="item-desc-list">
                   <li className="list-item-icon">
@@ -450,18 +382,15 @@ class CinemaList extends Component {
               </ul>
               <div className="tabs-item-container schedule">
                 <div className="tab-item">
-                  {tabFilter}
-                  {filterResult}
+                  <Filter/>
                   {films.map((film) => this.renderFilm(film))}
                 </div>
                 <div className="tab-item">
-                  {tabFilter}
-                  {filterResult}
+                  <Filter/>
                   {films.map((film) => this.renderFilm(film))}
                 </div>
                 <div className="tab-item">
-                  {tabFilter}
-                  {filterResult}
+                  <Filter/>
                   {films.map((film) => this.renderFilm(film))}
                 </div>
               </div>
