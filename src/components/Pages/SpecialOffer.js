@@ -51,21 +51,19 @@ class SpecialOffer extends Component {
 
   render() {
     return (
-      <div className="global-wrapper">
-        <div className="content">
-          <div className="container">
-            <h1>Мой кинопарк</h1>
-            <ul className="my-kinopark-btn">
-              <li><Link to="/special-offer" className="active">Спец. предложения</Link></li>
-              <li><Link to="/production-bars">Продукция баров</Link></li>
-            </ul>
-            <div className="special-offer-content">
-              {offers.map((offer,index) => this.renderOffer(offer,index))}
-            </div>
+      <div className="content">
+        <div className="container">
+          <h1>Мой кинопарк</h1>
+          <ul className="my-kinopark-btn">
+            <li><Link to="/special-offer" className="active">Спец. предложения</Link></li>
+            <li><Link to="/production-bars">Продукция баров</Link></li>
+          </ul>
+          <div className="special-offer-content">
+            {offers.map((offer,index) => this.renderOffer(offer,index))}
           </div>
         </div>
       </div>
-      )
+    )
   }
 }
 

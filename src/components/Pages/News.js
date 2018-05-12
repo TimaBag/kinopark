@@ -41,26 +41,24 @@ class News extends Component {
 
   render() {
     return (
-      <div className="global-wrapper">
-        <div className="content">
-          <div className="container">
-            <h1>Новости</h1>
-            {news.map((news,index) => this.renderNews(news,index))}
-            <div className="wrapper-pagination">
-              <ul className="main-pagination clearfix">
-                <li className="backward disabled"><Link to=""><em className="fa fa-angle-left"></em></Link></li>
-                <li><Link to="" className="active">1</Link></li>
-                <li><Link to="">2</Link></li>
-                <li><Link to="">3</Link></li>
-                <li><Link to="">4</Link></li>
-                <li><Link to="">5</Link></li>
-                <li className="forward"><Link to=""> <em className="fa fa-angle-right"></em></Link></li>
-              </ul>
-            </div>
+      <div className="content">
+        <div className="container">
+          <h1>Новости</h1>
+          {news.map((news,index) => this.renderNews(news,index))}
+          <div className="wrapper-pagination">
+            <ul className="main-pagination clearfix">
+              <li className="backward disabled"><Link to=""><em className="fa fa-angle-left"></em></Link></li>
+              <li><Link to="" className="active">1</Link></li>
+              <li><Link to="">2</Link></li>
+              <li><Link to="">3</Link></li>
+              <li><Link to="">4</Link></li>
+              <li><Link to="">5</Link></li>
+              <li className="forward"><Link to=""> <em className="fa fa-angle-right"></em></Link></li>
+            </ul>
           </div>
         </div>
       </div>
-      )
+    )
   }
 }
 

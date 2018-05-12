@@ -371,27 +371,25 @@ class Cinemas extends Component {
 
   render() {
     return (
-      <div className="global-wrapper">
-        <div className="content">
-          <div className="container">
-            <h1>Кинотеатры</h1>
-            <div className="fiter-panel fiter-panel-mod">
-              <div className="filter-select-option">
-                <span className="filter-text">Выберите город:</span>
-                <select className="selectpicker">
-                  <option>Астана</option>
-                  <option>Питер</option>
-                  <option>Москва</option>
-                </select>
-              </div>
+      <div className="content">
+        <div className="container">
+          <h1>Кинотеатры</h1>
+          <div className="fiter-panel fiter-panel-mod">
+            <div className="filter-select-option">
+              <span className="filter-text">Выберите город:</span>
+              <select className="selectpicker">
+                <option>Астана</option>
+                <option>Питер</option>
+                <option>Москва</option>
+              </select>
             </div>
-            <div className="movie-house-content">
-              {cinemas.map((cinema,index) => this.renderCinemaList(cinema,index))}
-            </div>
+          </div>
+          <div className="movie-house-content">
+            {cinemas.map((cinema,index) => this.renderCinemaList(cinema,index))}
           </div>
         </div>
       </div>
-      )
+    )
   }
 }
 

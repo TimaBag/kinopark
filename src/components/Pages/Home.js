@@ -177,19 +177,19 @@ const films = [
 
 class Home extends Component {
 
-  renderFilm(film){
+  renderFilm(film,index){
     var qualities = film.qualities;
-    const listFormat = qualities.map( (quality) => 
-      <li key="quality.format">{quality.format}</li>
+    const listFormat = qualities.map( (quality,index) => 
+      <li key={index}>{quality.format}</li>
     )
-    const listSession = film.sessionTime.map((session) => 
-      <li>
+    const listSession = film.sessionTime.map((session,index) => 
+      <li key={index}>
         <Link to="#" className={"session-time " + session.status}>{session.time}</Link>
         <span className="quality">{session.quality}</span>
       </li>
     )
     return (
-      <div className="film-item-container main">
+      <div key={index} className="film-item-container main">
         <div className="film-item">
           <div className="age">{film.age}</div>
           <div className="item-img">
@@ -224,37 +224,35 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="global-wrapper">
-        <div className="content-end-sidebar">
-          <div className="container">
-            <Slider media="tablet" />
-            <div className="row">
-              <LeftSidebar />
-              <div className="column-right">
-                <div className="content">
-                  <Slider media="desktop" />
-                  <NewsBlock media="mobile"/>
-                  <div className="tabs-content">
-                    <ul className="tabs-content-name">
-                      <li className="tab active">Сегодня</li>
-                      <li className="tab">Завтра</li>
-                      <li className="tab">скоро</li>
-                    </ul>
-                    <div className="tabs-item-container">
-                      <div className="tab-item">
-                        <div className="films-content">
-                          {films.map(film => this.renderFilm(film))}
-                        </div>
+      <div className="content-end-sidebar">
+        <div className="container">
+          <Slider media="tablet" />
+          <div className="row">
+            <LeftSidebar />
+            <div className="column-right">
+              <div className="content">
+                <Slider media="desktop" />
+                <NewsBlock media="mobile"/>
+                <div className="tabs-content">
+                  <ul className="tabs-content-name">
+                    <li className="tab active">Сегодня</li>
+                    <li className="tab">Завтра</li>
+                    <li className="tab">скоро</li>
+                  </ul>
+                  <div className="tabs-item-container">
+                    <div className="tab-item">
+                      <div className="films-content">
+                        {films.map((film,index) => this.renderFilm(film,index))}
                       </div>
-                      <div className="tab-item">
-                        <div className="films-content">
-                          {films.map(film => this.renderFilm(film))}
-                        </div>
+                    </div>
+                    <div className="tab-item">
+                      <div className="films-content">
+                        {films.map((film,index) => this.renderFilm(film,index))}
                       </div>
-                      <div className="tab-item">
-                        <div className="films-content">
-                          {films.map(film => this.renderFilm(film))}
-                        </div>
+                    </div>
+                    <div className="tab-item">
+                      <div className="films-content">
+                        {films.map((film,index) => this.renderFilm(film,index))}
                       </div>
                     </div>
                   </div>

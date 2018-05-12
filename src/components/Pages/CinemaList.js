@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Filter from '../extra/Filter';
+import FilterFilm from '../extra/FilterFilm';
 import SliderSlick from "react-slick";
 import {is_mobile} from '../js/main.js';
 
@@ -296,103 +296,101 @@ class CinemaList extends Component {
   render() {
 
     return (
-      <div className="global-wrapper">
-        <div className="content">
-          <div className="container">
-            <div className="cinena-title-and-city">
-              <h1 className="title">Kinopark 7 Keruencity</h1>
-              <span className="city">Алматы</span>
-            </div>
-            <div className="cinema-detailed-container">
-              <SliderSlick className="cinema-img-slider" {...settings}>
-                <div className="slide-item">
-                  <img src={require("../../img/static/movie-house/big/01.jpg")} alt="alt" />
-                </div>
-                <div className="slide-item">
-                  <img src={require("../../img/static/movie-house/big/01.jpg")} alt="alt" />
-                </div>
-              </SliderSlick>
-
-              <div className="cinema-detailed-desc">
-                <ul className="item-desc-list">
-                  <li className="list-item-icon">
-                    <i className="fa fa-map-marker"></i><a href="">ТРЦ «KeruenCity Актобе», 3 этаж, г. Актобе, ул. М.Маметовой, 4</a>
-                  </li>
-                  <li className="list-item-icon">
-                    <i className="fa fa-phone"></i><span className="phone-number">+7 (713) 2777-030</span> (авт.), <span className="phone-number">+7 701 767 46 02</span> , <span className="phone-number">+7 713 277 70 25</span>
-                  </li>
-                  <li className="list-item-icon">
-                    <i className="fa fa-calendar"></i><a href="">Сеансы</a>
-                  </li>
-                  <li>
-                    <ul className="format-list">
-                      <li>
-                        <img src={require("../../img/static/format/01.jpg")} alt="alt" />
-                      </li>
-                      <li>
-                        <img src={require("../../img/static/format/02.jpg")} alt="alt" />
-                      </li>
-                      <li>
-                        <img src={require("../../img/static/format/03.jpg")} alt="alt" />
-                      </li>
-                      <li>
-                        <img src={require("../../img/static/format/04.jpg")} alt="alt" />
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="list-item-icon">
-                    <i className="fa fa-star"></i><a href="">Спец. предложения</a>
-                  </li>
-                  <li>
-                    <ul className="restaurants-list">
-                      <li><img src={require("../../img/icons/restaurants/01.png")} alt="alt" /></li>
-                      <li><img src={require("../../img/icons/restaurants/02.png")} alt="alt" /></li>
-                      <li><img src={require("../../img/icons/restaurants/03.png")} alt="alt" /></li>
-                      <li><img src={require("../../img/icons/restaurants/04.png")} alt="alt" /></li>
-                    </ul>
-                  </li>
-                </ul>
-                <ul className="item-desc-list">
-                  <li>
-                    <strong>Описание:</strong>
-                    Идейные соображения высшего порядка, а также укрепление и развитие структуры влечет за собой процесс внедрения и модернизации модели развития. 
-                  </li>
-                  <li><strong>Количество залов: </strong>7</li>
-                  <li><strong>Количество посадочных мест: </strong>978</li>
-                  <li><strong>1 зал </strong>- 179</li>
-                  <li><strong>2 зал </strong>- 140</li>
-                  <li><strong>3 зал </strong>- 140</li>
-                  <li><strong>4 зал </strong>- 140</li>
-                  <li><strong>5 зал </strong>- 140</li>
-                  <li><strong>6 зал </strong>- 188</li>
-                  <li><strong>7 зал </strong>- 51 (Comfort)</li>
-                  <li><strong>Дата открытия:</strong> 18 октября 2009 г.</li>
-                  <li><strong>Проекторы: </strong> NEC (3D, 2D)</li>
-                  <li><strong>Звуковая система: </strong>JBL</li>
-                </ul>
-                
+      <div className="content">
+        <div className="container">
+          <div className="cinena-title-and-city">
+            <h1 className="title">Kinopark 7 Keruencity</h1>
+            <span className="city">Алматы</span>
+          </div>
+          <div className="cinema-detailed-container">
+            <SliderSlick className="cinema-img-slider" {...settings}>
+              <div className="slide-item">
+                <img src={require("../../img/static/movie-house/big/01.jpg")} alt="alt" />
               </div>
-            </div>
-            <h2>Расписание</h2>
-            <div className="tabs-content">
-              <ul className="tabs-content-name schedule">
-                <li className="tab active">сегодня</li>
-                <li className="tab">Завтра</li>
-                <li className="tab">скоро</li>
+              <div className="slide-item">
+                <img src={require("../../img/static/movie-house/big/01.jpg")} alt="alt" />
+              </div>
+            </SliderSlick>
+
+            <div className="cinema-detailed-desc">
+              <ul className="item-desc-list">
+                <li className="list-item-icon">
+                  <i className="fa fa-map-marker"></i><a href="">ТРЦ «KeruenCity Актобе», 3 этаж, г. Актобе, ул. М.Маметовой, 4</a>
+                </li>
+                <li className="list-item-icon">
+                  <i className="fa fa-phone"></i><span className="phone-number">+7 (713) 2777-030</span> (авт.), <span className="phone-number">+7 701 767 46 02</span> , <span className="phone-number">+7 713 277 70 25</span>
+                </li>
+                <li className="list-item-icon">
+                  <i className="fa fa-calendar"></i><a href="">Сеансы</a>
+                </li>
+                <li>
+                  <ul className="format-list">
+                    <li>
+                      <img src={require("../../img/static/format/01.jpg")} alt="alt" />
+                    </li>
+                    <li>
+                      <img src={require("../../img/static/format/02.jpg")} alt="alt" />
+                    </li>
+                    <li>
+                      <img src={require("../../img/static/format/03.jpg")} alt="alt" />
+                    </li>
+                    <li>
+                      <img src={require("../../img/static/format/04.jpg")} alt="alt" />
+                    </li>
+                  </ul>
+                </li>
+                <li className="list-item-icon">
+                  <i className="fa fa-star"></i><a href="">Спец. предложения</a>
+                </li>
+                <li>
+                  <ul className="restaurants-list">
+                    <li><img src={require("../../img/icons/restaurants/01.png")} alt="alt" /></li>
+                    <li><img src={require("../../img/icons/restaurants/02.png")} alt="alt" /></li>
+                    <li><img src={require("../../img/icons/restaurants/03.png")} alt="alt" /></li>
+                    <li><img src={require("../../img/icons/restaurants/04.png")} alt="alt" /></li>
+                  </ul>
+                </li>
               </ul>
-              <div className="tabs-item-container schedule">
-                <div className="tab-item">
-                  <Filter/>
-                  {films.map((film) => this.renderFilm(film))}
-                </div>
-                <div className="tab-item">
-                  <Filter/>
-                  {films.map((film) => this.renderFilm(film))}
-                </div>
-                <div className="tab-item">
-                  <Filter/>
-                  {films.map((film) => this.renderFilm(film))}
-                </div>
+              <ul className="item-desc-list">
+                <li>
+                  <strong>Описание:</strong>
+                  Идейные соображения высшего порядка, а также укрепление и развитие структуры влечет за собой процесс внедрения и модернизации модели развития. 
+                </li>
+                <li><strong>Количество залов: </strong>7</li>
+                <li><strong>Количество посадочных мест: </strong>978</li>
+                <li><strong>1 зал </strong>- 179</li>
+                <li><strong>2 зал </strong>- 140</li>
+                <li><strong>3 зал </strong>- 140</li>
+                <li><strong>4 зал </strong>- 140</li>
+                <li><strong>5 зал </strong>- 140</li>
+                <li><strong>6 зал </strong>- 188</li>
+                <li><strong>7 зал </strong>- 51 (Comfort)</li>
+                <li><strong>Дата открытия:</strong> 18 октября 2009 г.</li>
+                <li><strong>Проекторы: </strong> NEC (3D, 2D)</li>
+                <li><strong>Звуковая система: </strong>JBL</li>
+              </ul>
+              
+            </div>
+          </div>
+          <h2>Расписание</h2>
+          <div className="tabs-content">
+            <ul className="tabs-content-name schedule">
+              <li className="tab active">сегодня</li>
+              <li className="tab">Завтра</li>
+              <li className="tab">скоро</li>
+            </ul>
+            <div className="tabs-item-container schedule">
+              <div className="tab-item">
+                <FilterFilm/>
+                {films.map((film) => this.renderFilm(film))}
+              </div>
+              <div className="tab-item">
+                <FilterFilm/>
+                {films.map((film) => this.renderFilm(film))}
+              </div>
+              <div className="tab-item">
+                <FilterFilm/>
+                {films.map((film) => this.renderFilm(film))}
               </div>
             </div>
           </div>

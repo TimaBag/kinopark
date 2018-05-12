@@ -401,34 +401,32 @@ class ScheduleTable extends Component {
 
   render() {
     return (
-      <div className="global-wrapper">
-        <div className="content">
-          <div className="container">
-            <h1>Расписание</h1>
-            <div className="tabs-content">
-              <ul className="tabs-content-name schedule">
-                <li className="tab active">сегодня</li>
-                <li className="tab">Завтра</li>
-                <li className="tab">скоро</li>
-              </ul>
-              <div className="tabs-item-container schedule">
-                <div className="tab-item">
-                  <Filter/>
-                  <div className="films-content">
-                    {films.map( (film,index) => this.renderFilm(film,index) )}
-                  </div>
+      <div className="content">
+        <div className="container">
+          <h1>Расписание</h1>
+          <div className="tabs-content">
+            <ul className="tabs-content-name schedule">
+              <li className="tab active">сегодня</li>
+              <li className="tab">Завтра</li>
+              <li className="tab">скоро</li>
+            </ul>
+            <div className="tabs-item-container schedule">
+              <div className="tab-item">
+                <Filter/>
+                <div className="films-content">
+                  {films.map( (film,index) => this.renderFilm(film,index) )}
                 </div>
-                <div className="tab-item">
-                  <Filter/>
-                  <div className="films-content">
-                    {films.map( (film,index) => this.renderFilm(film,index) )}               
-                  </div>
+              </div>
+              <div className="tab-item">
+                <Filter/>
+                <div className="films-content">
+                  {films.map( (film,index) => this.renderFilm(film,index) )}               
                 </div>
-                <div className="tab-item">
-                  <Filter />
-                  <div className="films-content">
-                    {films.map( (film,index) => this.renderFilm(film,index) )}
-                  </div>
+              </div>
+              <div className="tab-item">
+                <Filter />
+                <div className="films-content">
+                  {films.map( (film,index) => this.renderFilm(film,index) )}
                 </div>
               </div>
             </div>

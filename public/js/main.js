@@ -116,16 +116,6 @@ $(function() {
     return false;
   });
   
-  $('.js-view-all-sessions-2').on("click", function() {
-    if ($(this).html() == 'Свернуть сеансы') {
-      $(this).parents('.cinema-item').find('.hidden-block').removeClass('visible-block')
-      $(this).text('Смотреть все сеансы');
-    } else {
-      $(this).parents('.cinema-item').find('.hidden-block').addClass('visible-block')
-      $(this).text('Свернуть сеансы');
-    }
-    return false;
-  });
 
   $('.filter-open-hide-btn').on("click", function() {
     $('.filter-panel-right').toggleClass('visible-block');
@@ -198,16 +188,6 @@ $(function() {
 
 
   /*************sliders******************/
-  $(".main-slider").slick({
-    initialSlide: 0,
-    slidesToShow: 1,
-    dots: true,
-    arrows: true,
-    // infinite: false,
-    autoplay: true,
-    autoplaySpeed: 7000,
-    slidesToScroll: 1
-  });
   $(".news-block-content").slick({
     initialSlide: 0,
     slidesToShow: 1,
@@ -317,33 +297,6 @@ $(function() {
       }
       return false;
     });
-  });
-
-  /**********SCROLL**********/
-  var heightTopHead = $('.ui-head').outerHeight();
-  jQuery(window).scroll(function() {
-     if ($(window).scrollTop() > heightTopHead && $(window).width() > 767) {
-       $('.head-bottom-panel').addClass('fixed-menu');
-         $('.global-wrapper').addClass("global-pad");
-       setTimeout(function() {
-         $('.head-bottom-panel').addClass("ui-head-transform");
-       }, 100);
-     } else {
-       $('.head-bottom-panel').removeClass("ui-head-transform");
-       $('.head-bottom-panel').removeClass('fixed-menu');
-        $('.global-wrapper').removeClass("global-pad");
-     }
-    if ($(window).scrollTop() > $(window).height()) {
-      $('.scroll-to-top').addClass('scroll-to-top-visible');
-    } else {
-      $('.scroll-to-top').removeClass('scroll-to-top-visible');
-    }
-  });
-  $('.scroll-to-top').on('click', function() {
-    $('html, body').animate({
-      scrollTop: 0
-    }, 500);
-    return false;
   });
 
   /*************FIELD VALIDATION*************/

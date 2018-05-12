@@ -465,7 +465,6 @@ class Soon extends Component {
 
   render() {
     return (
-      <div className="global-wrapper">
         <div className="content">
           <div className="container">
             <h1>Скоро</h1>
@@ -473,9 +472,8 @@ class Soon extends Component {
               {films.map((film) => this.renderFilm(film))}
             </div>
           </div>
+          {this.state.showMore && this.renderMoreDialog()}
         </div>
-        {this.state.showMore && this.renderMoreDialog()}
-      </div>
       )
   }
 }
