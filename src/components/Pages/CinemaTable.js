@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import FilterFilm from '../extra/FilterFilm';
-import SliderSlick from "react-slick";
 import $ from 'jquery';
+import SliderSlick from "react-slick";
+import {is_mobile} from '../js/main.js';
 
 const settings = {
   initialSlide: 0,
@@ -62,7 +63,7 @@ const films = [
     qualities : [
       {"format" : "3D"},
       {"format" : "IMAX"},
-      {"format"  : "Laser"}, 
+      {"format"  : "Laser"},
     ],
     description : "«Туған үйім - тірегім» ( «Love you family») фильмі отбасы құндылықтары туралы баяндайды. Үлгілі үнді отбасының шаңырағында туған Хуши есімді бойжеткен, ата-анасының қарсылығына қарамастан, биден дәріс беретін Раджа есімді жігітке ғашық болады. Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
     actors : "Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
@@ -114,12 +115,104 @@ const films = [
         format : "LASER",
         hall_number : "Зал 6",
         hall_format : "COMFORT",
+      },
+      {
+        time : "12:00",
+        prices : [
+          {"price" : "1200 тт."},
+          {"price" : "800 тт."},
+          {"price" : "700 тт."}
+        ],
+        format : "LASER",
+        quality : "3D",
+        hall_number : "Зал 6",
+        hall_format : "COMFORT",
+      },
+      {
+        time : "19:00",
+        prices : [
+          {"price" : "1200 тт."},
+          {"price" : "800 тт."},
+          {"price" : "700 тт."}
+        ],
+        format : "LASER",
+        hall_number : "Зал 6",
+        hall_format : "COMFORT",
+      },
+      {
+        time : "12:00",
+        prices : [
+          {"price" : "1200 тт."},
+          {"price" : "800 тт."},
+          {"price" : "700 тт."}
+        ],
+        format : "LASER",
+        quality : "3D",
+        hall_number : "Зал 6",
+        hall_format : "COMFORT",
+      },
+      {
+        time : "19:00",
+        prices : [
+          {"price" : "1200 тт."},
+          {"price" : "800 тт."},
+          {"price" : "700 тт."}
+        ],
+        format : "LASER",
+        hall_number : "Зал 6",
+        hall_format : "COMFORT",
+      },
+      {
+        time : "12:00",
+        prices : [
+          {"price" : "1200 тт."},
+          {"price" : "800 тт."},
+          {"price" : "700 тт."}
+        ],
+        format : "LASER",
+        quality : "3D",
+        hall_number : "Зал 6",
+        hall_format : "COMFORT",
+      },
+      {
+        time : "19:00",
+        prices : [
+          {"price" : "1200 тт."},
+          {"price" : "800 тт."},
+          {"price" : "700 тт."}
+        ],
+        format : "LASER",
+        hall_number : "Зал 6",
+        hall_format : "COMFORT",
+      },
+      {
+        time : "12:00",
+        prices : [
+          {"price" : "1200 тт."},
+          {"price" : "800 тт."},
+          {"price" : "700 тт."}
+        ],
+        format : "LASER",
+        quality : "3D",
+        hall_number : "Зал 6",
+        hall_format : "COMFORT",
+      },
+      {
+        time : "19:00",
+        prices : [
+          {"price" : "1200 тт."},
+          {"price" : "800 тт."},
+          {"price" : "700 тт."}
+        ],
+        format : "LASER",
+        hall_number : "Зал 6",
+        hall_format : "COMFORT",
       }
     ],
     qualities : [
       {"format" : "3D"},
       {"format" : "IMAX"},
-      {"format"  : "Laser"}, 
+      {"format"  : "Laser"},
     ],
     description : "«Туған үйім - тірегім» ( «Love you family») фильмі отбасы құндылықтары туралы баяндайды. Үлгілі үнді отбасының шаңырағында туған Хуши есімді бойжеткен, ата-анасының қарсылығына қарамастан, биден дәріс беретін Раджа есімді жігітке ғашық болады. Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
     actors : "Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
@@ -132,8 +225,7 @@ const films = [
   },
 ]
 
-
-class CinemaList extends Component {
+class CinemaTable extends Component {
 
   constructor(props){
     super(props);
@@ -144,6 +236,36 @@ class CinemaList extends Component {
   }
 
   componentDidMount(){
+    if($(window).width() < 768){
+      $('.js-view-all-sessions').text("Сеансы");
+    }
+    $('.js-view-all-sessions').on("click", function() {
+      if($(window).width() > 768){
+         if ($(this).html() == 'Свернуть сеансы') {
+          $(this).parents('.film-item').find('.hidden-block').removeClass('visible-block')
+          $(this).text('Смотреть все сеансы');
+        } else {
+          $(this).parents('.film-item').find('.hidden-block').addClass('visible-block')
+          $(this).text('Свернуть сеансы');
+        }
+      } else{
+          $('.film-item-container .session-time-list').slideUp()
+          $(this).parents('.film-item-container').siblings().find('.view-all-sessions a').text('Сеансы');
+          $(this).parents('.film-item-container').siblings().find('.view-all-sessions').css('backgroundColor','#C42121');
+         if ($(this).html() == 'Спрятать сеансы') {
+          $(this).parents('.film-item-container').find('.session-time-list').slideUp()
+          $(this).text('Сеансы');
+          $(this).parent().css('backgroundColor','#C42121')
+        } else {
+          $(this).parents('.film-item-container').find('.session-time-list').slideDown()
+          $(this).text('Спрятать сеансы');
+          $(this).parent().css('backgroundColor','#000')
+        }
+      }
+     
+      return false;
+    });
+
     $(".tabs-content .tab-item").not(":first").hide();
     $(".tabs-content .tab").click(function() {
       if($(this).hasClass('active')){return false}
@@ -153,6 +275,7 @@ class CinemaList extends Component {
       $(".tabs-content .tab-item").hide().eq($(this).index()).fadeIn();
     }
     }).eq(0).addClass('active');
+    
   }
 
   handleOpenMoreDialog(film){
@@ -171,7 +294,7 @@ class CinemaList extends Component {
 
   renderMoreDialog(){
     const {dialogFilm} = this.state;
-    const listFormat = dialogFilm.qualities.map( (quality) => 
+    const listFormat = dialogFilm.qualities.map( (quality) =>
       <li>{quality.format}</li>
     )
     return(
@@ -217,7 +340,7 @@ class CinemaList extends Component {
                 <span className="bold">Актерский состав:</span> {dialogFilm.actors}
               </p>
               <p className="text">
-                <span className="bold">Режисерский состав::</span> {dialogFilm.director} 
+                <span className="bold">Режисерский состав::</span> {dialogFilm.director}
               </p>
               <div className="schedule-btn">
                 <Link to="">Расписание</Link>
@@ -231,74 +354,69 @@ class CinemaList extends Component {
   }
 
   renderFilmSession(session,index){
-    var prices = session.prices.map((price,index) => 
-      <span key={index} className="table-column price">{price.price}</span>
-    )
-    return (
-      <li key={index} className="table-row">
-        <span className="table-column">
-          <Link to="" className={session.status ? "session-time " + session.status : "session-time"}>{session.time}</Link>
-          {session.quality !== undefined && <span className="quality">{session.quality}</span>}
-        </span>
-        <span className="table-column">
-          {prices}
-        </span>
-        <span className="table-column"></span>
-        <span className="table-column">
-          <span className="auditorium"><strong>{session.hall_number}</strong>{session.hall_format}</span>
-        </span>
-        <span className="table-column"><span className="format">{session.format}</span></span>
-        <span className="table-column"><Link to="" className={session.status ? "buy-ticket thunderbird-btn " + session.status : "buy-ticket thunderbird-btn"} >Купить билет</Link></span>
-    </li>
-
-    )
+    if(index <= 8){
+      return(
+        <li key={index}>
+          <Link to="#" className={session.status ? "session-time " + session.status : "session-time "}>{session.time}</Link>
+          {session.quality && <span className="quality">{session.quality}</span>}
+        </li>
+      )
+    }else{
+      return(
+        <li key={index} className="hidden-block">
+          <Link to="#" className={session.status ? "session-time " + session.status : "session-time "}>{session.time}</Link>
+          {session.quality && <span className="quality">{session.quality}</span>}
+        </li>
+      )
+    }
   }
+
   renderFilm(film,index){
-    return (
-      <div key={index} className="films-content">
-        <div className="film-item-container list">
-          <div className="film-item">
-            <div className="item-top-panel">
-              <h4 className="title"><Link to="">{film.title}</Link></h4>
+    return(
+      <div key={index} className="film-item-container table">
+        <div className="film-item">
+          <div className="item-img">
+            <Link to=""></Link>
+            <div className="age">{film.age}</div>
+            <div className="version">{film.version}</div>
+            <img src={require("../../img/static/film/01.jpg")} alt="alt"/>
+            <div className="title-and-cinema-city">
+              <h4 className="title"><Link to="#">{film.title}</Link></h4>
               <ul className="cinema-city">
                 <li className="cinema">{film.cinema}</li>
                 <li className="city">{film.city}</li>
               </ul>
             </div>
-            <div className="item-img">
-              <h4 className="title mobile"><Link to="">{film.title}</Link></h4>
-              <div className="age">{film.age}</div>
-              <div className="version">{film.version}</div>
-              <img src={require("../../img/static/film/01.jpg")} alt="alt" />
-              <div className="item-hidden-block">
-                <div className="watch-trailer">
-                  <Link to="" className="js-movie-trailer">
-                    <span className="icon-player"></span>
-                    Смотреть трейлер
-                  </Link>
-                </div>
-                <div className="more-about-movie">
-                  <div className="thunderbird-btn" onClick={this.handleOpenMoreDialog.bind(this,film)}>Подробно о фильме</div>
-                </div>
+            <div className="item-hidden-block">
+              <div className="watch-trailer">
+                <Link to="#" className="js-movie-trailer">
+                  <span className="icon-player"></span>
+                  Смотреть трейлер
+                </Link>
+              </div>
+              <div className="more-about-movie">
+                <Link to="" className="thunderbird-btn" onClick={this.handleOpenMoreDialog.bind(this,film)}>Подробно о фильме</Link>
               </div>
             </div>
-            <div className="item-desc">
-              <ul className="film-item-desc-table">
-                <li className="table-row">
-                  <span className="table-column">Время</span>
-                  <span className="table-column">
-                    <span className="table-column price">Взрослый</span>
-                    <span className="table-column price">Студенческий</span>
-                    <span className="table-column price">Детский</span>
-                  </span>
-                  <span className="table-column"></span>
-                  <span className="table-column">Зал</span>
-                  <span className="table-column">Формат</span>
-                  <span className="table-column"></span>
-                </li>
-                { film.sessionTime.map((session,index) => this.renderFilmSession(session,index))}
-              </ul>
+          </div>
+          <div className="item-desc">
+            <h4 className="title mobile"><Link to="#">{film.title}</Link></h4>
+            <div className="view-all-sessions mobile">
+              <Link to="" className="js-view-all-sessions">Смотреть все сеансы</Link>
             </div>
+            <ul className="cinema-city mobile">
+              <li className="cinema">{film.cinema}</li>
+              <li className="city">{film.city}</li>
+            </ul>
+
+            <ul className="session-time-list">
+              {film.sessionTime.map( (session,index) => this.renderFilmSession(session,index))}
+            </ul>
+            { film.sessionTime.length > 9 &&
+              <div className="view-all-sessions desktop">
+                <Link to="" className="js-view-all-sessions">Смотреть все сеансы</Link>
+              </div>
+            }
           </div>
         </div>
       </div>
@@ -306,7 +424,6 @@ class CinemaList extends Component {
   }
 
   render() {
-
     return (
       <div className="content">
         <div className="container">
@@ -393,16 +510,22 @@ class CinemaList extends Component {
             </ul>
             <div className="tabs-item-container schedule">
               <div className="tab-item">
-                <FilterFilm activePanel="list"/>
-                {films.map((film,index) => this.renderFilm(film,index))}
+                <FilterFilm activePanel={"table"}/>
+                <div className="films-content">
+                  {films.map( (film,index) => this.renderFilm(film,index) )}
+                </div>
               </div>
               <div className="tab-item">
-                <FilterFilm activePanel="list"/>
-                {films.map((film,index) => this.renderFilm(film,index))}
+                <FilterFilm activePanel={"table"}/>
+                <div className="films-content">
+                  {films.map( (film,index) => this.renderFilm(film,index) )}               
+                </div>
               </div>
               <div className="tab-item">
-                <FilterFilm activePanel="list"/>
-                {films.map((film,index) => this.renderFilm(film,index))}
+                <FilterFilm activePanel={"table"}/>
+                <div className="films-content">
+                  {films.map( (film,index) => this.renderFilm(film,index) )}
+                </div>
               </div>
             </div>
           </div>
@@ -413,4 +536,4 @@ class CinemaList extends Component {
   }
 }
 
-export default CinemaList;
+export default CinemaTable;

@@ -252,6 +252,15 @@ class ScheduleTable extends Component {
      
       return false;
     });
+    $(".tabs-content .tab-item").not(":first").hide();
+    $(".tabs-content .tab").click(function() {
+      if($(this).hasClass('active')){return false}
+        else{
+      $(".tabs-content .tab").removeClass('active');
+      $(this).addClass('active')
+      $(".tabs-content .tab-item").hide().eq($(this).index()).fadeIn();
+    }
+    }).eq(0).addClass('active');
   }
 
   handleOpenMoreDialog(film){
@@ -332,14 +341,14 @@ class ScheduleTable extends Component {
   renderFilmSession(session,index){
     if(index <= 8){
       return(
-        <li>
+        <li key={index}>
           <Link to="#" className={session.status ? "session-time " + session.status : "session-time "}>{session.time}</Link>
           {session.quality && <span className="quality">{session.quality}</span>}
         </li>
       )
     }else{
       return(
-        <li className="hidden-block">
+        <li key={index} className="hidden-block">
           <Link to="#" className={session.status ? "session-time " + session.status : "session-time "}>{session.time}</Link>
           {session.quality && <span className="quality">{session.quality}</span>}
         </li>
@@ -389,8 +398,8 @@ class ScheduleTable extends Component {
               {film.sessionTime.map( (session,index) => this.renderFilmSession(session,index))}
             </ul>
             { film.sessionTime.length > 9 &&
-              <div class="view-all-sessions desktop">
-                <Link to="" class="js-view-all-sessions">Смотреть все сеансы</Link>
+              <div className="view-all-sessions desktop">
+                <Link to="" className="js-view-all-sessions">Смотреть все сеансы</Link>
               </div>
             }
           </div>
@@ -412,19 +421,19 @@ class ScheduleTable extends Component {
             </ul>
             <div className="tabs-item-container schedule">
               <div className="tab-item">
-                <Filter/>
+                <Filter activePanel={"table"} link={"schedule"}/>
                 <div className="films-content">
                   {films.map( (film,index) => this.renderFilm(film,index) )}
                 </div>
               </div>
               <div className="tab-item">
-                <Filter/>
+                <Filter activePanel={"table"} link={"schedule"}/>
                 <div className="films-content">
                   {films.map( (film,index) => this.renderFilm(film,index) )}               
                 </div>
               </div>
               <div className="tab-item">
-                <Filter />
+                <Filter activePanel={"table"} link={"schedule"}/>
                 <div className="films-content">
                   {films.map( (film,index) => this.renderFilm(film,index) )}
                 </div>

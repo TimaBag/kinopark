@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Filter from '../extra/Filter';
-import 'react-select/dist/react-select.css';
+import $ from 'jquery';
 
 const films = [
   {
@@ -131,6 +131,15 @@ class ScheduleList extends Component {
   }
 
   componentDidMount() {
+    $(".tabs-content .tab-item").not(":first").hide();
+    $(".tabs-content .tab").click(function() {
+      if($(this).hasClass('active')){return false}
+        else{
+      $(".tabs-content .tab").removeClass('active');
+      $(this).addClass('active')
+      $(".tabs-content .tab-item").hide().eq($(this).index()).fadeIn();
+    }
+    }).eq(0).addClass('active');
   }
 
   handleOpenMoreDialog(film){
@@ -296,15 +305,15 @@ class ScheduleList extends Component {
             </ul>
             <div className="tabs-item-container schedule">
               <div className="tab-item">
-                <Filter />
+                <Filter activePanel={"list"} link={"schedule"}/>
                 {films.map((film,index) => this.renderFilm(film,index))}
               </div>
               <div className="tab-item">
-                <Filter />
+                <Filter activePanel={"list"} link={"schedule"}/>
                 {films.map((film,index) => this.renderFilm(film,index))}
               </div>
               <div className="tab-item">
-                <Filter />
+                <Filter activePanel={"list"} link={"schedule"}/>
                 {films.map((film,index) => this.renderFilm(film,index))}
               </div>
             </div>

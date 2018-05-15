@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Select from 'react-select';
+import $ from 'jquery';
+import 'react-select/dist/react-select.css';
 
 const cinemas = [
   {
@@ -326,6 +329,29 @@ const cinemas = [
 
 class Cinemas extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      selectedOption: 1,
+    };
+  }
+
+  componentDidMount(){
+    $(".tabs-content .tab-item").not(":first").hide();
+    $(".tabs-content .tab").click(function() {
+      if($(this).hasClass('active')){return false}
+        else{
+      $(".tabs-content .tab").removeClass('active');
+      $(this).addClass('active')
+      $(".tabs-content .tab-item").hide().eq($(this).index()).fadeIn();
+    }
+    }).eq(0).addClass('active');
+  }
+
+  handleChange = (selectedOption) => {
+    this.setState({ selectedOption });
+  }
+
   renderCinemaList(cinema,index){
     return(
       <div key={index} className="movie-house-container">
@@ -377,11 +403,15 @@ class Cinemas extends Component {
           <div className="fiter-panel fiter-panel-mod">
             <div className="filter-select-option">
               <span className="filter-text">Выберите город:</span>
-              <select className="selectpicker">
-                <option>Астана</option>
-                <option>Питер</option>
-                <option>Москва</option>
-              </select>
+              <Select className="selectpicker"
+                name="form-field-name"
+                value={this.state.selectedOption}
+                onChange={this.handleChange}
+                options={[
+                  { value: 1, label: 'Астана' },
+                  { value: 2, label: 'Питер' },
+                ]}
+              />
             </div>
           </div>
           <div className="movie-house-content">

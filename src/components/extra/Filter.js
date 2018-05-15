@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import { Link } from 'react-router-dom';
+import 'react-select/dist/react-select.css';
 
 class Filter extends Component {
   constructor(props){
@@ -114,8 +115,12 @@ class Filter extends Component {
           </div>
           <div className="col-md-3 col-sm-4 col-xs-12">
             <ul className="category-list-switch">
-              <li className="category-view-list active"><Link to="/scheduleList" className="fa fa-th-list"></Link></li>
-              <li className="category-view-table "><Link to="/scheduleTab" className="fa fa-th"></Link></li>
+              <li className={this.props.activePanel === "list"  ? "category-view-list active" : "category-view-list"}>
+                <Link to={"/"+ this.props.link + "list"} className="fa fa-th-list"></Link>
+              </li>
+              <li className={this.props.activePanel === "table" ? "category-view-table active" : "category-view-table"}>
+                <Link to={"/"+ this.props.link + "table"} className="fa fa-th"></Link>
+              </li>
             </ul>
           </div>
         </div>
