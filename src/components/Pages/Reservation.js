@@ -1,9 +1,20 @@
 import React,{Component} from 'react';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
+import MaskedInput from 'react-text-mask';
 
 class Reservation extends Component {
-
+  constructor(props){
+    super(props);
+    this.state = {
+      phone : '',
+      email: '',
+      errorPhone : false,
+      errorEmail : false,
+    }
+    this.changePhone = this.changePhone.bind(this);
+    this.changeEmail = this.changeEmail.bind(this);
+  }
   componentDidMount(){
     $('.wrapper-counter-btn').each(function() {
       $(this).parents('.tickets-item').find('.product-count').on('input', function() {
@@ -46,46 +57,34 @@ class Reservation extends Component {
       });
     });
 
-    /*$('input[type=tel]').inputmask("+7 (999) 999 99 99", {
-      "clearIncomplete": true
-    });*/
-    $('.js-form-submit').on("click", function() {
-      var jhis = $(this).parents('form');
-      $(jhis).find('.error').remove();
-      var error = 0;
-      $(jhis).find('.requiredField').each(function() {
-        if ($(this).hasClass('callback-name')) {
-          if ($(this).val().length < 3) {
-            $(this).parent().append('<span className="error">Представьтесь, пожалуйста</span>');
-            $(this).addClass('inputError');
-            error = 1;
-          }
-        } else if ($(this).hasClass('callback-email')) {
-          var emailReg = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
-          if (emailReg.test($(this).val()) == false) {
-            $(this).parent().append('<span className="error">Введите корректный E-mail</span>');
-            $(this).addClass('inputError');
-            error = 2;
-          }
-        } else if ($(this).hasClass('callback-phone')) {
-          if ($(this).val().length < 10) {
-            $(this).parent().append('<span className="error">Введите номер телефона</span>');
-            $(this).addClass('inputError');
-            error = 3;
-          }
-        }
-      });
-      if (error == 0) {
-        return true;
-      } else {
-        return false;
-      }
-    });
-    $("input").focus(function() {
-      $(this).removeClass('inputError');
-    });
   }
-
+  changePhone(e){
+    var phoneRegex = /^[+][0-9]{1} \([0-9]{3}\)\s[0-9]{3} [0-9]{2} [0-9]{2}$/;
+    this.setState({
+      errorPhone : false,
+      phone : e.target.value.match(phoneRegex) ? e.target.value : "",
+    })
+  }
+  changeEmail(e){
+    var emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
+    this.setState({
+      errorEmail : false,
+      email : e.target.value.match(emailRegex) ? e.target.value : "",
+    })
+  }
+  checkValidation(){
+    console.log(this.state.email);
+    if(this.state.email === ''){
+      this.setState({
+        errorEmail : true
+      })
+    }
+    if(this.state.phone === ''){
+      this.setState({
+        errorPhone : true
+      })
+    }
+  }
   render(){
     return(
       <div className="content">
@@ -104,15 +103,28 @@ class Reservation extends Component {
               <li><span className="bold">Начало сеанса:</span>четверг, 18 января 2018 г., 0:10:00 </li>
               <li><span className="bold">Текущее время: </span>17 января 2018 г., 22:37:59</li>
             </ul>
-            <form action="#" className="reservation-form">
+            <form className="reservation-form">
               <div className="wrapper-form-group">
                 <div className="form-group">
                   <label className="form-label">Телефон:</label>
-                  <input type="tel" name="phone" className="text-input requiredField callback-phone" autocomplete="off" placeholder="Ваш контактный телефон" />
+                  <MaskedInput
+                    type="tel"
+                    className={this.state.errorPhone ? "text-input requiredField callback-phone inputError" : "text-input requiredField callback-phone"}
+                    mask={['+','7',' ','(', /\d/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, ' ', /\d/, /\d/,' ', /\d/, /\d/]}
+                    placeholder="Ваш контактный телефон" 
+                    onChange={(e) => this.changePhone(e)}
+                  />
+                  {this.state.errorPhone && <span className="error">Введите номер телефона</span>}
                 </div>
                 <div className="form-group">
                   <label className="form-label">E-mail:</label>
-                  <input type="email" name="mail" className="text-input requiredField callback-email" autocomplete="off" placeholder="Ваш E-mail" />
+                  <input 
+                    className={this.state.errorEmail ? "text-input requiredField callback-phone inputError" : "text-input requiredField callback-email"}
+                    autoComplete="off" 
+                    placeholder="Ваш E-mail"
+                    onChange={(e) => this.changeEmail(e)}
+                 />
+                 {this.state.errorEmail && <span className="error">Введите корректный E-mail</span>}
                 </div>
               </div>
               <div className="tickets-panel">
@@ -161,7 +173,7 @@ class Reservation extends Component {
                   Итого: <span className="color">28000 тт</span>
                 </div>
                 <div className="wrapper-submit-btn">
-                  <input type="submit" value="Подвердить выбор" className="thunderbird-btn submit-btn js-form-submit" />
+                  <input type="button" value="Подвердить выбор" className="thunderbird-btn submit-btn" onClick={this.checkValidation.bind(this)} />
                 </div>
               </div>
             </form>
