@@ -1,10 +1,10 @@
 import {SERVER_URL} from '../constants/index';
 
-const getCinemaUrl = SERVER_URL + "cinema";
+const getCityUrl = SERVER_URL + "city";
 
-export const getCinema = () => (
+export const getCity = () => (
     fetch(
-        getCinemaUrl,
+        getCityUrl,
         {
             method: 'GET',
             headers: {

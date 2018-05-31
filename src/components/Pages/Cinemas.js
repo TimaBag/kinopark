@@ -5,329 +5,7 @@ import Select from 'react-select';
 import $ from 'jquery';
 import 'react-select/dist/react-select.css';
 import * as actions from '../../actions/cinemaActions';
-
-const cinemas = [
-  {
-    id : 1,
-    img : require("../../img/static/movie-house/01.jpg"),
-    title : "Kinopark 7 Keruencity",
-    city : "Алматы",
-    address: "ТРЦ «KeruenCity Актобе», 3 этаж, г. Актобе, ул. М.Маметовой, 4",
-    phone_numbers :  [
-      {
-        phone_number : "+7 (713) 2777-030",
-      },
-      {
-        phone_number : "+7 701 767 46 02",
-      },
-      {
-        phone_number : "+7 713 277 70 25"
-      },
-    ],
-    format_list : [
-      {
-        format : "IMAX",
-      },
-      {
-        format : "DOLBY ATMOS LASER",
-      }
-    ],
-    restaurants_list : [
-      {
-        restaurant_list : require("../../img/icons/restaurants/01.png"),
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/02.png")
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/03.png"),
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/04.png")
-      }
-    ]
-  },
-  {
-    id : 2,
-    img : require("../../img/static/movie-house/02.jpg"),
-    title : "Kinopark 7 Keruencity",
-    city : "Алматы",
-    address: "ТРЦ «KeruenCity Актобе», 3 этаж, г. Актобе, ул. М.Маметовой, 4",
-    phone_numbers :  [
-      {
-        phone_number : "+7 (713) 2777-030",
-      },
-      {
-        phone_number : "+7 701 767 46 02",
-      },
-      {
-        phone_number : "+7 713 277 70 25"
-      },
-    ],
-    format_list : [
-      {
-        format : "IMAX",
-      },
-      {
-        format : "DOLBY ATMOS LASER",
-      }
-    ],
-    restaurants_list : [
-      {
-        restaurant_list : require("../../img/icons/restaurants/01.png"),
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/02.png")
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/03.png"),
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/04.png")
-      }
-    ]
-  },
-  {
-    id : 3,
-    img : require("../../img/static/movie-house/03.jpg"),
-    title : "Kinopark 7 Keruencity",
-    city : "Алматы",
-    address: "ТРЦ «KeruenCity Актобе», 3 этаж, г. Актобе, ул. М.Маметовой, 4",
-    phone_numbers :  [
-      {
-        phone_number : "+7 (713) 2777-030",
-      },
-      {
-        phone_number : "+7 701 767 46 02",
-      },
-      {
-        phone_number : "+7 713 277 70 25"
-      },
-    ],
-    format_list : [
-      {
-        format : "IMAX",
-      },
-      {
-        format : "DOLBY ATMOS LASER",
-      }
-    ],
-    restaurants_list : [
-      {
-        restaurant_list : require("../../img/icons/restaurants/01.png"),
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/02.png")
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/03.png"),
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/04.png")
-      }
-    ]
-  },
-  {
-    id : 4,
-    img : require("../../img/static/movie-house/04.jpg"),
-    title : "Kinopark 7 Keruencity",
-    city : "Алматы",
-    address: "ТРЦ «KeruenCity Актобе», 3 этаж, г. Актобе, ул. М.Маметовой, 4",
-    phone_numbers :  [
-      {
-        phone_number : "+7 (713) 2777-030",
-      },
-      {
-        phone_number : "+7 701 767 46 02",
-      },
-      {
-        phone_number : "+7 713 277 70 25"
-      },
-    ],
-    format_list : [
-      {
-        format : "IMAX",
-      },
-      {
-        format : "DOLBY ATMOS LASER",
-      }
-    ],
-    restaurants_list : [
-      {
-        restaurant_list : require("../../img/icons/restaurants/01.png"),
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/02.png")
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/03.png"),
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/04.png")
-      }
-    ]
-  },
-  {
-    id : 5,
-    img : require("../../img/static/movie-house/01.jpg"),
-    title : "Kinopark 7 Keruencity",
-    city : "Алматы",
-    address: "ТРЦ «KeruenCity Актобе», 3 этаж, г. Актобе, ул. М.Маметовой, 4",
-    phone_numbers :  [
-      {
-        phone_number : "+7 (713) 2777-030",
-      },
-      {
-        phone_number : "+7 701 767 46 02",
-      },
-      {
-        phone_number : "+7 713 277 70 25"
-      },
-    ],
-    format_list : [
-      {
-        format : "IMAX",
-      },
-      {
-        format : "DOLBY ATMOS LASER",
-      }
-    ],
-    restaurants_list : [
-      {
-        restaurant_list : require("../../img/icons/restaurants/01.png"),
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/02.png")
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/03.png"),
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/04.png")
-      }
-    ]
-  },
-  {
-    id : 6,
-    img : require("../../img/static/movie-house/02.jpg"),
-    title : "Kinopark 7 Keruencity",
-    city : "Алматы",
-    address: "ТРЦ «KeruenCity Актобе», 3 этаж, г. Актобе, ул. М.Маметовой, 4",
-    phone_numbers :  [
-      {
-        phone_number : "+7 (713) 2777-030",
-      },
-      {
-        phone_number : "+7 701 767 46 02",
-      },
-      {
-        phone_number : "+7 713 277 70 25"
-      },
-    ],
-    format_list : [
-      {
-        format : "IMAX",
-      },
-      {
-        format : "DOLBY ATMOS LASER",
-      }
-    ],
-    restaurants_list : [
-      {
-        restaurant_list : require("../../img/icons/restaurants/01.png"),
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/02.png")
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/03.png"),
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/04.png")
-      }
-    ]
-  },
-  {
-    id : 7,
-    img : require("../../img/static/movie-house/03.jpg"),
-    title : "Kinopark 7 Keruencity",
-    city : "Алматы",
-    address: "ТРЦ «KeruenCity Актобе», 3 этаж, г. Актобе, ул. М.Маметовой, 4",
-    phone_numbers :  [
-      {
-        phone_number : "+7 (713) 2777-030",
-      },
-      {
-        phone_number : "+7 701 767 46 02",
-      },
-      {
-        phone_number : "+7 713 277 70 25"
-      },
-    ],
-    format_list : [
-      {
-        format : "IMAX",
-      },
-      {
-        format : "DOLBY ATMOS LASER",
-      }
-    ],
-    restaurants_list : [
-      {
-        restaurant_list : require("../../img/icons/restaurants/01.png"),
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/02.png")
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/03.png"),
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/04.png")
-      }
-    ]
-  },
-  {
-    id : 8,
-    img : require("../../img/static/movie-house/04.jpg"),
-    title : "Kinopark 7 Keruencity",
-    city : "Алматы",
-    address: "ТРЦ «KeruenCity Актобе», 3 этаж, г. Актобе, ул. М.Маметовой, 4",
-    phone_numbers :  [
-      {
-        phone_number : "+7 (713) 2777-030",
-      },
-      {
-        phone_number : "+7 701 767 46 02",
-      },
-      {
-        phone_number : "+7 713 277 70 25"
-      },
-    ],
-    format_list : [
-      {
-        format : "IMAX",
-      },
-      {
-        format : "DOLBY ATMOS LASER",
-      }
-    ],
-    restaurants_list : [
-      {
-        restaurant_list : require("../../img/icons/restaurants/01.png"),
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/02.png")
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/03.png"),
-      },
-      {
-        restaurant_list : require("../../img/icons/restaurants/04.png")
-      }
-    ]
-  }
-]
+import * as actionsCity from '../../actions/cityActions';
 
 class Cinemas extends Component {
 
@@ -349,6 +27,7 @@ class Cinemas extends Component {
     }
     }).eq(0).addClass('active');
     this.props.onGetCinema();
+    this.props.onGetCity();
   }
 
   handleChange = (selectedOption) => {
@@ -389,7 +68,8 @@ class Cinemas extends Component {
   }
 
   render() {
-    console.log(this.props.cinema)
+    const options = this.props.city.map( city => city.name);
+    console.log(options);
     return (
       <div className="content">
         <div className="container">
@@ -401,10 +81,7 @@ class Cinemas extends Component {
                 name="form-field-name"
                 value={this.state.selectedOption}
                 onChange={this.handleChange}
-                options={[
-                  { value: 1, label: 'Астана' },
-                  { value: 2, label: 'Питер' },
-                ]}
+                options={ options}
               />
             </div>
           </div>
@@ -418,11 +95,13 @@ class Cinemas extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  cinema : state.cinema.cinema
+  cinema : state.cinema.cinema,
+  city : state.city.city
 })
 
 const mapDispatchToProps = {
-  onGetCinema : actions.getCinema
+  onGetCinema : actions.getCinema,
+  onGetCity : actionsCity.getCity
 };
 
 export default connect(
