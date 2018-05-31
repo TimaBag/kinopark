@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import FilterFilm from '../extra/FilterFilm';
 import $ from 'jquery';
 import SliderSlick from "react-slick";
-import {is_mobile} from '../js/main.js';
 
 const settings = {
   initialSlide: 0,

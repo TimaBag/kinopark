@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Select from 'react-select';
 import $ from 'jquery';
 import 'react-select/dist/react-select.css';
+import * as actions from '../../actions/cinemaActions';
 
 const cinemas = [
   {
@@ -346,6 +348,7 @@ class Cinemas extends Component {
       $(".tabs-content .tab-item").hide().eq($(this).index()).fadeIn();
     }
     }).eq(0).addClass('active');
+    this.props.onGetCinema();
   }
 
   handleChange = (selectedOption) => {
@@ -361,8 +364,8 @@ class Cinemas extends Component {
           </div>
           <div className="item-desc">
             <div className="title-and-city">
-              <h3 className="title">{cinema.title}</h3>
-              <span className="city">{cinema.city}</span>
+              <h3 className="title">{cinema.name}</h3>
+              <span className="city">{cinema.city.name}</span>
             </div>
             <ul className="item-desc-list">
               <li>
@@ -370,23 +373,13 @@ class Cinemas extends Component {
               </li>
               <li>
                 <i className="fa fa-phone"></i>
-                { cinema.phone_numbers.map((phone_number,index) => <span key={index} className="phone-number">{phone_number.phone_number},</span>)}
+                <span key={index} className="phone-number">{cinema.phone}</span>
               </li>
               <li>
                 <i className="fa fa-calendar"></i><Link to="/cinemalist">Сеансы</Link>
               </li>
               <li>
-                <ul className="format-list">
-                  { cinema.format_list.map((format,index) => <li key={index} className="format">{format.format}</li>)}
-                </ul>
-              </li>
-              <li>
                 <i className="fa fa-star"></i><Link to="">Спец. предложения</Link>
-              </li>
-              <li>
-                <ul className="restaurants-list">
-                  {cinema.restaurants_list.map((restaurant,index) => <li key={index}><img src={restaurant.restaurant_list} alt="alt" /></li>)}
-                </ul>
               </li>
             </ul>
           </div>
@@ -396,6 +389,7 @@ class Cinemas extends Component {
   }
 
   render() {
+    console.log(this.props.cinema)
     return (
       <div className="content">
         <div className="container">
@@ -415,7 +409,7 @@ class Cinemas extends Component {
             </div>
           </div>
           <div className="movie-house-content">
-            {cinemas.map((cinema,index) => this.renderCinemaList(cinema,index))}
+            {this.props.cinema && this.props.cinema.map((cinema,index) => this.renderCinemaList(cinema,index))}
           </div>
         </div>
       </div>
@@ -423,4 +417,15 @@ class Cinemas extends Component {
   }
 }
 
-export default Cinemas;
+const mapStateToProps = (state) => ({
+  cinema : state.cinema.cinema
+})
+
+const mapDispatchToProps = {
+  onGetCinema : actions.getCinema
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Cinemas);

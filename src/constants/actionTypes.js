@@ -1,0 +1,6 @@
+export const ACTION_LOGGED_OUT = "LOGGED_OUT";
+
+// get full group schedule
+export const ACTION_GET_CINEMA_STARTED = "GET_CINEMA_STARTED";
+export const ACTION_GET_CINEMA_SUCCEEDED = "GET_CINEMA_SUCCEEDED";
+export const ACTION_GET_CINEMA_FAILED = "GET_CINEMA_FAILED";

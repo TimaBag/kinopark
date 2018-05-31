@@ -3,8 +3,20 @@ import { Link } from 'react-router-dom';
 import SearchMobile from '../Header/Search/SearchMobile';
 import Language from '../Header/Language/Language';
 import BuyTicket from '../Header/BuyTicket/BuyTicket';
-
+import $ from 'jquery';
 class Menu extends Component {
+
+  componentDidMoun(){
+    $(window).resize(function() {
+      if ($(window).width() > 1270) {
+        $('.head-nav').removeAttr('style');
+      }
+    });
+    if ($(window).width() > 1270) {
+      $('.head-nav').removeAttr('style');
+    }
+  }
+
   render() {
     return (
       <div className="head-bottom-panel">
