@@ -1,14 +1,14 @@
 import * as actionTypes from '../constants/actionTypes';
-import * as cityApi from '../api/cityApi';
+import * as scheduleApi from '../api/scheduleApi';
 
-export const getCity = () => (dispatch, getState) => {
+export const getSchedule = () => (dispatch, getState) => {
 
     dispatch({
-        type: actionTypes.ACTION_GET_CITY_STARTED
+        type: actionTypes.ACTION_GET_SCHEDULE_STARTED
     });
 
-    cityApi
-        .getCity()
+    scheduleApi
+        .getSchedule()
         .then(
             response => {
               if (response.status !== 200) {
@@ -19,7 +19,7 @@ export const getCity = () => (dispatch, getState) => {
                   } else {
                     console.log("error", response);
                     dispatch({
-                        type: actionTypes.ACTION_GET_CITY_FAILED,
+                        type: actionTypes.ACTION_GET_SCHEDULE_FAILED,
                         errorMessage: "Что-то пошло не так :("
                     });
                   }
@@ -29,9 +29,10 @@ export const getCity = () => (dispatch, getState) => {
                     .then(
                         value => {
                             const responseObject = JSON.parse(value);
+                            console.log(responseObject);
                             dispatch({
-                                type: actionTypes.ACTION_GET_CITY_SUCCEEDED,
-                                city : responseObject.data
+                                type: actionTypes.ACTION_GET_SCHEDULE_SUCCEEDED,
+                                schedule : responseObject
                             });
                         }
                     );
@@ -39,7 +40,7 @@ export const getCity = () => (dispatch, getState) => {
             },
             error => {
                 dispatch({
-                    type: actionTypes.ACTION_GET_CITY_FAILED,
+                    type: actionTypes.ACTION_GET_SCHEDULE_FAILED,
                     errorMessage: "Не удалось подключиться к сети"
                 })
             },

@@ -1479,7 +1479,7 @@ h3 {
   height: 98px;
   margin: auto;
   display: block;
-
+  background: url(../img/icons/play-icon.png) no-repeat center;
   -webkit-transition: -webkit-transform 0.3s;
           transition: transform 0.3s;
 }
@@ -1802,6 +1802,7 @@ h3 {
   height: 98px;
   margin: auto;
   display: block;
+  background: url(../img/icons/play-icon.png) no-repeat center;
   -webkit-transition: -webkit-transform 0.3s;
           transition: transform 0.3s;
 }

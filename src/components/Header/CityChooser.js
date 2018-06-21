@@ -1,21 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import $ from "jquery";
 import {is_mobile} from '../js/main.js'
-
-const city = [
-	{name : "Алматы"},
-	{name : "Астана"},
-	{name : "Шымкент"},
-	{name : "Павлодар"},
-	{name : "Караганды"},
-	{name : "Тараз"},
-	{name : "Кызылорда"},
-	{name : "Актау"},
-	{name : "Атырау"},
-	{name : "Семей"},
-	{name : "Актобе"},
-	{name : "Кокшетау"},
-]
+import * as actionsCity from '../../actions/cityActions';
 
 class CityChooser extends Component {
 
@@ -27,6 +14,10 @@ class CityChooser extends Component {
 			showCity : false,
 		};
 	}
+
+	componentDidMount(){
+    this.props.onGetCity();
+  }
 
   handleOpenCityDialog(){
     this.setState({
@@ -50,7 +41,7 @@ class CityChooser extends Component {
 
 	renderCityDialog(){
 		var separateElements = [];
-		var multiElements = city;
+		var multiElements = this.props.city;
 
 		for(var i = 0; i < multiElements.length; i+=5) {
 	    var oneRow = [];
@@ -94,4 +85,15 @@ class CityChooser extends Component {
   }
 }
 
-export default CityChooser;
+const mapStateToProps = (state) => ({
+  city : state.city.city
+})
+
+const mapDispatchToProps = {
+  onGetCity : actionsCity.getCity
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CityChooser);

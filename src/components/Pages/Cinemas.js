@@ -14,23 +14,16 @@ class Cinemas extends Component {
     this.state = {
       selectedOption: 1,
     };
+    this.handleChangeCity = this.handleChangeCity.bind(this);
   }
 
   componentDidMount(){
-    $(".tabs-content .tab-item").not(":first").hide();
-    $(".tabs-content .tab").click(function() {
-      if($(this).hasClass('active')){return false}
-        else{
-      $(".tabs-content .tab").removeClass('active');
-      $(this).addClass('active')
-      $(".tabs-content .tab-item").hide().eq($(this).index()).fadeIn();
-    }
-    }).eq(0).addClass('active');
     this.props.onGetCinema();
     this.props.onGetCity();
   }
 
-  handleChange = (selectedOption) => {
+  handleChangeCity(selectedOption){
+    console.log(selectedOption);
     this.setState({ selectedOption });
   }
 
@@ -68,8 +61,8 @@ class Cinemas extends Component {
   }
 
   render() {
-    const options = this.props.city.map( city => city.name);
-    console.log(options);
+    let dataCity = [];
+    this.props.city.map( city => dataCity.push({'label' : city.name,'value' : city.uuid}));
     return (
       <div className="content">
         <div className="container">
@@ -80,8 +73,9 @@ class Cinemas extends Component {
               <Select className="selectpicker"
                 name="form-field-name"
                 value={this.state.selectedOption}
-                onChange={this.handleChange}
-                options={ options}
+                onChange={this.handleChangeCity}
+                options={ dataCity}
+                placeholder="Выберите город"
               />
             </div>
           </div>

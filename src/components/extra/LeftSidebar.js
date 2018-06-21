@@ -33,7 +33,6 @@ class LeftSidebar extends Component {
               <Link to=""><img src={require("../../img/static/category/06.jpg")} alt="alt" /></Link>
             </li>
           </ul>
-          <NewsBlock media="desktop"/>
         
         </div>
       </div>

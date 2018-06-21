@@ -1,14 +1,14 @@
 import * as actionTypes from '../constants/actionTypes';
-import * as cityApi from '../api/cityApi';
+import * as promotionApi from '../api/promotionApi';
 
-export const getCity = () => (dispatch, getState) => {
+export const getPromotion = () => (dispatch, getState) => {
 
     dispatch({
-        type: actionTypes.ACTION_GET_CITY_STARTED
+        type: actionTypes.ACTION_GET_PROMOTION_STARTED
     });
 
-    cityApi
-        .getCity()
+    promotionApi
+        .getPromotion()
         .then(
             response => {
               if (response.status !== 200) {
@@ -19,7 +19,7 @@ export const getCity = () => (dispatch, getState) => {
                   } else {
                     console.log("error", response);
                     dispatch({
-                        type: actionTypes.ACTION_GET_CITY_FAILED,
+                        type: actionTypes.ACTION_GET_PROMOTION_FAILED,
                         errorMessage: "Что-то пошло не так :("
                     });
                   }
@@ -30,8 +30,8 @@ export const getCity = () => (dispatch, getState) => {
                         value => {
                             const responseObject = JSON.parse(value);
                             dispatch({
-                                type: actionTypes.ACTION_GET_CITY_SUCCEEDED,
-                                city : responseObject.data
+                                type: actionTypes.ACTION_GET_PROMOTION_SUCCEEDED,
+                                promotion : responseObject.data
                             });
                         }
                     );
@@ -39,7 +39,7 @@ export const getCity = () => (dispatch, getState) => {
             },
             error => {
                 dispatch({
-                    type: actionTypes.ACTION_GET_CITY_FAILED,
+                    type: actionTypes.ACTION_GET_PROMOTION_FAILED,
                     errorMessage: "Не удалось подключиться к сети"
                 })
             },

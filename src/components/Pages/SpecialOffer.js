@@ -1,47 +1,26 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
-const offers = [
-  {
-    img : require("../../img/static/special-offer/02.jpg"),
-    title : "Кино Охота",
-    desc : "Каждую пятницу и субботу - специальные ночные сеансы после полуночи по супер-аппетитным тарифам!",
-  },
-  {
-    img : require("../../img/static/special-offer/03.jpg"),
-    title : "Super Вторник",
-    desc : '"Super Вторник" – супер-выгодное предложение для всех!',
-  },
-  {
-    img : require("../../img/static/special-offer/01.jpg"),
-    title : "Беспредельный понедельник",
-    desc : "«Беспредельный понедельник» - беспредельные эмоции!",
-  },
-  {
-    img : require("../../img/static/special-offer/02.jpg"),
-    title : "Кино Охота",
-    desc : "Каждую пятницу и субботу - специальные ночные сеансы после полуночи по супер-аппетитным тарифам!",
-  },
-  {
-    img : require("../../img/static/special-offer/03.jpg"),
-    title : "Super Вторник",
-    desc : '"Super Вторник" – супер-выгодное предложение для всех!',
-  },
-]
+import * as actions from '../../actions/promotionActions';
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 class SpecialOffer extends Component {
+
+  componentDidMount(){
+    this.props.onGetPromotion();
+  }
 
   renderOffer(offer,index){
     return(
       <div key={index} className="special-offer-container">
         <div className="special-offer-item">
           <div className="item-img">
-            <Link to=""><img src={offer.img} alt="alt" /></Link>
+            <Link to=""><img src={offer.image_url} alt="alt" /></Link>
           </div>
           <div className="item-desc">
-            <h4 className="title"><Link to="">{offer.title}</Link></h4>
+            <h4 className="title"><Link to="">{offer.name}</Link></h4>
             <p className="text">
-              {offer.desc}
+              { ReactHtmlParser(offer.description) }
             </p>
           </div>
         </div>
@@ -59,7 +38,7 @@ class SpecialOffer extends Component {
             <li><Link to="/production-bars">Продукция баров</Link></li>
           </ul>
           <div className="special-offer-content">
-            {offers.map((offer,index) => this.renderOffer(offer,index))}
+            {this.props.promotion.map((offer,index) => this.renderOffer(offer,index))}
           </div>
         </div>
       </div>
@@ -67,4 +46,15 @@ class SpecialOffer extends Component {
   }
 }
 
-export default SpecialOffer;
+const mapStateToProps = (state) => ({
+  promotion : state.promotion.promotion,
+})
+
+const mapDispatchToProps = {
+  onGetPromotion : actions.getPromotion,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SpecialOffer);

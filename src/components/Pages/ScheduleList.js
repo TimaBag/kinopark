@@ -1,124 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Filter from '../extra/Filter';
 import $ from 'jquery';
-
-const films = [
-  {
-    title : "Тайна Коко",
-    cinema : "Кинопарк 6 Спутник",
-    city : "Almaty",
-    age : "12+",
-    version : "Original Ver",
-    sessionTime : [
-      {
-        status : "disabled",
-        time : "10:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      },
-      {
-        time : "12:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        quality : "3D",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      },
-      {
-        time : "19:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      }
-    ],
-    qualities : [
-      {"format" : "3D"},
-      {"format" : "IMAX"},
-      {"format"  : "Laser"},
-    ],
-    description : "«Туған үйім - тірегім» ( «Love you family») фильмі отбасы құндылықтары туралы баяндайды. Үлгілі үнді отбасының шаңырағында туған Хуши есімді бойжеткен, ата-анасының қарсылығына қарамастан, биден дәріс беретін Раджа есімді жігітке ғашық болады. Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
-    actors : "Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
-    director : "Қос ғашық жасырын үйленіп, шаңырақ",
-    year : "2017",
-    start : "14 дек. 2017 г.",
-    continue : "94 мин.",
-    country : "Индия",
-    genre : "мелодрама",
-  },
-  {
-    title : "Логово",
-    cinema : "Кинопарк 6 Спутник",
-    city : "Almaty",
-    age : "12+",
-    version : "Original Ver",
-    sessionTime : [
-      {
-        status : "disabled",
-        time : "10:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      },
-      {
-        time : "12:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        quality : "3D",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      },
-      {
-        time : "19:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      }
-    ],
-    qualities : [
-      {"format" : "3D"},
-      {"format" : "IMAX"},
-      {"format"  : "Laser"},
-    ],
-    description : "«Туған үйім - тірегім» ( «Love you family») фильмі отбасы құндылықтары туралы баяндайды. Үлгілі үнді отбасының шаңырағында туған Хуши есімді бойжеткен, ата-анасының қарсылығына қарамастан, биден дәріс беретін Раджа есімді жігітке ғашық болады. Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
-    actors : "Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
-    director : "Қос ғашық жасырын үйленіп, шаңырақ",
-    year : "2017",
-    start : "14 дек. 2017 г.",
-    continue : "94 мин.",
-    country : "Индия",
-    genre : "мелодрама",
-  },
-]
+import * as actions from '../../actions/scheduleActions';
 
 class ScheduleList extends Component {
 
@@ -140,6 +25,8 @@ class ScheduleList extends Component {
       $(".tabs-content .tab-item").hide().eq($(this).index()).fadeIn();
     }
     }).eq(0).addClass('active');
+
+    this.props.onGetSchedule();
   }
 
   handleOpenMoreDialog(film){
@@ -293,6 +180,7 @@ class ScheduleList extends Component {
   }
 
   render() {
+    console.log(this.props.schedule)
     return (
       <div className="content">
         <div className="container">
@@ -306,15 +194,15 @@ class ScheduleList extends Component {
             <div className="tabs-item-container schedule">
               <div className="tab-item">
                 <Filter activePanel={"list"} link={"schedule"}/>
-                {films.map((film,index) => this.renderFilm(film,index))}
+                {this.props.schedule.map((film,index) => this.renderFilm(film,index))}
               </div>
               <div className="tab-item">
                 <Filter activePanel={"list"} link={"schedule"}/>
-                {films.map((film,index) => this.renderFilm(film,index))}
+                {this.props.schedule.map((film,index) => this.renderFilm(film,index))}
               </div>
               <div className="tab-item">
                 <Filter activePanel={"list"} link={"schedule"}/>
-                {films.map((film,index) => this.renderFilm(film,index))}
+                {this.props.schedule.map((film,index) => this.renderFilm(film,index))}
               </div>
             </div>
           </div>
@@ -325,4 +213,15 @@ class ScheduleList extends Component {
   }
 }
 
-export default ScheduleList;
+const mapStateToProps = (state) => ({
+  schedule : state.schedule.schedule,
+})
+
+const mapDispatchToProps = {
+  onGetSchedule : actions.getSchedule,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ScheduleList);

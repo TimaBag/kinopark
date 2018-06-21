@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
-import Home from '../components/Pages/Home';
-import News from '../components/Pages/News';
-import SpecialOffer from '../components/Pages/SpecialOffer';
-import ProductionBars from '../components/Pages/ProductionBars';
-import ScheduleList from '../components/Pages/ScheduleList';
-import ScheduleTable from '../components/Pages/ScheduleTable';
-import CinemaList from '../components/Pages/CinemaList';
-import CinemaTable from '../components/Pages/CinemaTable';
-import FilmList from '../components/Pages/FilmList';
-import FilmTable from '../components/Pages/FilmTable';
-import Soon from '../components/Pages/Soon';
-import Cinemas from '../components/Pages/Cinemas';
-import Reservation from '../components/Pages/Reservation';
+import Home from '../components/pages/Home';
+import News from '../components/pages/news/News';
+import NewsItem from '../components/pages/news/NewsItem';
+import SpecialOffer from '../components/pages/SpecialOffer';
+import ProductionBars from '../components/pages/ProductionBars';
+import ScheduleList from '../components/pages/ScheduleList';
+import ScheduleTable from '../components/pages/ScheduleTable';
+import CinemaList from '../components/pages/CinemaList';
+import CinemaTable from '../components/pages/CinemaTable';
+import FilmList from '../components/pages/FilmList';
+import FilmTable from '../components/pages/FilmTable';
+import Soon from '../components/pages/Soon';
+import Cinemas from '../components/pages/Cinemas';
+import Reservation from '../components/pages/Reservation';
 
 class Main extends Component {
   render() {
@@ -20,6 +21,7 @@ class Main extends Component {
       <Switch>
         <Route exact path='/' component={Home}/>
         <Route exact path='/news' component={News}/>
+        <Route exact path='/news/:id' component={NewsItem}/>
         <Route exact path='/special-offer' component={SpecialOffer}/>
         <Route exact path='/production-bars' component={ProductionBars}/>
         <Route exact path='/schedulelist' component={ScheduleList}/>
