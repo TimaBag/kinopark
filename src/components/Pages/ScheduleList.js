@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Filter from '../extra/Filter';
 import $ from 'jquery';
+import _ from 'lodash';
 import * as actions from '../../actions/scheduleActions';
 
 class ScheduleList extends Component {
@@ -15,7 +16,7 @@ class ScheduleList extends Component {
     };
   }
 
-  componentDidMount() {
+  componentDidMount(){
     $(".tabs-content .tab-item").not(":first").hide();
     $(".tabs-content .tab").click(function() {
       if($(this).hasClass('active')){return false}
@@ -104,46 +105,63 @@ class ScheduleList extends Component {
     )
   }
 
-  renderFilmSession(session,index){
-    var prices = session.prices.map((price,index) =>
-      <span key={index} className="table-column price">{price.price}</span>
-    )
+
+  renderFilmSession(session,hallName){
+    var sessionTime = new Date(session.start_time).toTimeString().split(' ')[0].substring(0,5);
+    var is_2d = "";
+    var is_3d = "";
+    var is_imax = "";
+    if(session.seance_format.is_2d === true){
+      is_2d = "2D"
+    }
+    if(session.seance_format.is_3d === true){
+      is_3d = " 3D "
+    }
+    if(session.seance_format.is_imax === true){
+      is_imax = "IMAX"
+    }
+    console.log(is_2d);
     return (
-      <li key={index} className="table-row">
+      <li className="table-row">
         <span className="table-column">
-          <Link to="" className={session.status ? "session-time " + session.status : "session-time"}>{session.time}</Link>
+          <Link to="" className={session.status ? "session-time " + session.status : "session-time"}>{sessionTime}</Link>
           {session.quality !== undefined && <span className="quality">{session.quality}</span>}
         </span>
         <span className="table-column">
-          {prices}
+          <span className="table-column price">{session.base_price}</span>
         </span>
         <span className="table-column"></span>
         <span className="table-column">
-          <span className="auditorium"><strong>{session.hall_number}</strong>{session.hall_format}</span>
+          <span className="auditorium"><strong>{hallName}</strong></span>
         </span>
-        <span className="table-column"><span className="format">{session.format}</span></span>
+        <span className="table-column"><span className="format">{is_2d + is_3d + is_imax }</span></span>
         <span className="table-column"><Link to="" className={session.status ? "buy-ticket thunderbird-btn " + session.status : "buy-ticket thunderbird-btn"} >Купить билет</Link></span>
     </li>
 
     )
   }
-  renderFilm(film,index){
+ 
+  renderFilm(film,cityName,cinemaName,hallName){
+    var newData = [];
+    var SeancesData = Object.keys(film.Seances).map(function(key) {
+      newData.push(film.Seances[key]);
+    });
     return (
-      <div key={index} className="films-content">
+      <div className="films-content">
         <div className="film-item-container list">
           <div className="film-item">
             <div className="item-top-panel">
-              <h4 className="title"><Link to="">{film.title}</Link></h4>
+              <h4 className="title"><Link to="">{film.name}</Link></h4>
               <ul className="cinema-city">
-                <li className="cinema">{film.cinema}</li>
-                <li className="city">{film.city}</li>
+                <li className="cinema">{cinemaName}</li>
+                <li className="city">{cityName}</li>
               </ul>
             </div>
             <div className="item-img">
-              <h4 className="title mobile"><Link to="">{film.title}</Link></h4>
-              <div className="age">{film.age}</div>
+              <h4 className="title mobile"><Link to="">{film.name}</Link></h4>
+              <div className="age">{film.age_limitation}</div>
               <div className="version">{film.version}</div>
-              <img src={require("../../img/static/film/01.jpg")} alt="alt" />
+              <img src={film.poster_path} alt="alt" />
               <div className="item-hidden-block">
                 <div className="watch-trailer">
                   <Link to="" className="js-movie-trailer">
@@ -170,7 +188,7 @@ class ScheduleList extends Component {
                   <span className="table-column">Формат</span>
                   <span className="table-column"></span>
                 </li>
-                { film.sessionTime.map((session,index) => this.renderFilmSession(session,index))}
+                {newData.map((data) => this.renderFilmSession(data,hallName))}
               </ul>
             </div>
           </div>
@@ -178,38 +196,85 @@ class ScheduleList extends Component {
       </div>
     )
   }
-
-  render() {
+  renderHalls(items,cityName,cinemaName,hallName){
+    var newData = [];
+    var hallData = Object.keys(items).map(function(key) {
+      newData.push(items[key]);
+    });
+    return(
+      <div>
+        {newData.map((data,index) => this.renderFilm(data,cityName,cinemaName,hallName))}
+      </div>
+    )
+  }
+  renderCinema(items,cityName,cinemaName){
+    var newData = [];
+    var hallNames = [];
+    var cinemaData = Object.keys(items).map(function(key) {
+      hallNames.push(items[key].name);
+      newData.push(items[key].Movies);
+    });
+    return(
+      <div>
+        {newData.map((data,index) => this.renderHalls(data,cityName,cinemaName,hallNames[index]))}
+      </div>
+    )
+  }
+  renderCity(items,cityName){
+    var newData = [];
+    var cinemaNames = [];
+    var cityData = Object.keys(items).map(function(key) {
+      cinemaNames.push(items[key].name);
+      newData.push(items[key].Halls);
+    });
+    return(
+      <div>
+        {newData.map((data,index) => this.renderCinema(data,cityName,cinemaNames[index]))}
+      </div>
+    )
+  }
+  render(){
     console.log(this.props.schedule)
-    return (
-      <div className="content">
-        <div className="container">
-          <h1>Расписание</h1>
-          <div className="tabs-content">
-            <ul className="tabs-content-name schedule">
-              <li className="tab active">сегодня</li>
-              <li className="tab">Завтра</li>
-              <li className="tab">скоро</li>
-            </ul>
-            <div className="tabs-item-container schedule">
-              <div className="tab-item">
-                <Filter activePanel={"list"} link={"schedule"}/>
-                {this.props.schedule.map((film,index) => this.renderFilm(film,index))}
-              </div>
-              <div className="tab-item">
-                <Filter activePanel={"list"} link={"schedule"}/>
-                {this.props.schedule.map((film,index) => this.renderFilm(film,index))}
-              </div>
-              <div className="tab-item">
-                <Filter activePanel={"list"} link={"schedule"}/>
-                {this.props.schedule.map((film,index) => this.renderFilm(film,index))}
+    if(this.props.schedule.length !== 0){
+      const schedule = this.props.schedule;
+      var newData = [];
+      var cityNames = []
+      var scheduleCinema = Object.keys(schedule).map(function(key) {
+        newData.push(schedule[key].Cinemas);
+        cityNames.push(schedule[key].name);
+      });
+      return (
+        <div className="content">
+          <div className="container">
+            <h1>Расписание</h1> 
+            <div className="tabs-content">
+              <ul className="tabs-content-name schedule">
+                <li className="tab active">сегодня</li>
+                <li className="tab">Завтра</li>
+                <li className="tab">скоро</li>
+              </ul>
+              <div className="tabs-item-container schedule">
+                <div className="tab-item">
+                  <Filter activePanel="list" link="schedule"/>
+                  {newData.map((data,index) => this.renderCity(data,cityNames[index]))}
+                </div>
+                <div className="tab-item">
+                  <Filter activePanel="list" link="schedule"/>
+                  {newData.map((data,index) => this.renderCity(data,cityNames[index]))}
+                </div>
+                <div className="tab-item">
+                  <Filter activePanel="list" link="schedule"/>
+                  {newData.map((data,index) => this.renderCity(data,cityNames[index]))}
+                </div>
               </div>
             </div>
           </div>
+          {this.state.showMore && this.renderMoreDialog()}
         </div>
-        {this.state.showMore && this.renderMoreDialog()}
-      </div>
-    )
+      )
+    }else{
+      return(<div></div>)
+    }
   }
 }
 
