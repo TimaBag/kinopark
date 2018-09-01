@@ -128,7 +128,6 @@ class Home extends Component {
 
   renderMoreDialog(){
     const {dialogFilm} = this.state;
-    console.log(dialogFilm)
     var seanceFormat = [];
     var hallFormat = []
     let date  = new Date(dialogFilm.release_date);
@@ -153,17 +152,17 @@ class Home extends Component {
             <div className="modal-popup-left">
               <div className="modal-popup-img">
                 {dialogFilm.age_limitation.length !== 0 && <div className="age">{dialogFilm.age_limitation}</div>}
-                <img src={require("../../img/static/modal-popup/01.jpg")} alt="alt" />
-                  <div className="watch-trailer">
-                    <Link to="" className="js-movie-trailer" onClick={(e) => this.handleOpenTrailer(e,dialogFilm.trailer_link_ru)}>
-                      <span className="icon-player"></span>
-                      Смотреть трейлер
-                    </Link>
-                  </div>
+                <img src={dialogFilm.poster_path} alt="alt" />
+                <div className="watch-trailer">
+                  <Link to="" className="js-movie-trailer" onClick={(e) => this.handleOpenTrailer(e,dialogFilm.trailer_link_ru)}>
+                    <span className="icon-player"></span>
+                    Смотреть трейлер
+                  </Link>
                 </div>
-                <div className="modal-popup-buy-ticket">
-                  <Link to="" className="thunderbird-btn">Купить билет</Link>
-                </div>
+              </div>
+              <div className="modal-popup-buy-ticket">
+                <Link to={"filmlist/"+dialogFilm.uuid} className="thunderbird-btn">Купить билет</Link>
+              </div>
             </div>
             <div className="modal-popup-desc">
               <ul className="film-characteristics">
@@ -192,7 +191,7 @@ class Home extends Component {
                 <span className="bold">Режисерский состав::</span> {dialogFilm.directors}
               </p>
               <div className="schedule-btn">
-                <Link to="">Расписание</Link>
+                <Link to={"filmlist/"+dialogFilm.uuid}>Расписание</Link>
               </div>
             </div>
           </div>
@@ -252,7 +251,7 @@ class Home extends Component {
           {film.seance_format && film.seance_format.is_original_version && <div className="version">Original Ver</div>}
           <div className="item-img">
             <Link to=""></Link>
-            <img src={require("../../img/static/film/01.jpg")} alt="alt"/>
+            <img src={film.poster_path} alt="alt"/>
             <div className="item-hidden-block">
               <div className="watch-trailer">
                 <Link to="" className="js-movie-trailer" onClick={(e) => this.handleOpenTrailer(e,film.trailer_link_ru)}>
@@ -268,7 +267,7 @@ class Home extends Component {
           <ul className="film-format">
             {/*listFormat*/}
           </ul>
-          <h4 className="title"><Link to="">{film.name}</Link></h4>
+          <h4 className="title"><Link to={"filmlist/"+film.uuid}>{film.name}</Link></h4>
           <div className="view-all-sessions">
             <Link to="#" className="js-view-all-sessions">Смотреть все сеансы</Link>
           </div>

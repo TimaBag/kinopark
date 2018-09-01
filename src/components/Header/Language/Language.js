@@ -14,7 +14,7 @@ class Language extends Component {
       <div className={"language-switch-block " + this.props.media}>
         <ul className="language-switch">
           <li><Link to="#" className="active">rus</Link></li>
-          <li><Link to="#">eng</Link></li>
+          <li><Link to="#" >eng</Link></li>
         </ul>
       </div>
     )

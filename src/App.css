@@ -1,0 +1,40 @@
+.hidden_text,.hidden_text p{
+  overflow: hidden;
+  height: 55px;
+  width: 100%;
+}
+.btn_link{
+  cursor: pointer;
+  color: #262729;
+  transition: color 0.3s, border-bottom-color 0.3s;
+}
+.btn_link:hover{
+  color: #C42121;
+}
+.selectpicker {
+  z-index: 1000;
+}
+.js-movie-trailer{
+  color: #fff;
+  border-bottom: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.js-view-all-sessions{
+  color: #fff;
+  cursor: pointer;
+}
+.text-input-time,.text-input-time:focus{
+  width: 100%;
+  background-color: white;
+  border: 2px solid #e3e5ea;
+  padding: 5px 0 5px 15px;
+  display: flex;
+  align-items: center;
+  -webkit-transition: border 0.3s;
+  -o-transition: border 0.3s;
+  transition: border 0.3s;
+}
+..Select-input{
+  height: 34px;
+}

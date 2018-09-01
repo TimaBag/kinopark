@@ -87,7 +87,7 @@ class Soon extends Component {
                   </div>
                 </div>
                 <div className="modal-popup-buy-ticket">
-                  <Link to="" className="thunderbird-btn">Купить билет</Link>
+                  <Link to={"filmlist/"+dialogFilm.uuid} className="thunderbird-btn">Купить билет</Link>
                 </div>
             </div>
             <div className="modal-popup-desc">
@@ -166,7 +166,7 @@ class Soon extends Component {
           <div className="container">
             <h1>Скоро</h1>
             <div className="films-content">
-              {this.props.movie_soon.map((film) => this.renderFilm(film))}
+              {this.props.movie_soon && this.props.movie_soon.map((film) => this.renderFilm(film))}
             </div>
           </div>
           {this.state.showMore && this.renderMoreDialog()}

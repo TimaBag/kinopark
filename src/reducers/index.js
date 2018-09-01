@@ -5,6 +5,7 @@ import movieReducer from './movieReducer';
 import newsReducer from './newsReducer';
 import scheduleReducer from './scheduleReducer';
 import promotionReducer from './promotionReducer';
+import hallReducer from './hallReducer';
 
 const mainReducer = combineReducers({
 	cinema : cinemaReducer,
@@ -12,7 +13,8 @@ const mainReducer = combineReducers({
 	movie : movieReducer,
 	news : newsReducer,
 	schedule : scheduleReducer,
-	promotion : promotionReducer
+	promotion : promotionReducer,
+	hall : hallReducer
 });
 
 export default mainReducer;

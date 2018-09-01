@@ -26,6 +26,7 @@ const movieCurrentPage = (state = 1, action) => {
 const movie = (state = [], action) => {
   switch (action.type) {
     case actionTypes.ACTION_GET_MOVIE_SUCCEEDED:
+    case actionTypes.ACTION_GET_MOVIE_WITH_CINEMA_SUCCEEDED:
       return action.movie.data;
     case actionTypes.ACTION_GET_MOVIE_STARTED:
     case actionTypes.ACTION_GET_MOVIE_FAILED:
@@ -100,6 +101,17 @@ const movie_soon = (state = [], action) => {
   }
 };
 
+const movie_show = (state = [], action) => {
+  switch (action.type) {
+    case actionTypes.ACTION_GET_MOVIE_SHOW_SUCCEEDED:
+      return action.movie_show;
+    case actionTypes.ACTION_GET_MOVIE_SHOW_STARTED:
+    case actionTypes.ACTION_GET_MOVIE_SHOW_FAILED:
+    default:
+      return state;
+  }
+};
+
 const movieReducer = combineReducers({ 
   movie,
   moviePages,
@@ -109,7 +121,8 @@ const movieReducer = combineReducers({
   movieTomorrowCurrentPage,
   movie_soon,
   movieSoonPages,
-  movieSoonCurrentPage
+  movieSoonCurrentPage,
+  movie_show
 });
 
 export default movieReducer;

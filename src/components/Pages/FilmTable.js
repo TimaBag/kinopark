@@ -210,19 +210,19 @@ class FilmTable extends Component {
             </ul>
             <div className="tabs-item-container schedule tabs-item-container-mod">
               <div className="tab-item">
-                <Filter activePanel={"table"} link={"film"} />
+                <Filter activePanel={"table"} link={"filmlist/"+this.props.match.params.uuid} />
                 <div className="cinemas-content">
                   {films.map((schedule,index) => this.renderSchedule(schedule,index))}
                 </div>
               </div>
               <div className="tab-item">
-                <Filter activePanel={"table"} link={"film"} />
+                <Filter activePanel={"table"} link={"filmlist/"+this.props.match.params.uuid} />
                 <div className="cinemas-content">
                   {films.map((schedule,index) => this.renderSchedule(schedule,index))}
                 </div>
               </div>
               <div className="tab-item">
-                <Filter activePanel={"table"} link={"film"} />
+                <Filter activePanel={"table"} link={"filmlist/"+this.props.match.params.uuid} />
                 <div className="cinemas-content">
                   {films.map((schedule,index) => this.renderSchedule(schedule,index))}
                 </div>

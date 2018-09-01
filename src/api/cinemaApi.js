@@ -14,3 +14,29 @@ export const getCinema = () => (
         }
     )
 );
+
+export const getCinemaShow = (cinema) => (
+    fetch(
+        getCinemaUrl+"/"+cinema,
+        {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+        }
+    )
+);
+
+export const getCinemaWithCity = (city) => (
+    fetch(
+        getCinemaUrl+"?city="+city,
+        {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+        }
+    )
+);

@@ -12,19 +12,25 @@ class Cinemas extends Component {
   constructor(props){
     super(props);
     this.state = {
-      selectedOption: 1,
+      selectedOption: localStorage.getItem("city") !== null ? localStorage.getItem("city") : "",
     };
     this.handleChangeCity = this.handleChangeCity.bind(this);
   }
 
+  // спросить про меняющии uuid в городе
+
   componentDidMount(){
-    this.props.onGetCinema();
+    if(localStorage.getItem("city") !== null){
+      this.props.onGetCinemaWithCity(localStorage.getItem("city"));
+    }else{
+      this.props.onGetCinema();
+    }
     this.props.onGetCity();
   }
 
   handleChangeCity(selectedOption){
-    console.log(selectedOption);
     this.setState({ selectedOption });
+    this.props.onGetCinemaWithCity(selectedOption.value);
   }
 
   renderCinemaList(cinema,index){
@@ -32,7 +38,7 @@ class Cinemas extends Component {
       <div key={index} className="movie-house-container">
         <div className="movie-house-item">
           <div className="item-img">
-            <img src={cinema.img} alt="alt" />
+            <img src={cinema.photo_path} alt="alt" />
           </div>
           <div className="item-desc">
             <div className="title-and-city">
@@ -48,7 +54,7 @@ class Cinemas extends Component {
                 <span key={index} className="phone-number">{cinema.phone}</span>
               </li>
               <li>
-                <i className="fa fa-calendar"></i><Link to="/cinemalist">Сеансы</Link>
+                <i className="fa fa-calendar"></i><Link to={"/cinemalist/city/"+cinema.city.uuid+"/id/"+cinema.uuid+"/"}>Сеансы</Link>
               </li>
               <li>
                 <i className="fa fa-star"></i><Link to="">Спец. предложения</Link>
@@ -95,6 +101,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   onGetCinema : actions.getCinema,
+  onGetCinemaWithCity : actions.getCinemaWithCity,
   onGetCity : actionsCity.getCity
 };
 
