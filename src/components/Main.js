@@ -14,6 +14,7 @@ import FilmTable from '../components/pages/FilmTable';
 import Soon from '../components/pages/Soon';
 import Cinemas from '../components/pages/Cinemas';
 import Reservation from '../components/pages/Reservation';
+import ReservationTwo from '../components/pages/ReservationTwo';
 import Premium from '../components/pages/Premium';
 import OnlineSales from '../components/pages/OnlineSales';
 import Restoranov from '../components/pages/Restoranov';
@@ -38,7 +39,8 @@ class Main extends Component {
         <Route exact path='/cinematable/city/:city_uuid/id/:uuid/' component={CinemaTable}/>
         <Route exact path='/filmlist/:uuid' component={FilmList}/>
         <Route exact path='/filmtable/:uuid' component={FilmTable}/>
-        <Route exact path='/reservation' component={Reservation}/>
+        <Route exact path='/reservation/:uuid/' component={Reservation}/>
+        <Route exact path='/reservation-2' component={ReservationTwo}/>
         <Route exact path='/premium' component={Premium}/>
         <Route exact path='/online-sales' component={OnlineSales}/>
         <Route exact path='/park-restoranov' component={Restoranov}/>

@@ -236,6 +236,9 @@ class CinemaTable extends Component {
     var SeancesData = Object.keys(film.Seances).map(function(key) {
       newData.push(film.Seances[key]);
     });
+    newData.sort(function(a,b){
+      return a.start_time.localeCompare(b.start_time);
+    });
     return(
       <div className="film-item-container table">
         <div className="film-item">

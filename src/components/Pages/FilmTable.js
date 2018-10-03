@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Filter from '../extra/Filter';
 import $ from 'jquery';
+import * as actionsMovie from '../../actions/movieActions';
+import * as actionsSchedule from '../../actions/scheduleActions';
 
 const films = [
   {
@@ -235,4 +238,17 @@ class FilmTable extends Component {
   }
 }
 
-export default FilmTable;
+const mapStateToProps = (state) => ({
+  movie_show : state.movie.movie_show,
+  schedule : state.schedule.schedule,
+})
+
+const mapDispatchToProps = {
+  onGetMovieShow : actionsMovie.getMovieShow,
+  onGetSchedule : actionsSchedule.getSchedule,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FilmTable);

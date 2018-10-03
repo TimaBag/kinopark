@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import LeftSidebar from '../extra/LeftSidebar';
 import Slider from '../extra/Slider';
+import moment from 'moment';
 import $ from 'jquery';
+
 import * as actionsMovie from '../../actions/movieActions';
 
 
@@ -280,6 +282,8 @@ class Home extends Component {
     )
   }
   render() {
+    var date = moment.utc().local().format('YYYY-MM-DD HH:mm:ss');
+    console.log(date);
     return (
       <div className="content-end-sidebar">
         <div className="container">

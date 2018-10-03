@@ -76,7 +76,7 @@ class FilmList extends Component {
           <span className="auditorium"><strong>{hallName}</strong>{time.hall_format}</span>
         </span>
         <span className="table-column"><span className="format">{time.format}</span></span>
-        <span className="table-column"><Link to="" className="buy-ticket thunderbird-btn disabled">Купить билет</Link></span>
+        <span className="table-column"><Link to={"/reservation/"+time.uuid} className="buy-ticket thunderbird-btn">Купить билет</Link></span>
       </li>
     )
   }
@@ -85,6 +85,9 @@ class FilmList extends Component {
     var newData = [];
     var SeancesData = Object.keys(schedule.Seances).map(function(key) {
       newData.push(schedule.Seances[key]);
+    });
+    newData.sort(function(a,b){
+      return a.start_time.localeCompare(b.start_time);
     });
     return(
       <div key={index} className="cinema-item-container list">

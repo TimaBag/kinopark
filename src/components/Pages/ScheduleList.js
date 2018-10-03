@@ -51,7 +51,6 @@ class ScheduleList extends Component {
   }
 
   handleOpenMoreDialog(film){
-    console.log(film)
     this.setState({
       showMore : true,
       dialogFilm : film,
@@ -181,7 +180,7 @@ class ScheduleList extends Component {
           <span className="auditorium"><strong>{hallName}</strong></span>
         </span>
         <span className="table-column"><span className="format">{is_2d + is_3d + is_imax }</span></span>
-        <span className="table-column"><Link to="" className={session.status ? "buy-ticket thunderbird-btn " + session.status : "buy-ticket thunderbird-btn"} >Купить билет</Link></span>
+        <span className="table-column"><Link to={"/reservation/"+session.uuid} className={session.status ? "buy-ticket thunderbird-btn " + session.status : "buy-ticket thunderbird-btn"} >Купить билет</Link></span>
     </li>
 
     )
@@ -192,6 +191,11 @@ class ScheduleList extends Component {
     var SeancesData = Object.keys(film.Seances).map(function(key) {
       newData.push(film.Seances[key]);
     });
+    
+    newData.sort(function(a,b){
+      return a.start_time.localeCompare(b.start_time);
+    });
+
     return (
       <div key={film.name} className="films-content">
         <div className="film-item-container list">

@@ -1,7 +1,10 @@
 import React,{Component} from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import MaskedInput from 'react-text-mask';
+import * as seanceActions from '../../actions/seanceActions';
+
 
 class Reservation extends Component {
   constructor(props){
@@ -56,7 +59,7 @@ class Reservation extends Component {
         return false;
       });
     });
-
+    this.props.onGetSeance(this.props.match.params.uuid)
   }
   changePhone(e){
     var phoneRegex = /^[+][0-9]{1} \([0-9]{3}\)\s[0-9]{3} [0-9]{2} [0-9]{2}$/;
@@ -86,6 +89,7 @@ class Reservation extends Component {
     }
   }
   render(){
+    const {seance} = this.props;
     return(
       <div className="content">
         <div className="container">
@@ -96,7 +100,7 @@ class Reservation extends Component {
               <li><Link to="">2 шаг</Link></li>
               <li><Link to="">3 шаг</Link></li>
             </ul>
-            <h3 className="title">Звёздные Войны: Последние джедаи</h3>
+            <h3 className="title">{seance.name}</h3>
             <ul className="film-info-list">
               <li><span className="bold">Кинопарк 6 Спутник</span><span className="city">Алматы</span></li>
               <li><span className="bold">Зал:</span>4</li>
@@ -133,7 +137,7 @@ class Reservation extends Component {
                   <div className="tickets-item-content">
                     <input type="text" value="1" className="product-count" />
                     <div className="price-and-counter">
-                      <span className="price">1000 тг</span>
+                      <span className="price">{seance.base_price}</span>
                       <div className="wrapper-counter-btn">
                         <button className="counter-back">−</button>
                         <button className="counter-forward">+</button>
@@ -146,7 +150,7 @@ class Reservation extends Component {
                   <div className="tickets-item-content">
                     <input type="text" value="1" className="product-count" />
                     <div className="price-and-counter">
-                      <span className="price">1000 тг</span>
+                      <span className="price">{seance.base_price}</span>
                       <div className="wrapper-counter-btn">
                         <button className="counter-back">−</button>
                         <button className="counter-forward">+</button>
@@ -159,7 +163,7 @@ class Reservation extends Component {
                   <div className="tickets-item-content">
                     <input type="text" value="1" className="product-count" />
                     <div className="price-and-counter">
-                      <span className="price">1000 тг</span>
+                      <span className="price">{seance.base_price}</span>
                       <div className="wrapper-counter-btn">
                         <button className="counter-back">−</button>
                         <button className="counter-forward">+</button>
@@ -184,4 +188,15 @@ class Reservation extends Component {
   }
 }
 
-export default Reservation;
+const mapStateToProps = (state) => ({
+  seance : state.seance.seance,
+})
+
+const mapDispatchToProps = {
+  onGetSeance : seanceActions.getSeance,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Reservation);
