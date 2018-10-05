@@ -2919,53 +2919,14 @@ class ReservationTwo extends Component {
         newHallMap[seat.GridY][seat.GridX] = seat;
       }
     )
-    newHallMap.sort(
-      function(a,b){return a - b}
-    );  
     
-    for(var i = 1, i <= y; i++){
-      if
-    }
-
-
-    /*foreach($result['Seats'] as $seat) {
-
-        if(ends_with($seat['SeatText'], 'и')) {
-            $seat['type'] = 'wheelchair';
-            $seat['SeatText'] = (int)$seat['SeatText'];
-        } else {
-            $seat['type'] = 'standard';
+    {
+      for(var i = 0; i < newHallMap.length;i++){
+        for(var j = 0; j < newHallMap[i].length;j++){
+          console.log(newHallMap[i][j]);
         }
-
-        if($seat['GridY'] > $y) $y = $seat['GridY'];
-        if($seat['GridX'] > $x) $x = $seat['GridX'];
-
-
-        $hallmap[$seat['GridY']][$seat['GridX']] = $seat;
+      }
     }
-    ksort($hallmap,SORT_NUMERIC);
-
-    $first = head(head($hallmap))['RowText'];
-
-     
-
-    for($i=1; $i<=$y; $i++) {
-        if(!isset($hallmap[$i])) $hallmap[$i] = [];
-        for($j=1;$j<=$x; $j++) {
-            if(!isset($hallmap[$i][$j])) {
-                $hallmap[$i][$j] = [];
-                $hallmap[$i][$j]['type'] = 'blank';
-            }
-        }
-        ksort($hallmap[$i]);
-    }
-
-    ksort($hallmap,SORT_NUMERIC);
-
-    $result['map'] = $hallmap;
-    $result['screen'] = $screen;
-
-    return $result;*/
     return (
       <div className="content">
         <div className="container">
@@ -2989,7 +2950,22 @@ class ReservationTwo extends Component {
             <form action="#" class="reservation-form">
               <div class="wrapper-choice-place-cinema">
                 <table class="choice-place-cinema">
-
+                  {
+                    newHallMap.map((elem,index)=>
+                    {
+                      return(
+                        <tr>
+                        {
+                          newHallMap[index].map((in_elem,index_b)=>{
+                            return(
+                              <td className={newHallMap[index][index_b] === undefined ? "column-hidden" : ""}/>
+                            );
+                          })
+                        }
+                        </tr>
+                      )
+                    })
+                  }
                 </table>
               </div>
             </form>
