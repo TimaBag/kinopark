@@ -3457,7 +3457,7 @@ h3 {
 }
 
 .choice-place-cinema {
-  margin-left: 7em;
+  margin:0 auto;
   border-collapse: inherit;
   border-spacing: 3px;
 }
