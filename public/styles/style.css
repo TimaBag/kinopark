@@ -3856,3 +3856,9 @@ h3 {
       -ms-transform: scale(1.1);
           transform: scale(1.1);
 }
+.el_block{
+  display: block!important;
+}
+.el_red{
+  background-color:#E3000F!important;
+}

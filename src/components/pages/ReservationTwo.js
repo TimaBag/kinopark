@@ -2656,6 +2656,8 @@ class ReservationTwo extends Component {
     super(props);
     this.state = {
       currentPlace : null,
+      currentRow: "",
+      currentColumn: ""
     }
     this.handleClickChoose = this.handleClickChoose.bind(this);
   }
@@ -2671,8 +2673,11 @@ class ReservationTwo extends Component {
     return sortedObj;
   }
 
-  handleClickChoose(elem){
-    
+  handleClickChoose(e,item){
+    this.setState({
+      currentColumn: item.GridY,
+      currentRow: item.GridX
+    })
   }
 
   render() {
@@ -2731,11 +2736,11 @@ class ReservationTwo extends Component {
                         {
                           newHallMap[index].map((in_elem,index_b)=>{
                             return(
-                              <td className={newHallMap[index][index_b].type === "blank" ? "column-hidden" : ""} onClick={this.handleClickChoose(newHallMap[index][index_b])}>
-                                <i className="fa fa-user"></i>
+                              <td className={newHallMap[index][index_b].type === "blank" ? "column-hidden" : ""} onClick={(e) => this.handleClickChoose(e,newHallMap[index][index_b])}>
+                                <i className={(this.state.currentColumn === index && this.state.currentRow === index_b) ? "fa fa-user el_red" : "fa fa-user"}></i>
                                 <span className="prompt-window prompt-window-desktop">
-                                  Ряд: <span className="bold">3</span><br/>
-                                  Место <span className="bold">5</span>
+                                  Ряд: <span className="bold">{index}</span><br/>
+                                  Место <span className="bold">{index_b}</span>
                                 </span>
                               </td>
                             );

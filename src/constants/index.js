@@ -1,1 +1,1 @@
-export const SERVER_URL = 'https://still-chamber-81947.herokuapp.com/api/'
+export const SERVER_URL = 'http://test.afisha.api.kinopark.kz:4711/api/'
