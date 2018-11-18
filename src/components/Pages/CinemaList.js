@@ -4,11 +4,9 @@ import { Link } from 'react-router-dom';
 import FilterFilm from '../extra/FilterFilm';
 import SliderSlick from "react-slick";
 import $ from 'jquery';
-import _ from 'lodash';
 import Loader from 'react-loader';
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import ReactHtmlParser from 'react-html-parser';
 import * as actions from '../../actions/cinemaActions';
-import * as actionsCity from '../../actions/cityActions';
 import * as actionsSchedule from '../../actions/scheduleActions';
 
 const settings = {
@@ -89,7 +87,7 @@ class CinemaList extends Component {
     return(
       <div className="modal-container modal-container-2">
         <div className="modal-popup-movie-trailer">
-          <iframe width={520} height={340} src={trailerLink} frameBorder="0" allowFullScreen></iframe>
+          <iframe title="trailer iframe" width={520} height={340} src={trailerLink} frameBorder="0" allowFullScreen></iframe>
           <div className="modal-close" onClick={(e) => this.handleCloseTrailer(e)}>&#215;</div>
         </div>
       </div>
@@ -208,9 +206,9 @@ class CinemaList extends Component {
 
   renderFilm(film,cityName,cinemaName,hallName){
     var newData = [];
-    var SeancesData = Object.keys(film.Seances).map(function(key) {
-      newData.push(film.Seances[key]);
-    });
+    // var SeancesData = Object.keys(film.Seances).map(function(key) {
+    //   newData.push(film.Seances[key]);
+    // });
     newData.sort(function(a,b){
       return a.start_time.localeCompare(b.start_time);
     });
@@ -263,9 +261,9 @@ class CinemaList extends Component {
 
   renderHalls(items,cityName,cinemaName,hallName){
     var newData = [];
-    var hallData = Object.keys(items).map(function(key) {
-      newData.push(items[key]);
-    });
+    // var hallData = Object.keys(items).map(function(key) {
+    //   newData.push(items[key]);
+    // });
     return(
       <div>
         {newData.map((data,index) => this.renderFilm(data,cityName,cinemaName,hallName))}
@@ -275,10 +273,10 @@ class CinemaList extends Component {
   renderCinema(items,cityName,cinemaName){
     var newData = [];
     var hallNames = [];
-    var cinemaData = Object.keys(items).map(function(key) {
-      hallNames.push(items[key].name);
-      newData.push(items[key].Movies);
-    });
+    // var cinemaData = Object.keys(items).map(function(key) {
+    //   hallNames.push(items[key].name);
+    //   newData.push(items[key].Movies);
+    // });
     return(
       <div>
         {newData.map((data,index) => this.renderHalls(data,cityName,cinemaName,hallNames[index]))}
@@ -288,10 +286,10 @@ class CinemaList extends Component {
   renderCity(items,cityName){
     var newData = [];
     var cinemaNames = [];
-    var cityData = Object.keys(items).map(function(key) {
-      cinemaNames.push(items[key].name);
-      newData.push(items[key].Halls);
-    });
+    // var cityData = Object.keys(items).map(function(key) {
+    //   cinemaNames.push(items[key].name);
+    //   newData.push(items[key].Halls);
+    // });
     return(
       <div>
         {newData.map((data,index) => this.renderCinema(data,cityName,cinemaNames[index]))}
@@ -307,10 +305,10 @@ class CinemaList extends Component {
     const cinema_uuid = this.props.match.params.uuid;
     var newData = [];
     var cityNames = []
-    var scheduleCinema = Object.keys(schedule).map(function(key) {
-      newData.push(schedule[key].Cinemas);
-      cityNames.push(schedule[key].name);
-    });
+    // var scheduleCinema = Object.keys(schedule).map(function(key) {
+    //   newData.push(schedule[key].Cinemas);
+    //   cityNames.push(schedule[key].name);
+    // });
     return (
       <div className="content">
         <div className="container">

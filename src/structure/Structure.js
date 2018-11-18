@@ -6,9 +6,7 @@ import Footer from '../components/Footer/Footer';
 import $ from 'jquery';
 
 class AppRouter extends Component{
-  constructor(props){
-    super(props);
-  }
+  
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
     $('.scroll-to-top').on('click', function() {

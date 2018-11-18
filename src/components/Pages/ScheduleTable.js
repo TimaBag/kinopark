@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Filter from '../extra/Filter';
 import $ from 'jquery';
-import _ from 'lodash';
 import * as actions from '../../actions/scheduleActions';
 
 class ScheduleTable extends Component {
@@ -26,7 +25,7 @@ class ScheduleTable extends Component {
     }
     $('.js-view-all-sessions').on("click", function() {
       if($(window).width() > 768){
-         if ($(this).html() == 'Свернуть сеансы') {
+         if ($(this).html() === 'Свернуть сеансы') {
           $(this).parents('.film-item').find('.hidden-block').removeClass('visible-block')
           $(this).text('Смотреть все сеансы');
         } else {
@@ -37,7 +36,7 @@ class ScheduleTable extends Component {
           $('.film-item-container .session-time-list').slideUp()
           $(this).parents('.film-item-container').siblings().find('.view-all-sessions a').text('Сеансы');
           $(this).parents('.film-item-container').siblings().find('.view-all-sessions').css('backgroundColor','#C42121');
-         if ($(this).html() == 'Спрятать сеансы') {
+         if ($(this).html() === 'Спрятать сеансы') {
           $(this).parents('.film-item-container').find('.session-time-list').slideUp()
           $(this).text('Сеансы');
           $(this).parent().css('backgroundColor','#C42121')
@@ -96,7 +95,7 @@ class ScheduleTable extends Component {
     return(
       <div className="modal-container modal-container-2">
         <div className="modal-popup-movie-trailer">
-          <iframe width={520} height={340} src={trailerLink} frameBorder="0" allowFullScreen></iframe>
+          <iframe title="trailer iframe" width={520} height={340} src={trailerLink} frameBorder="0" allowFullScreen></iframe>
           <div className="modal-close" onClick={(e) => this.handleCloseTrailer(e)}>&#215;</div>
         </div>
       </div>
@@ -180,18 +179,10 @@ class ScheduleTable extends Component {
 
   renderFilmSession(session,hallName,index){
     var sessionTime = new Date(session.start_time).toTimeString().split(' ')[0].substring(0,5);
-    var is_2d = "";
-    var is_3d = "";
-    var is_imax = "";
-    if(session.seance_format.is_2d === true){
-      is_2d = "2D"
-    }
-    if(session.seance_format.is_3d === true){
-      is_3d = " 3D "
-    }
-    if(session.seance_format.is_imax === true){
-      is_imax = "IMAX"
-    }
+    // let is_2d = (session.seance_format.is_2d === true)?"2D":"";
+    // let is_3d = (session.seance_format.is_3d === true)?" 3D ":"";
+    // let is_imax = (session.seance_format.is_imax === true)?"IMAX":"";
+    
     if(index <= 8){
       return(
         <li key={index}>
@@ -211,9 +202,9 @@ class ScheduleTable extends Component {
 
   renderFilm(film,cityName,cinemaName,hallName){
     var newData = [];
-    var SeancesData = Object.keys(film.Seances).map(function(key) {
-      newData.push(film.Seances[key]);
-    });
+    // var SeancesData = Object.keys(film.Seances).map(function(key) {
+    //   newData.push(film.Seances[key]);
+    // });
 
     newData.sort(function(a,b){
       return a.start_time.localeCompare(b.start_time);
@@ -271,18 +262,18 @@ class ScheduleTable extends Component {
   }
   renderHalls(items,cityName,cinemaName,hallName){
     var newData = [];
-    var hallData = Object.keys(items).map(function(key) {
-      newData.push(items[key]);
-    });
+    // var hallData = Object.keys(items).map(function(key) {
+    //   newData.push(items[key]);
+    // });
     return newData.map((data,index) => this.renderFilm(data,cityName,cinemaName,hallName))
   }
   renderCinema(items,cityName,cinemaName){
     var newData = [];
     var hallNames = [];
-    var cinemaData = Object.keys(items).map(function(key) {
-      hallNames.push(items[key].name);
-      newData.push(items[key].Movies);
-    });
+    // var cinemaData = Object.keys(items).map(function(key) {
+    //   hallNames.push(items[key].name);
+    //   newData.push(items[key].Movies);
+    // });
     return(
       <div className="cinema_block films-content">
         {newData.map((data,index) => this.renderHalls(data,cityName,cinemaName,hallNames[index]))}
@@ -292,10 +283,10 @@ class ScheduleTable extends Component {
   renderCity(items,cityName){
     var newData = [];
     var cinemaNames = [];
-    var cityData = Object.keys(items).map(function(key) {
-      cinemaNames.push(items[key].name);
-      newData.push(items[key].Halls);
-    });
+    // var cityData = Object.keys(items).map(function(key) {
+    //   cinemaNames.push(items[key].name);
+    //   newData.push(items[key].Halls);
+    // });
     return(
       <div className="city_block">
         {newData.map((data,index) => this.renderCinema(data,cityName,cinemaNames[index]))}
@@ -304,13 +295,13 @@ class ScheduleTable extends Component {
   }
   render() {
     if(this.props.schedule.length !== 0){
-      const schedule = this.props.schedule;
+      // const schedule = this.props.schedule;
       var newData = [];
       var cityNames = []
-      var scheduleCinema = Object.keys(schedule).map(function(key) {
-        newData.push(schedule[key].Cinemas);
-        cityNames.push(schedule[key].name);
-      });
+      // var scheduleCinema = Object.keys(schedule).map(function(key) {
+      //   newData.push(schedule[key].Cinemas);
+      //   cityNames.push(schedule[key].name);
+      // });
       return (
         <div className="content">
           <div className="container">

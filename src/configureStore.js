@@ -16,14 +16,14 @@ const loadState = () => {
   }
 };
 
-const saveState = state => {
-  try {
-    const serializedState = JSON.stringify(state);
-    localStorage.setItem('state', serializedState);
-  } catch (err) {
-    // Ignore write errors.
-  }
-};
+// const saveState = state => {
+//   try {
+//     const serializedState = JSON.stringify(state);
+//     localStorage.setItem('state', serializedState);
+//   } catch (err) {
+//     // Ignore write errors.
+//   }
+// };
 
 const logger = createLogger({
   collapsed: true,

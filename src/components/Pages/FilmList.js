@@ -50,18 +50,9 @@ class FilmList extends Component {
 
   renderTime(time,hallName,index){
     var sessionTime = new Date(time.start_time).toTimeString().split(' ')[0].substring(0,5);
-    var is_2d = "";
-    var is_3d = "";
-    var is_imax = ""; 
-    if(time.seance_format.is_2d === true){
-      is_2d = "2D"
-    }
-    if(time.seance_format.is_3d === true){
-      is_3d = " 3D "
-    }
-    if(time.seance_format.is_imax === true){
-      is_imax = "IMAX"
-    }
+    // let is_2d = (time.seance_format.is_2d === true)?"2D":"";
+    // let is_3d = (time.seance_format.is_3d === true)?" 3D ":"";
+    // let is_imax = (time.seance_format.is_imax === true)?"IMAX":"";
 
     return(
       <li key={index} className="table-row">
@@ -83,9 +74,9 @@ class FilmList extends Component {
 
   renderSchedule(schedule,cityName,cinemaName,hallName,index){
     var newData = [];
-    var SeancesData = Object.keys(schedule.Seances).map(function(key) {
-      newData.push(schedule.Seances[key]);
-    });
+    // var SeancesData = Object.keys(schedule.Seances).map(function(key) {
+    //   newData.push(schedule.Seances[key]);
+    // });
     newData.sort(function(a,b){
       return a.start_time.localeCompare(b.start_time);
     });
@@ -120,9 +111,9 @@ class FilmList extends Component {
 
   renderHalls(items,cityName,cinemaName,hallName){
     var newData = [];
-    var hallData = Object.keys(items).map(function(key) {
-      newData.push(items[key]);
-    });
+    // var hallData = Object.keys(items).map(function(key) {
+    //   newData.push(items[key]);
+    // });
     return(
       <div>
         {newData.map((data,index) => this.renderSchedule(data,cityName,cinemaName,hallName,index))}
@@ -132,10 +123,10 @@ class FilmList extends Component {
   renderCinema(items,cityName,cinemaName){
     var newData = [];
     var hallNames = [];
-    var cinemaData = Object.keys(items).map(function(key) {
-      hallNames.push(items[key].name);
-      newData.push(items[key].Movies);
-    });
+    // var cinemaData = Object.keys(items).map(function(key) {
+    //   hallNames.push(items[key].name);
+    //   newData.push(items[key].Movies);
+    // });
     return(
       <div>
         {newData.map((data,index) => this.renderHalls(data,cityName,cinemaName,hallNames[index]))}
@@ -145,10 +136,10 @@ class FilmList extends Component {
   renderCity(items,cityName){
     var newData = [];
     var cinemaNames = [];
-    var cityData = Object.keys(items).map(function(key) {
-      cinemaNames.push(items[key].name);
-      newData.push(items[key].Halls);
-    });
+    // var cityData = Object.keys(items).map(function(key) {
+    //   cinemaNames.push(items[key].name);
+    //   newData.push(items[key].Halls);
+    // });
     return(
       <div>
         {newData.map((data,index) => this.renderCinema(data,cityName,cinemaNames[index]))}
@@ -161,7 +152,7 @@ class FilmList extends Component {
     return(
       <div className="modal-container modal-container-2">
         <div className="modal-popup-movie-trailer">
-          <iframe width={520} height={340} src={trailerLink} frameBorder="0" allowFullScreen></iframe>
+          <iframe title="trailer iframe" width={520} height={340} src={trailerLink} frameBorder="0" allowFullScreen></iframe>
           <div className="modal-close" onClick={(e) => this.handleCloseTrailer(e)}>&#215;</div>
         </div>
       </div>
@@ -169,14 +160,14 @@ class FilmList extends Component {
   }
 
   render() {
-    const schedule = this.props.schedule;
+    // const schedule = this.props.schedule;
     const movieFilm = this.props.movie_show;
     var newData = [];
     var cityNames = []
-    var scheduleCinema = Object.keys(schedule).map(function(key) {
-      newData.push(schedule[key].Cinemas);
-      cityNames.push(schedule[key].name);
-    });
+    // var scheduleCinema = Object.keys(schedule).map(function(key) {
+    //   newData.push(schedule[key].Cinemas);
+    //   cityNames.push(schedule[key].name);
+    // });
     let date  = new Date(movieFilm.release_date);
     let year = date.toLocaleDateString("ru-RU",{year: 'numeric'});
     let release_date = date.toLocaleDateString("ru-RU",{year: 'numeric', day: 'numeric', month: 'long'});

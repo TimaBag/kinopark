@@ -33,16 +33,16 @@ class Reservation extends Component {
           value2 = value2.replace(rep, '');
           $(this).val(value2);
         }
-        if ($(this).val() == '') {
+        if ($(this).val() === '') {
           $(this).val(0);
         }
-        var msg = $(this).val();
+        // var msg = $(this).val();
       });
     });
     $('.wrapper-counter-btn').each(function() {
       $(this).find('.counter-back').on("click", function(e) {
         var valPlus = $(this).parents('.tickets-item').find('.product-count').val();
-        var result = parseInt(valPlus) - 1;
+        var result = parseInt(valPlus, 10) - 1;
         if (result >= 0) {
           $(this).parents('.tickets-item').find('.product-count').val(result);
         }
@@ -52,7 +52,7 @@ class Reservation extends Component {
     $('.wrapper-counter-btn').each(function() {
       $(this).find('.counter-forward').on("click", function(e) {
         var valPlus = $(this).parents('.tickets-item').find('.product-count').val();
-        var result = parseInt(valPlus) + 1;
+        var result = parseInt(valPlus, 10) + 1;
         if (result >= 0) {
           $(this).parents('.tickets-item').find('.product-count').val(result);
         }
