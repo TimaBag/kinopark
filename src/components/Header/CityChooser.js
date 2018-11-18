@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import $ from "jquery";
-import {is_mobile} from '../js/main.js'
+// import $ from "jquery";
+// import {is_mobile} from '../js/main.js'
 import * as actionsCity from '../../actions/cityActions';
 
 class CityChooser extends Component {

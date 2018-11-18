@@ -2709,34 +2709,37 @@ class ReservationTwo extends Component {
       <div className="content">
         <div className="container">
           <h1>Бронирование</h1>
-          <div class="reservation-content">
-            <ul class="reservation-steps">
-              <li><a href="" class="active">1 шаг</a></li>
-              <li><a href="" class="active">2 шаг</a></li>
+          <div className="reservation-content">
+            <ul className="reservation-steps">
+              <li><a href="" className="active">1 шаг</a></li>
+              <li><a href="" className="active">2 шаг</a></li>
               <li><a href="">3 шаг</a></li>
             </ul>
-            <div class="places-and-reset-button">
-              <div class="selected-places">
-                <strong>Выберите места на карте зала:</strong> Вы выбрали <span class="color">2</span> из <span class="color">3</span> мест
+            <div className="places-and-reset-button">
+              <div className="selected-places">
+                <strong>Выберите места на карте зала:</strong> Вы выбрали <span className="color">2</span> из <span className="color">3</span> мест
               </div>
-              <div class="reset-places-btn">
-                <i class="fa fa-close"></i>
+              <div className="reset-places-btn">
+                <i className="fa fa-close"></i>
                 <a href="">Сбросить выбранные места</a>
               </div>
             </div>
-            <div class="screen">экран</div>
-            <form action="#" class="reservation-form">
-              <div class="wrapper-choice-place-cinema">
-                <table class="choice-place-cinema">
+            <div className="screen">экран</div>
+            <form action="#" className="reservation-form">
+              <div className="wrapper-choice-place-cinema">
+                <table className="choice-place-cinema">
+                  <tbody>
                   {
                     newHallMap.map((elem,index)=>
                     {
                       return(
-                        <tr>
+                        <tr key={index}>
                         {
-                          newHallMap[index].map((in_elem,index_b)=>{
+                          newHallMap[index].map((in_elem, index_b)=>{
                             return(
-                              <td className={newHallMap[index][index_b].type === "blank" ? "column-hidden" : ""} onClick={(e) => this.handleClickChoose(e,newHallMap[index][index_b])}>
+                              <td key={index_b}
+                                className={newHallMap[index][index_b].type === "blank" ? "column-hidden" : ""} 
+                                onClick={(e) => this.handleClickChoose(e,newHallMap[index][index_b])}>
                                 <i className={(this.state.currentColumn === index && this.state.currentRow === index_b) ? "fa fa-user el_red" : "fa fa-user"}></i>
                                 <span className="prompt-window prompt-window-desktop">
                                   Ряд: <span className="bold">{index}</span><br/>
@@ -2750,6 +2753,7 @@ class ReservationTwo extends Component {
                       )
                     })
                   }
+                  </tbody>
                 </table>
               </div>
             </form>

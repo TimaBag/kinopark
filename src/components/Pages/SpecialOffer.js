@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actions from '../../actions/promotionActions';
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import ReactHtmlParser from 'react-html-parser';
 
 class SpecialOffer extends Component {
 
@@ -49,7 +49,7 @@ class SpecialOffer extends Component {
               <div className="text">
                 { ReactHtmlParser(dialogSpecial.description) }
               </div>
-              <iframe width={520} height={340} src={specialLink} frameBorder="0" allowFullScreen></iframe>
+              <iframe title="more iframe" width={520} height={340} src={specialLink} frameBorder="0" allowFullScreen></iframe>
             </div>
           </div>
           <div className="modal-close" onClick={this.handleCloseMoreDialog.bind(this)}>&#215;</div>

@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -16,7 +17,7 @@ class News extends Component {
 
   renderPage(newsPages){
     const dataPages = [];
-    for(let i = 1; i <= parseInt(newsPages); i++){
+    for(let i = 1; i <= parseInt(newsPages, 10); i++){
 
       dataPages.push(<li><Link to="" className="active">{i}</Link></li>)
     }

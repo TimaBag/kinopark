@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Select from 'react-select';
-import $ from 'jquery';
 import 'react-select/dist/react-select.css';
 import * as actions from '../../actions/cinemaActions';
 import * as actionsCity from '../../actions/cityActions';

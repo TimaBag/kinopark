@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
-import throttle from 'lodash/throttle';
+// import throttle from 'lodash/throttle';
 import { createLogger } from 'redux-logger';
 import mainReducer from './reducers/index';
 

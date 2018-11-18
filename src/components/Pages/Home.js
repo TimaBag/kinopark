@@ -121,7 +121,7 @@ class Home extends Component {
     return(
       <div className="modal-container modal-container-2">
         <div className="modal-popup-movie-trailer">
-          <iframe width={520} height={340} src={trailerLink} frameBorder="0" allowFullScreen></iframe>
+          <iframe title="movie iframe" width={520} height={340} src={trailerLink} frameBorder="0" allowFullScreen></iframe>
           <div className="modal-close" onClick={(e) => this.handleCloseTrailer(e)}>&#215;</div>
         </div>
       </div>
@@ -205,7 +205,7 @@ class Home extends Component {
 
   renderPage(pages,cur_pages){
     const dataPages = [];
-    for(let i = 1; i <= parseInt(pages); i++){
+    for(let i = 1; i <= parseInt(pages, 10); i++){
 
       dataPages.push(<li key={i}>
         <Link to="" 
@@ -219,7 +219,7 @@ class Home extends Component {
 
   renderPageTomorrow(pages,cur_pages){
     const dataPages = [];
-    for(let i = 1; i <= parseInt(pages); i++){
+    for(let i = 1; i <= parseInt(pages, 10); i++){
 
       dataPages.push(<li key={i}>
         <Link to="" 
@@ -233,7 +233,7 @@ class Home extends Component {
 
   renderPageSoon(pages,cur_pages){
     const dataPages = [];
-    for(let i = 1; i <= parseInt(pages); i++){
+    for(let i = 1; i <= parseInt(pages, 10); i++){
 
       dataPages.push(<li key={i}>
         <Link to="" 

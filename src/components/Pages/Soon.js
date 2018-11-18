@@ -55,7 +55,7 @@ class Soon extends Component {
     return(
       <div className="modal-container modal-container-2">
         <div className="modal-popup-movie-trailer">
-          <iframe width={520} height={340} src={trailerLink} frameBorder="0" allowFullScreen></iframe>
+          <iframe title="movie iframe" width={520} height={340} src={trailerLink} frameBorder="0" allowFullScreen></iframe>
           <div className="modal-close" onClick={(e) => this.handleCloseTrailer(e)}>&#215;</div>
         </div>
       </div>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import NewsBlock from '../extra/NewsBlock';
 /*
 sozdat site skopirovat kazhdi iz ni*/
 
