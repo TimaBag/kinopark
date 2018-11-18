@@ -15,8 +15,8 @@ class ReservationTwo extends Component {
   }
 
   ksort(obj){
-    var keys = Object.keys(obj).sort()
-      , sortedObj = {};
+    var keys = Object.keys(obj).sort(), 
+        sortedObj = {};
 
     for(var i in keys) {
       sortedObj[keys[i]] = obj[keys[i]];
@@ -26,27 +26,36 @@ class ReservationTwo extends Component {
   }
 
   handleClickChoose(e,item){
-    this.setState({
-      currentColumn: item.GridY,
-      currentRow: item.GridX
-    })
+    if(item.IsFree) {
+      this.setState({
+        currentColumn: item.GridY,
+        currentRow: item.GridX
+      })
+    } else {
+      console.log("not available")
+    }
   }
 
   render() {
+    let maxX = 0, maxY = 0;
+    hallMapData.Seats.map((seat) => {
+      maxX = (seat.GridX > maxX)?seat.GridX:maxX;
+      maxY = (seat.GridX > maxY)?seat.GridX:maxY;
+      return seat;
+    });
+
     var x = 0;
     var y = 0;
-    var newHallMap = new Array(25);
+    var newHallMap = new Array(maxX);
     for (let i = 0; i < newHallMap.length; i++) {
-      newHallMap[i] = new Array(25);
+      newHallMap[i] = new Array(maxY);
     }
-    hallMapData.Seats.map((seat) => 
-      {
-        if(seat.GridY > y) y = seat.GridY;
-        if(seat.GridX > x) x = seat.GridX;
-        newHallMap[seat.GridY][seat.GridX] = seat;
-        return seat;
-      }
-    )
+    hallMapData.Seats.map((seat) => {
+      if(seat.GridY > y) y = seat.GridY;
+      if(seat.GridX > x) x = seat.GridX;
+      newHallMap[seat.GridY][seat.GridX] = seat;
+      return seat;
+    })
     for(let i = 1; i <= y; i++){
       for (let j = 1; j <= x; j++) {
         if(_.isEmpty(newHallMap[i][j])){
@@ -87,12 +96,13 @@ class ReservationTwo extends Component {
                       return(
                         <tr key={index}>
                         {
-                          newHallMap[index].map((in_elem, index_b)=>{
+                          newHallMap[index].map((seat, index_b)=>{
                             return(
                               <td key={index_b}
-                                className={newHallMap[index][index_b].type === "blank" ? "column-hidden" : ""} 
-                                onClick={(e) => this.handleClickChoose(e,newHallMap[index][index_b])}>
-                                <i className={(this.state.currentColumn === index && this.state.currentRow === index_b) ? "fa fa-user el_red" : "fa fa-user"}></i>
+                                className={seat.type === "blank" ? "column-hidden" : ""} 
+                                onClick={(e) => this.handleClickChoose(e, seat)}>
+                                {seat.IsFree && (<i className={(this.state.currentColumn === index && this.state.currentRow === index_b) ? "fa fa-user el_red" : "fa fa-user"}></i>)}
+                                {!seat.IsFree && (<i className={"fa fa-user el_red not-available"}></i>)}
                                 <span className="prompt-window prompt-window-desktop">
                                   Ряд: <span className="bold">{index}</span><br/>
                                   Место <span className="bold">{index_b}</span>

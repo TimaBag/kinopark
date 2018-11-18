@@ -3862,3 +3862,7 @@ h3 {
 .el_red{
   background-color:#E3000F!important;
 }
+.not-available {
+  pointer-events: none;
+  opacity: 0.4;
+}

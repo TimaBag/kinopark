@@ -31,7 +31,7 @@ export const hallMapData = {
         "GridX":5,
         "GridY":5,
         "HallId":4,
-        "IsFree":true,
+        "IsFree":false,
         "status":1
      },
      {

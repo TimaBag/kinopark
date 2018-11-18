@@ -35,6 +35,6 @@
   -o-transition: border 0.3s;
   transition: border 0.3s;
 }
-..Select-input{
+.Select-input{
   height: 34px;
 }
