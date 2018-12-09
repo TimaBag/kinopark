@@ -5,7 +5,7 @@ const getNewsByIdUrl = SERVER_URL + "news/";
 
 export const getNews = () => (
     fetch(
-        getNewsUrl + "?per_page=15",
+        getNewsUrl,
         {
             method: 'GET',
             headers: STD_HEADERS

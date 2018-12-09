@@ -100,7 +100,7 @@ class ScheduleList extends Component {
             <div className="modal-popup-left">
               <div className="modal-popup-img">
                 {dialogFilm.age_limitation.length !== 0 && <div className="age">{dialogFilm.age_limitation}</div>}
-                <img src={dialogFilm.poster_path} alt="alt" />
+                <img src={dialogFilm.image} alt="alt" />
                 <div className="watch-trailer">
                   <div className="js-movie-trailer" onClick={(e) => this.handleOpenTrailer(e,dialogFilm.trailer_link_ru)}>
                     <span className="icon-player"></span>
@@ -152,9 +152,7 @@ class ScheduleList extends Component {
 
   renderFilmSession(session,hallName,index){
     var sessionTime = new Date(session.start_time).toTimeString().split(' ')[0].substring(0,5);
-    let is_2d = (session.seance_format.is_2d === true)?"2D":"";
-    let is_3d = (session.seance_format.is_3d === true)?" 3D ":"";
-    let is_imax = (session.seance_format.is_imax === true)?"IMAX":"";
+    let format = "";
     
     /*создать hallFormat session-time.hall_format;*/
     return (
@@ -170,7 +168,7 @@ class ScheduleList extends Component {
         <span className="table-column">
           <span className="auditorium"><strong>{hallName}</strong></span>
         </span>
-        <span className="table-column"><span className="format">{is_2d + is_3d + is_imax }</span></span>
+        <span className="table-column"><span className="format">{format}</span></span>
         <span className="table-column"><Link to={"/reservation/"+session.uuid} className={session.status ? "buy-ticket thunderbird-btn " + session.status : "buy-ticket thunderbird-btn"} >Купить билет</Link></span>
     </li>
 
@@ -179,9 +177,9 @@ class ScheduleList extends Component {
  
   renderFilm(film,cityName,cinemaName,hallName){
     var newData = [];
-    // var SeancesData = Object.keys(film.Seances).map(function(key) {
-    //   newData.push(film.Seances[key]);
-    // });
+    var SeancesData = Object.keys(film.Seances).map(function(key) {
+      newData.push(film.Seances[key]);
+    });
     
     newData.sort(function(a,b){
       return a.start_time.localeCompare(b.start_time);
@@ -202,7 +200,7 @@ class ScheduleList extends Component {
               <h4 className="title mobile"><Link to={"filmlist/"+film.uuid}>{film.name}</Link></h4>
               {film.age_limitation && <div className="age">{film.age_limitation}</div>}
               {film.version && <div className="version">{film.version}</div>}
-              <img src={film.poster_path} alt="alt" />
+              <img src={film.image} alt="alt" />
               <div className="item-hidden-block">
                 <div className="watch-trailer">
                   <div className="js-movie-trailer" onClick={(e) => this.handleOpenTrailer(e,film.trailer_link_ru)}>
@@ -239,22 +237,23 @@ class ScheduleList extends Component {
   }
   renderHalls(items,cityName,cinemaName,hallName){
     var newData = [];
-    // var hallData = Object.keys(items).map(function(key) {
-    //   newData.push(items[key]);
-    // });
+    var hallData = Object.keys(items).map(function(key) {
+      newData.push(items[key]);
+    });
     return(
       <div key={hallName}>
         {newData.map((data,index) => this.renderFilm(data,cityName,cinemaName,hallName))}
       </div>
     )
   }
+
   renderCinema(items,cityName,cinemaName){
     var newData = [];
     var hallNames = [];
-    // var cinemaData = Object.keys(items).map(function(key) {
-    //   hallNames.push(items[key].name);
-    //   newData.push(items[key].Movies);
-    // });
+    var cinemaData = Object.keys(items).map(function(key) {
+      hallNames.push(items[key].name);
+      newData.push(items[key].Movies);
+    });
     return(
       <div key={cinemaName}>
         {newData.map((data,index) => this.renderHalls(data,cityName,cinemaName,hallNames[index]))}
@@ -264,10 +263,10 @@ class ScheduleList extends Component {
   renderCity(items,cityName){
     var newData = [];
     var cinemaNames = [];
-    // var cityData = Object.keys(items).map(function(key) {
-    //   cinemaNames.push(items[key].name);
-    //   newData.push(items[key].Halls);
-    // });
+    var cityData = Object.keys(items).map(function(key) {
+      cinemaNames.push(items[key].name);
+      newData.push(items[key].Halls);
+    });
     return(
       <div key={cityName}>
         {newData.map((data,index) => this.renderCinema(data,cityName,cinemaNames[index]))}
@@ -278,10 +277,11 @@ class ScheduleList extends Component {
     const schedule = this.props.schedule;
     var newData = [];
     var cityNames = []
-    // var scheduleCinema = Object.keys(schedule).map(function(key) {
-    //   newData.push(schedule[key].Cinemas);
-    //   cityNames.push(schedule[key].name);
-    // });
+    var scheduleCinema = Object.keys(schedule).map(function(key) {
+      newData.push(schedule[key].Cinemas);
+      cityNames.push(schedule[key].name);
+    });
+    console.log(schedule);
     return (
       <div className="content">
         <div className="container">
