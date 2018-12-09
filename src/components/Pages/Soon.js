@@ -1,350 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
-const films = [
-  {
-    title : "Тайна Коко",
-    cinema : "Кинопарк 6 Спутник",
-    city : "Almaty",
-    age : "12+",
-    version : "Original Ver",
-    sessionTime : [
-      {
-        status : "disabled",
-        time : "10:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      },
-      {
-        time : "12:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        quality : "3D",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      },
-      {
-        time : "19:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      }
-    ],
-    qualities : [
-      {"format" : "3D"},
-      {"format" : "IMAX"},
-      {"format"  : "Laser"}, 
-    ],
-    description : "«Туған үйім - тірегім» ( «Love you family») фильмі отбасы құндылықтары туралы баяндайды. Үлгілі үнді отбасының шаңырағында туған Хуши есімді бойжеткен, ата-анасының қарсылығына қарамастан, биден дәріс беретін Раджа есімді жігітке ғашық болады. Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
-    actors : "Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
-    director : "Қос ғашық жасырын үйленіп, шаңырақ",
-    year : "2017",
-    start : "14 дек. 2017 г.",
-    continue : "94 мин.",
-    country : "Индия",
-    genre : "мелодрама",
-  },
-  {
-    title : "Логово",
-    cinema : "Кинопарк 6 Спутник",
-    city : "Almaty",
-    age : "12+",
-    version : "Original Ver",
-    sessionTime : [
-      {
-        status : "disabled",
-        time : "10:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      },
-      {
-        time : "12:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        quality : "3D",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      },
-      {
-        time : "19:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      }
-    ],
-    qualities : [
-      {"format" : "3D"},
-      {"format" : "IMAX"},
-      {"format"  : "Laser"}, 
-    ],
-    description : "«Туған үйім - тірегім» ( «Love you family») фильмі отбасы құндылықтары туралы баяндайды. Үлгілі үнді отбасының шаңырағында туған Хуши есімді бойжеткен, ата-анасының қарсылығына қарамастан, биден дәріс беретін Раджа есімді жігітке ғашық болады. Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
-    actors : "Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
-    director : "Қос ғашық жасырын үйленіп, шаңырақ",
-    year : "2017",
-    start : "14 дек. 2017 г.",
-    continue : "94 мин.",
-    country : "Индия",
-    genre : "мелодрама",
-  },
-  {
-    title : "Логово",
-    cinema : "Кинопарк 6 Спутник",
-    city : "Almaty",
-    age : "12+",
-    version : "Original Ver",
-    sessionTime : [
-      {
-        status : "disabled",
-        time : "10:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      },
-      {
-        time : "12:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        quality : "3D",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      },
-      {
-        time : "19:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      }
-    ],
-    qualities : [
-      {"format" : "3D"},
-      {"format" : "IMAX"},
-      {"format"  : "Laser"}, 
-    ],
-    description : "«Туған үйім - тірегім» ( «Love you family») фильмі отбасы құндылықтары туралы баяндайды. Үлгілі үнді отбасының шаңырағында туған Хуши есімді бойжеткен, ата-анасының қарсылығына қарамастан, биден дәріс беретін Раджа есімді жігітке ғашық болады. Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
-    actors : "Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
-    director : "Қос ғашық жасырын үйленіп, шаңырақ",
-    year : "2017",
-    start : "14 дек. 2017 г.",
-    continue : "94 мин.",
-    country : "Индия",
-    genre : "мелодрама",
-  },
-  {
-    title : "Логово",
-    cinema : "Кинопарк 6 Спутник",
-    city : "Almaty",
-    age : "12+",
-    version : "Original Ver",
-    sessionTime : [
-      {
-        status : "disabled",
-        time : "10:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      },
-      {
-        time : "12:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        quality : "3D",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      },
-      {
-        time : "19:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      }
-    ],
-    qualities : [
-      {"format" : "3D"},
-      {"format" : "IMAX"},
-      {"format"  : "Laser"}, 
-    ],
-    description : "«Туған үйім - тірегім» ( «Love you family») фильмі отбасы құндылықтары туралы баяндайды. Үлгілі үнді отбасының шаңырағында туған Хуши есімді бойжеткен, ата-анасының қарсылығына қарамастан, биден дәріс беретін Раджа есімді жігітке ғашық болады. Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
-    actors : "Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
-    director : "Қос ғашық жасырын үйленіп, шаңырақ",
-    year : "2017",
-    start : "14 дек. 2017 г.",
-    continue : "94 мин.",
-    country : "Индия",
-    genre : "мелодрама",
-  },
-  {
-    title : "Логово",
-    cinema : "Кинопарк 6 Спутник",
-    city : "Almaty",
-    age : "12+",
-    version : "Original Ver",
-    sessionTime : [
-      {
-        status : "disabled",
-        time : "10:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      },
-      {
-        time : "12:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        quality : "3D",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      },
-      {
-        time : "19:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      }
-    ],
-    qualities : [
-      {"format" : "3D"},
-      {"format" : "IMAX"},
-      {"format"  : "Laser"}, 
-    ],
-    description : "«Туған үйім - тірегім» ( «Love you family») фильмі отбасы құндылықтары туралы баяндайды. Үлгілі үнді отбасының шаңырағында туған Хуши есімді бойжеткен, ата-анасының қарсылығына қарамастан, биден дәріс беретін Раджа есімді жігітке ғашық болады. Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
-    actors : "Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
-    director : "Қос ғашық жасырын үйленіп, шаңырақ",
-    year : "2017",
-    start : "14 дек. 2017 г.",
-    continue : "94 мин.",
-    country : "Индия",
-    genre : "мелодрама",
-  },
-  {
-    title : "Логово",
-    cinema : "Кинопарк 6 Спутник",
-    city : "Almaty",
-    age : "12+",
-    version : "Original Ver",
-    sessionTime : [
-      {
-        status : "disabled",
-        time : "10:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      },
-      {
-        time : "12:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        quality : "3D",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      },
-      {
-        time : "19:00",
-        prices : [
-          {"price" : "1200 тт."},
-          {"price" : "800 тт."},
-          {"price" : "700 тт."}
-        ],
-        format : "LASER",
-        hall_number : "Зал 6",
-        hall_format : "COMFORT",
-      }
-    ],
-    qualities : [
-      {"format" : "3D"},
-      {"format" : "IMAX"},
-      {"format"  : "Laser"}, 
-    ],
-    description : "«Туған үйім - тірегім» ( «Love you family») фильмі отбасы құндылықтары туралы баяндайды. Үлгілі үнді отбасының шаңырағында туған Хуши есімді бойжеткен, ата-анасының қарсылығына қарамастан, биден дәріс беретін Раджа есімді жігітке ғашық болады. Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
-    actors : "Қос ғашық жасырын үйленіп, шаңырақ көтереді. Алайда, кенеттен бәрі де өзгереді. Сүйіп қосылған күйеуі танымастай өзгеріп, Хуши далада қалады. Уақыт өте жақындарының қолдауымен бойжеткен Алматыға келіп, жұмысқа орналасып, биіктерден көрінеді.",
-    director : "Қос ғашық жасырын үйленіп, шаңырақ",
-    year : "2017",
-    start : "14 дек. 2017 г.",
-    continue : "94 мин.",
-    country : "Индия",
-    genre : "мелодрама",
-  },
-]
+import * as actionsMovie from '../../actions/movieActions';
 
 class Soon extends Component {
 
@@ -353,7 +10,30 @@ class Soon extends Component {
     this.state = {
       showMore : false,
       dialogFilm : null,
+      showTrailer : false,
+      trailerUrl : "",
     };
+    this.handleOpenTrailer = this.handleOpenTrailer.bind(this);
+    this.handleCloseTrailer = this.handleCloseTrailer.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.onGetMovieSoon();
+  }
+
+  handleOpenTrailer(e,url){
+    e.preventDefault();
+    this.setState({
+      trailerUrl : url,
+      showTrailer : true
+    })
+  }
+  handleCloseTrailer(e){
+    e.preventDefault();
+    this.setState({
+      trailerUrl : "",
+      showTrailer : false
+    })
   }
 
   handleOpenMoreDialog(film){
@@ -370,45 +50,60 @@ class Soon extends Component {
     })
   }
 
+  renderFilmTrailer(){
+    var trailerLink = this.state.trailerUrl.replace("watch?v=", "embed/");
+    return(
+      <div className="modal-container modal-container-2">
+        <div className="modal-popup-movie-trailer">
+          <iframe title="movie iframe" width={520} height={340} src={trailerLink} frameBorder="0" allowFullScreen></iframe>
+          <div className="modal-close" onClick={(e) => this.handleCloseTrailer(e)}>&#215;</div>
+        </div>
+      </div>
+    )
+  }
+
   renderMoreDialog(){
     const {dialogFilm} = this.state;
-    const listFormat = dialogFilm.qualities.map( (quality) => 
+    let date  = new Date(dialogFilm.release_date);
+    let year = date.toLocaleDateString("ru-RU",{year: 'numeric'});
+    let release_date = date.toLocaleDateString("ru-RU",{year: 'numeric', day: 'numeric', month: 'long'});
+    /*const listFormat = dialogFilm.qualities.map( (quality) => 
       <li>{quality.format}</li>
-    )
+    )*/
     return(
       <div className="modal-container">
         <div className="modal-popup-film">
-          <h2 className="title">{dialogFilm.title}</h2>
+          <h2 className="title">{dialogFilm.name}</h2>
           <div className="modal-popup-content">
             <div className="modal-popup-left">
               <div className="modal-popup-img">
-                <div className="age">{dialogFilm.age}</div>
+                {dialogFilm.age_limitation.length !== 0 && <div className="age">{dialogFilm.age_limitation}</div>}
                 <img src={require("../../img/static/modal-popup/01.jpg")} alt="alt" />
                   <div className="watch-trailer">
-                    <Link to="" className="js-movie-trailer">
+                    <Link to="" className="js-movie-trailer" onClick={(e) => this.handleOpenTrailer(e,dialogFilm.trailer_link_ru)}>
                       <span className="icon-player"></span>
                       Смотреть трейлер
                     </Link>
                   </div>
                 </div>
                 <div className="modal-popup-buy-ticket">
-                  <Link to="" className="thunderbird-btn">Купить билет</Link>
+                  <Link to={"filmlist/"+dialogFilm.uuid} className="thunderbird-btn">Купить билет</Link>
                 </div>
             </div>
             <div className="modal-popup-desc">
               <ul className="film-characteristics">
-                <li><span className="bold">Год:</span> {dialogFilm.year}</li>
-                <li><span className="bold">Премьера:</span> {dialogFilm.start}</li>
-                <li><span className="bold">Продолжительность:</span> {dialogFilm.continue}</li>
+                <li><span className="bold">Год:</span> {year}</li>
+                <li><span className="bold">Премьера:</span> {release_date}</li>
+                <li><span className="bold">Продолжительность:</span> {dialogFilm.duration}</li>
                 <li><span className="bold">Страна:</span> {dialogFilm.country}</li>
-                <li><span className="bold">Жанр:</span> {dialogFilm.genre}</li>
+                <li><span className="bold">Жанр:</span> {dialogFilm.genre_text}</li>
                 <li>
                   <span className="bold">Формат:</span>
                   <ul className="film-format">
-                    {listFormat}
+                    {/*listFormat*/}
                   </ul>
                 </li>
-                <li><span className="bold">Ограничение по возрасту:</span> до {dialogFilm.age}</li>
+                <li><span className="bold">Ограничение по возрасту:</span> до {dialogFilm.age_limitation}</li>
                 <li><span className="bold">Индекс фильма:</span> "БА" - фильмы, разрешенные для показа детям, достигшим двенадцати лет</li>
               </ul>
               <p className="text">
@@ -418,7 +113,7 @@ class Soon extends Component {
                 <span className="bold">Актерский состав:</span> {dialogFilm.actors}
               </p>
               <p className="text">
-                <span className="bold">Режисерский состав::</span> {dialogFilm.director} 
+                <span className="bold">Режисерский состав::</span> {dialogFilm.directors} 
               </p>
               <div className="schedule-btn">
                 <Link to="">Расписание</Link>
@@ -432,18 +127,20 @@ class Soon extends Component {
   }
 
   renderFilm(film){
-    const listFormat = film.qualities.map( (quality) => 
+    /*const listFormat = film.qualities.map( (quality) => 
       <li>{quality.format}</li>
-    )
+    )*/
+    let date  = new Date(film.release_date);
+    let release_date = date.toLocaleDateString("ru-RU",{year: 'numeric', day: 'numeric', month: 'long'});
     return(
       <div className="film-item-container table container-mod">
         <div className="film-item">
-          <div className="age">{film.age}</div>
+          {film.age_limitation.length !== 0 && <div className="age">{film.age_limitation}</div>}
           <div className="item-img">
             <img src={require("../../img/static/film/01.jpg")} alt="alt" />
             <div className="item-hidden-block">
               <div className="watch-trailer">
-                <Link to="" className="js-movie-trailer">
+                <Link to="" className="js-movie-trailer" onClick={(e) => this.handleOpenTrailer(e,film.trailer_link_ru)}>
                   <span className="icon-player"></span>
                   Смотреть трейлер
                 </Link>
@@ -454,10 +151,10 @@ class Soon extends Component {
             </div>
           </div>
           <ul className="film-format">
-            {listFormat}
+            {/*listFormat*/}
           </ul>
-          <h4 className="title"><Link to="">{film.title}</Link></h4>
-          <div className="date">{film.start}</div>
+          <h4 className="title"><Link to="">{film.name}</Link></h4>
+          <div className="date">{release_date}</div>
         </div>
       </div>
     )
@@ -465,19 +162,31 @@ class Soon extends Component {
 
   render() {
     return (
-      <div className="global-wrapper">
         <div className="content">
           <div className="container">
             <h1>Скоро</h1>
             <div className="films-content">
-              {films.map((film) => this.renderFilm(film))}
+              {this.props.movie_soon && this.props.movie_soon.map((film) => this.renderFilm(film))}
             </div>
           </div>
+          {this.state.showMore && this.renderMoreDialog()}
+          {this.state.showTrailer && this.renderFilmTrailer()}
         </div>
-        {this.state.showMore && this.renderMoreDialog()}
-      </div>
       )
   }
 }
 
-export default Soon;
+const mapStateToProps = (state) => ({
+  movie_soon : state.movie.movie_soon,
+  movieSoonPages : state.movie.movieSoonPages,
+  movieSoonCurrentPage : state.movie.movieSoonCurrentPage,
+})
+
+const mapDispatchToProps = {
+  onGetMovieSoon : actionsMovie.getMovieSoon,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Soon);

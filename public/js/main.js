@@ -115,46 +115,7 @@ $(function() {
     }
     return false;
   });
-  if($(window).width() < 768){
-    $('.js-view-all-sessions').text("Сеансы");
-  }
-  $('.js-view-all-sessions').on("click", function() {
-    if($(window).width() > 768){
-       if ($(this).html() == 'Свернуть сеансы') {
-        $(this).parents('.film-item').find('.hidden-block').removeClass('visible-block')
-        $(this).text('Смотреть все сеансы');
-      } else {
-        $(this).parents('.film-item').find('.hidden-block').addClass('visible-block')
-        $(this).text('Свернуть сеансы');
-      }
-    } else{
-        $('.film-item-container .session-time-list').slideUp()
-        $(this).parents('.film-item-container').siblings().find('.view-all-sessions a').text('Сеансы');
-        $(this).parents('.film-item-container').siblings().find('.view-all-sessions').css('backgroundColor','#C42121');
-       if ($(this).html() == 'Спрятать сеансы') {
-        $(this).parents('.film-item-container').find('.session-time-list').slideUp()
-        $(this).text('Сеансы');
-        $(this).parent().css('backgroundColor','#C42121')
-      } else {
-        $(this).parents('.film-item-container').find('.session-time-list').slideDown()
-        $(this).text('Спрятать сеансы');
-        $(this).parent().css('backgroundColor','#000')
-      }
-    }
-   
-    return false;
-  });
-
-  $('.js-view-all-sessions-2').on("click", function() {
-    if ($(this).html() == 'Свернуть сеансы') {
-      $(this).parents('.cinema-item').find('.hidden-block').removeClass('visible-block')
-      $(this).text('Смотреть все сеансы');
-    } else {
-      $(this).parents('.cinema-item').find('.hidden-block').addClass('visible-block')
-      $(this).text('Свернуть сеансы');
-    }
-    return false;
-  });
+  
 
   $('.filter-open-hide-btn').on("click", function() {
     $('.filter-panel-right').toggleClass('visible-block');
@@ -223,87 +184,6 @@ $(function() {
   }
   }).eq(0).addClass('active');
 
-  
-
-
-  /*************sliders******************/
-  $(".main-slider").slick({
-    initialSlide: 0,
-    slidesToShow: 1,
-    dots: true,
-    arrows: true,
-    // infinite: false,
-    autoplay: true,
-    autoplaySpeed: 7000,
-    slidesToScroll: 1
-  });
-  $(".news-block-content").slick({
-    initialSlide: 0,
-    slidesToShow: 1,
-    dots: true,
-    arrows: true,
-    // infinite: false,
-    autoplay: true,
-    autoplaySpeed: 7000,
-    slidesToScroll: 1
-  });
-  $(".cinema-img-slider").slick({
-    initialSlide: 0,
-    slidesToShow: 1,
-    dots: false,
-    arrows: true,
-    // infinite: false,
-    autoplay: true,
-    autoplaySpeed: 7000,
-    slidesToScroll: 1
-  });
-  $(".js-compare-product-slider").slick({
-    initialSlide: 0,
-    slidesToShow: 4,
-    dots: false,
-    arrows: true,
-    // autoplay: true,
-    // autoplaySpeed: 7000,
-    slidesToScroll: 1,
-    // infinite: false,
-    asNavFor: '.js-compare-table-line',
-    responsive: [{
-      breakpoint: 1200,
-      settings: {
-        slidesToShow: 3,
-      }
-    }, {
-      breakpoint: 993,
-      settings: {
-        slidesToShow: 2,
-      }
-    }, {
-      breakpoint: 545,
-      settings: {
-        slidesToShow: 1,
-      }
-    }]
-  });
-
-  $(window).resize(function() {
-    if ($(window).width() > 1270) {
-      $('.head-nav').removeAttr('style');
-    }
-  });
-  if ($(window).width() > 1270) {
-    $('.head-nav').removeAttr('style');
-  }
-
-  $('.choice-place-cinema td').on("click", function() {
-    if ($(this).children(".fa").length > 0) {
-      $(this).toggleClass('active')
-    }
-    if(is_mobile() && $(this).hasClass('active')){
-      $('.prompt-window').hide();
-       $(this).find('.prompt-window').fadeIn("slow").delay(3000).fadeOut("slow");
-    }
-  });
-
  
 
   /*******COUNTER*********/
@@ -346,33 +226,6 @@ $(function() {
       }
       return false;
     });
-  });
-
-  /**********SCROLL**********/
-  var heightTopHead = $('.ui-head').outerHeight();
-  jQuery(window).scroll(function() {
-     if ($(window).scrollTop() > heightTopHead && $(window).width() > 767) {
-       $('.head-bottom-panel').addClass('fixed-menu');
-         $('.global-wrapper').addClass("global-pad");
-       setTimeout(function() {
-         $('.head-bottom-panel').addClass("ui-head-transform");
-       }, 100);
-     } else {
-       $('.head-bottom-panel').removeClass("ui-head-transform");
-       $('.head-bottom-panel').removeClass('fixed-menu');
-        $('.global-wrapper').removeClass("global-pad");
-     }
-    if ($(window).scrollTop() > $(window).height()) {
-      $('.scroll-to-top').addClass('scroll-to-top-visible');
-    } else {
-      $('.scroll-to-top').removeClass('scroll-to-top-visible');
-    }
-  });
-  $('.scroll-to-top').on('click', function() {
-    $('html, body').animate({
-      scrollTop: 0
-    }, 500);
-    return false;
   });
 
   /*************FIELD VALIDATION*************/

@@ -1,0 +1,1 @@
+export const SERVER_URL = 'http://test.afisha.api.kinopark.kz:4711/api/'

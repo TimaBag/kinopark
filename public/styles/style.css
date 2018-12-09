@@ -186,6 +186,7 @@ h3 {
 .thunderbird-btn {
   display: inline-block;
   height: 43px;
+  cursor: pointer;
   background-color: #e3000f;
   background-image: -webkit-linear-gradient(bottom, #c42121 0%, #dd0110 100%);
   background-image: linear-gradient(to top, #c42121 0%, #dd0110 100%);
@@ -254,7 +255,7 @@ h3 {
   -webkit-transform: translate3d(0, -100px, 0);
           transform: translate3d(0, -100px, 0);
   text-align: center;
-  z-index: 200;
+  z-index: 1100;
 }
 
 .ui-head-transform {
@@ -1479,7 +1480,7 @@ h3 {
   height: 98px;
   margin: auto;
   display: block;
-
+  background: url(../img/icons/play-icon.png) no-repeat center;
   -webkit-transition: -webkit-transform 0.3s;
           transition: transform 0.3s;
 }
@@ -1683,7 +1684,7 @@ h3 {
   overflow: auto;
   padding: 20px 0;
   text-align: center;
-  z-index: 1000;
+  z-index: 1200;
 }
 .modal-container:before {
   content: "";
@@ -1694,7 +1695,7 @@ h3 {
 }
 
 .modal-container-2 {
-  z-index: 1100;
+  z-index: 1300;
 }
 
 .modal-close {
@@ -1802,6 +1803,7 @@ h3 {
   height: 98px;
   margin: auto;
   display: block;
+  background: url(../img/icons/play-icon.png) no-repeat center;
   -webkit-transition: -webkit-transform 0.3s;
           transition: transform 0.3s;
 }
@@ -1951,6 +1953,7 @@ h3 {
   margin: 0 auto 1em;
   display: block;
   background-size: cover;
+  background: url(../img/icons/play-icon.png) no-repeat center;
   -webkit-transition: -webkit-transform 0.3s;
           transition: transform 0.3s;
 }
@@ -3454,7 +3457,7 @@ h3 {
 }
 
 .choice-place-cinema {
-  margin-left: 7em;
+  margin:0 auto;
   border-collapse: inherit;
   border-spacing: 3px;
 }
@@ -3616,6 +3619,7 @@ h3 {
   display: block;
   width: 20px;
   height: 20px;
+  background: url(../img/icons/radio-icon.png) no-repeat 0 1px;
   position: absolute;
   top: 0;
   left: -1px;
@@ -3625,6 +3629,7 @@ h3 {
   display: block;
   width: 20px;
   height: 20px;
+  background: url(../img/icons/radio-icon.png) no-repeat 0 -43px;
   position: absolute;
   top: 0;
   left: -1px;
@@ -3850,4 +3855,14 @@ h3 {
   -webkit-transform: scale(1.1);
       -ms-transform: scale(1.1);
           transform: scale(1.1);
+}
+.el_block{
+  display: block!important;
+}
+.el_red{
+  background-color:#E3000F!important;
+}
+.not-available {
+  pointer-events: none;
+  opacity: 0.4;
 }

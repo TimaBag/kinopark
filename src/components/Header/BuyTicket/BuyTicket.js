@@ -11,7 +11,7 @@ class BuyTicket extends Component {
   render() {
     return (
       <div className={"head-buy-ticket " + this.props.media}>
-        <Link to="" className="thunderbird-btn">Купить билет</Link>
+        <Link to="/scheduleList" className="thunderbird-btn">Купить билет</Link>
       </div>
     )
   }
