@@ -1,4 +1,4 @@
-import {SERVER_URL} from '../constants/index';
+import {SERVER_URL, STD_HEADERS} from '../constants/index';
 
 const getPromotionUrl = SERVER_URL + "promotion?";
 
@@ -7,10 +7,7 @@ export const getPromotion = () => (
         getPromotionUrl,
         {
             method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
+            headers: STD_HEADERS
         }
     )
 );

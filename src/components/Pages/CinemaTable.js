@@ -148,7 +148,7 @@ class CinemaTable extends Component {
           <div className="modal-popup-content">
             <div className="modal-popup-left">
               <div className="modal-popup-img">
-                {dialogFilm.age_limitation.length !== 0 && <div className="age">{dialogFilm.age_limitation}</div>}
+                {(dialogFilm.age_limitation && dialogFilm.age_limitation.length !== 0) && <div className="age">{dialogFilm.age_limitation}</div>}
                 <img src={dialogFilm.poster_path} alt="alt" />
                 <div className="watch-trailer">
                   <div className="js-movie-trailer" onClick={(e) => this.handleOpenTrailer(e,dialogFilm.trailer_link_ru)}>
@@ -175,7 +175,7 @@ class CinemaTable extends Component {
                     {hallFormat}
                   </ul>
                 </li>
-                <li><span className="bold">Ограничение по возрасту:</span> до {dialogFilm.age_limitation}</li>
+                <li><span className="bold">Ограничение по возрасту:</span> до {dialogFilm.age_limitation && dialogFilm.age_limitation}</li>
                 <li><span className="bold">Индекс фильма:</span> "БА" - фильмы, разрешенные для показа детям, достигшим двенадцати лет</li>
               </ul>
               <p className="text">

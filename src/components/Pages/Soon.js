@@ -77,8 +77,8 @@ class Soon extends Component {
           <div className="modal-popup-content">
             <div className="modal-popup-left">
               <div className="modal-popup-img">
-                {dialogFilm.age_limitation.length !== 0 && <div className="age">{dialogFilm.age_limitation}</div>}
-                <img src={require("../../img/static/modal-popup/01.jpg")} alt="alt" />
+                {dialogFilm.age_limitation && dialogFilm.age_limitation.length !== 0 && <div className="age">{dialogFilm.age_limitation}</div>}
+                <img src={dialogFilm.image} alt="alt" />
                   <div className="watch-trailer">
                     <Link to="" className="js-movie-trailer" onClick={(e) => this.handleOpenTrailer(e,dialogFilm.trailer_link_ru)}>
                       <span className="icon-player"></span>
@@ -103,7 +103,7 @@ class Soon extends Component {
                     {/*listFormat*/}
                   </ul>
                 </li>
-                <li><span className="bold">Ограничение по возрасту:</span> до {dialogFilm.age_limitation}</li>
+                <li><span className="bold">Ограничение по возрасту:</span> до {dialogFilm.age_limitation && dialogFilm.age_limitation}</li>
                 <li><span className="bold">Индекс фильма:</span> "БА" - фильмы, разрешенные для показа детям, достигшим двенадцати лет</li>
               </ul>
               <p className="text">
@@ -135,9 +135,9 @@ class Soon extends Component {
     return(
       <div className="film-item-container table container-mod">
         <div className="film-item">
-          {film.age_limitation.length !== 0 && <div className="age">{film.age_limitation}</div>}
+          {film.age_limitation && film.age_limitation.length !== 0 && <div className="age">{film.age_limitation}</div>}
           <div className="item-img">
-            <img src={require("../../img/static/film/01.jpg")} alt="alt" />
+            <img src={film.image} alt="alt" />
             <div className="item-hidden-block">
               <div className="watch-trailer">
                 <Link to="" className="js-movie-trailer" onClick={(e) => this.handleOpenTrailer(e,film.trailer_link_ru)}>

@@ -1,4 +1,4 @@
-import {SERVER_URL} from '../constants/index';
+import {SERVER_URL, STD_HEADERS} from '../constants/index';
 
 const getScheduleUrl = SERVER_URL + "schedule";
 
@@ -7,10 +7,7 @@ export const getSchedule = () => {
         getScheduleUrl+'?date_from=2018-05-26&date_to=2018-05-29',
         {
             method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
+            headers: STD_HEADERS
         }
     )
 };
@@ -20,10 +17,7 @@ export const getScheduleFilter = (data) => {
         getScheduleUrl+"?date_from=2018-05-26&date_to=2018-05-29&cinema="+data.cinema+"&city="+data.city+"&hall="+data.hall+"&movie="+data.movie+"&time="+data.time,
         {
             method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
+            headers: STD_HEADERS
         }
     )
 };

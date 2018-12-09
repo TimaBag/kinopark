@@ -1,4 +1,4 @@
-import {SERVER_URL} from '../constants/index';
+import {SERVER_URL, STD_HEADERS} from '../constants/index';
 
 const getCityUrl = SERVER_URL + "city";
 
@@ -7,10 +7,7 @@ export const getCity = () => (
         getCityUrl,
         {
             method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
+            headers: STD_HEADERS
         }
     )
 );

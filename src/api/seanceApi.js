@@ -1,4 +1,4 @@
-import {SERVER_URL} from '../constants/index';
+import {SERVER_URL, STD_HEADERS} from '../constants/index';
 
 const getSeanceUrl = SERVER_URL + "seance/";
 
@@ -7,10 +7,7 @@ export const getSeance = (uuid) => (
         getSeanceUrl+uuid,
         {
             method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
+            headers: STD_HEADERS
         }
     )
 );

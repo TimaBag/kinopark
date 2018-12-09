@@ -1,4 +1,4 @@
-import {SERVER_URL} from '../constants/index';
+import {SERVER_URL, STD_HEADERS} from '../constants/index';
 
 const getNewsUrl = SERVER_URL + "news";
 const getNewsByIdUrl = SERVER_URL + "news/";
@@ -8,10 +8,7 @@ export const getNews = () => (
         getNewsUrl + "?per_page=15",
         {
             method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
+            headers: STD_HEADERS
         }
     )
 );
@@ -21,10 +18,7 @@ export const getNewsById = (id) => (
         getNewsByIdUrl+id,
         {
             method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
+            headers: STD_HEADERS
         }
     )
 );

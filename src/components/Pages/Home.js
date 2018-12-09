@@ -153,10 +153,10 @@ class Home extends Component {
           <div className="modal-popup-content">
             <div className="modal-popup-left">
               <div className="modal-popup-img">
-                {dialogFilm.age_limitation.length !== 0 && <div className="age">{dialogFilm.age_limitation}</div>}
-                <img src={dialogFilm.poster_path} alt="alt" />
+                {(dialogFilm.age_limitation && dialogFilm.age_limitation.length !== 0) && <div className="age">{dialogFilm.age_limitation}</div>}
+                <img src={dialogFilm.image} alt="alt" />
                 <div className="watch-trailer">
-                  <Link to="" className="js-movie-trailer" onClick={(e) => this.handleOpenTrailer(e,dialogFilm.trailer_link_ru)}>
+                  <Link to="" className="js-movie-trailer" onClick={(e) => this.handleOpenTrailer(e,dialogFilm.trailer_link)}>
                     <span className="icon-player"></span>
                     Смотреть трейлер
                   </Link>
@@ -246,17 +246,18 @@ class Home extends Component {
   }
 
   renderFilm(film,index){
+    console.log(film);
     return (
       <div key={index} className="film-item-container main">
         <div className="film-item" data-uuid={film.uuid}>
-          {film.age_limitation.length !== 0 && <div className="age">{film.age_limitation}</div>}
+          {(film.age_limitation && film.age_limitation.length !== 0) && <div className="age">{film.age_limitation}</div>}
           {film.seance_format && film.seance_format.is_original_version && <div className="version">Original Ver</div>}
           <div className="item-img">
             <Link to=""></Link>
-            <img src={film.poster_path} alt="alt"/>
+            <img src={film.image} alt="alt"/>
             <div className="item-hidden-block">
               <div className="watch-trailer">
-                <Link to="" className="js-movie-trailer" onClick={(e) => this.handleOpenTrailer(e,film.trailer_link_ru)}>
+                <Link to="" className="js-movie-trailer" onClick={(e) => this.handleOpenTrailer(e,film.trailer_link)}>
                   <span className="icon-player"></span>
                   Смотреть трейлер
                 </Link>
