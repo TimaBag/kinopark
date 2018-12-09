@@ -22,26 +22,27 @@ class ReservationTwo extends Component {
     hallMapData.Seats.map((seat) => {
       if(seat.GridY > y) y = seat.GridY;
       if(seat.GridX > x) x = seat.GridX;
+      seat.reserv = false;
       newHallMap[seat.GridY][seat.GridX] = seat;
       return seat;
     })
     for(let i = 1; i <= y; i++){
       for (let j = 1; j <= x; j++) {
         if(_.isEmpty(newHallMap[i][j])){
-          newHallMap[i][j] = [];
-          newHallMap[i][j]["type"] = "blank";
+          newHallMap[i][j] = {};
+          newHallMap[i][j].type = "blank";
         }
       } 
     }
     this.state = {
-      currentPlace : 3,
+      maxChoosePlace : 3,
       currentRow: "",
       currentColumn: "",
       hallMap: newHallMap,
       maxY: y,
       maxX: x,
     }
-    this.handleClickChoose = this.handleClickChoose.bind(this);
+    this.handleChoosePlace = this.handleChoosePlace.bind(this);
   }
 
   ksort(obj){
@@ -55,27 +56,33 @@ class ReservationTwo extends Component {
     return sortedObj;
   }
 
-  handleClickChoose(e,item){
+  handleChoosePlace(e,item){
+    let { maxChoosePlace } = this.state;
+    console.log(item);
     if(item.IsFree) {
-      this.setState({
-        currentColumn: item.GridY,
-        currentRow: item.GridX
-      })
-      for(var i = 1; i <= this.state.currentPlace;i++){
-        this.state.hallMap[item.GridY][item.GridX]["reserv"] = true;
+      if(item.reserv !== undefined && item.reserv) {
+        this.state.hallMap[item.GridY][item.GridX]["reserv"] = false;
+        maxChoosePlace++;
+        this.setState({
+          currentColumn: "",
+          currentRow: "",
+          maxChoosePlace
+        });
+      } else {
+        if(maxChoosePlace > 0) { 
+          maxChoosePlace--;
+          this.setState({
+            currentColumn: item.GridY,
+            currentRow: item.GridX,
+            maxChoosePlace
+          });
+          this.state.hallMap[item.GridY][item.GridX]["reserv"] = true;
+        } else {
+          console.log("you expired max places")
+        }
       }
     } else {
       console.log("not available")
-    }
-  }
-
-  handledisClickChoose(e,item){
-    this.setState({
-      currentColumn: item.GridY,
-      currentRow: item.GridX
-    })
-    for(var i = 1; i <= this.state.currentPlace;i++){
-      this.state.hallMap[item.GridY][item.GridX]["reserv"] = false;
     }
   }
 
@@ -86,8 +93,27 @@ class ReservationTwo extends Component {
     console.log(map);
   }
 
+  checkPlaces = () => {
+    let { hallMap } = this.state;
+    hallMap.forEach(row => {
+      row.forEach((seat, index) => {
+        if(index - 1 > 0 && index + 1 < row.length){
+          let previous = row[index-1];
+          let current = row[index];
+          let next = row[index+1];
+          if( (previous.IsFree && previous.reserv) && 
+              (current.IsFree && !current.reserv) && 
+              (next.IsFree && next.reserv)){
+              console.log("You can not select this places");
+              return;
+          }
+        }
+      })
+    });
+  }
+
   render() {
-    console.log(this.state.hallMap);
+    // console.log(this.state.hallMap);
     return (
       <div className="content">
         <div className="container">
@@ -108,7 +134,7 @@ class ReservationTwo extends Component {
               </div>
             </div>
             <div className="screen">экран</div>
-            <form action="#" className="reservation-form">
+            {/* <form action="#" className="reservation-form"> */}
               <div className="wrapper-choice-place-cinema">
                 <table className="choice-place-cinema">
                   <tbody>
@@ -122,7 +148,7 @@ class ReservationTwo extends Component {
                             return(
                               <td key={index_b}
                                 className={seat.type === "blank" ? "column-hidden" : ""} 
-                                onClick={(e) => this.handleClickChoose(e, seat)}>
+                                onClick={(e) => this.handleChoosePlace(e, seat)}>
                                 {seat.IsFree && (<i className={(this.state.hallMap[index][index_b].reserv) ? "fa fa-user el_red" : "fa fa-user"}></i>)}
                                 {!seat.IsFree && (<i className={"fa fa-user el_red not-available"}></i>)}
                                 <span className="prompt-window prompt-window-desktop">
@@ -139,8 +165,9 @@ class ReservationTwo extends Component {
                   }
                   </tbody>
                 </table>
+                <button onClick={this.checkPlaces} className="thunderbird-btn">next</button> 
               </div>
-            </form>
+            {/* </form> */}
           </div>
         </div>
       </div>
