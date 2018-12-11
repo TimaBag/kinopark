@@ -294,7 +294,7 @@ class ScheduleList extends Component {
             </ul>
             <div className="tabs-item-container schedule">
               <div className="tab-item">
-                <Filter activePanel="list" link="scheduletable"/>
+                <Filter activePanel="list" link="scheduletable" time="today"/>
                 <Loader loaded={schedule.length !== 0}>
                   {Object.keys(schedule).length === 0 ?
                     <h1>Расписание нету</h1> 
@@ -304,7 +304,7 @@ class ScheduleList extends Component {
                 </Loader>
               </div>
               <div className="tab-item">
-                <Filter activePanel="list" link="scheduletable"/>
+                <Filter activePanel="list" link="scheduletable" time="tomorrow"/>
                 {Object.keys(schedule).length === 0 ?
                   <h1>Расписание нету</h1> 
                   :

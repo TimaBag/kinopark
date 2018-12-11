@@ -7,7 +7,7 @@ const getMovieShowUrl = SERVER_URL + "movie/";
 
 export const getMovie = (page,date) => (
     fetch(
-        getMovieUrl+"page="+page+"&per_page=15&date_from=2018-12-09",
+        getMovieUrl+"page="+page+"&per_page=15&date_from="+date,
         {
             method: 'GET',
             headers: STD_HEADERS
@@ -27,7 +27,7 @@ export const getMovieWithCinema = (cinema,date) => (
 
 export const getMovieTomorrow = (page,date) => (
     fetch(
-        getMovieTomorrowUrl+"page="+page+"&per_page=15&date_from=2018-12-09",
+        getMovieTomorrowUrl+"page="+page+"&per_page=15&date_from="+date,
         {
             method: 'GET',
             headers: STD_HEADERS

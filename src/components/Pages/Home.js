@@ -9,6 +9,9 @@ import $ from 'jquery';
 import * as actionsMovie from '../../actions/movieActions';
 
 
+const today = moment().format("YYYY-MM-DD");
+const tomorrow = moment().add(1,"day").format("YYYY-MM-DD");
+
 class Home extends Component {
 
   constructor(props){
@@ -43,8 +46,8 @@ class Home extends Component {
     }
     }).eq(0).addClass('active');
 
-    this.props.onGetMovie(1,"");
-    this.props.onGetMovieTomorrow(1,"");
+    this.props.onGetMovie(1,today);
+    this.props.onGetMovieTomorrow(1,tomorrow);
     this.props.onGetMovieSoon(1);
   }
   handleOpenTrailer(e,url){
@@ -246,7 +249,6 @@ class Home extends Component {
   }
 
   renderFilm(film,index){
-    console.log(film);
     return (
       <div key={index} className="film-item-container main">
         <div className="film-item" data-uuid={film.uuid}>
@@ -283,8 +285,7 @@ class Home extends Component {
     )
   }
   render() {
-    var date = moment.utc().local().format('YYYY-MM-DD HH:mm:ss');
-    console.log(date);
+    console.log(tomorrow);
     return (
       <div className="content-end-sidebar">
         <div className="container">

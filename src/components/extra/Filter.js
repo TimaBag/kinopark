@@ -3,11 +3,15 @@ import Select from 'react-select';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import 'react-select/dist/react-select.css';
+import moment from 'moment';
 import * as actions from '../../actions/cinemaActions';
 import * as actionsCity from '../../actions/cityActions';
 import * as actionsSchedule from '../../actions/scheduleActions';
 import * as actionsMovie from '../../actions/movieActions';
 import * as actionsHall from '../../actions/hallActions';
+
+const today = moment().format("YYYY-MM-DD");
+const tomorrow = moment().add(1,"day").format("YYYY-MM-DD");
 
 class Filter extends Component {
   constructor(props){
@@ -25,7 +29,11 @@ class Filter extends Component {
   }
   componentDidMount(){
     this.props.onGetHall();
-    this.props.onGetMovie();
+    if(this.props.time === "today"){
+      this.props.onGetMovie(1,today);
+    }else{
+      this.props.onGetMovie(1,tomorrow);
+    }
     if(localStorage.getItem("city")){
       this.props.onGetCinemaWithCity(localStorage.getItem("city"));
     }else{
